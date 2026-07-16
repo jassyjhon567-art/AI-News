@@ -1,18 +1,29 @@
-import requests
-from bs4 import BeautifulSoup
-import json
-
-def get_news():
-    # একটি উদাহরণ সোর্স (TechCrunch)
-    url = "https://techcrunch.com/"
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    
-    news_list = []
-    for item in soup.select('h2')[:5]: # ৫টি নিউজ নেবে
-        news_list.append({"title": item.text.strip(), "link": url})
-    
-    with open('news.json', 'w') as f:
-        json.dump(news_list, f)
-
-get_news()
+name: Auto Post and Index
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with: {python-version: '3.x'}
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+      - name: Run Auto Script
+        env:
+          GCLOUD_KEY: ${{ secrets.GCLOUD_KEY }}
+        run: |
+          echo "$GCLOUD_KEY" > service-account.json
+          python main.py
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add news.json
+          git commit -m "Update news content"
+          git push
