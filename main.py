@@ -3,7 +3,7 @@ import json
 import re
 import requests
 import feedparser
-import urllib.parse # অত্যন্ত গুরুত্বপূর্ণ: এটি যুক্ত করা হয়েছে
+import urllib.parse
 from datetime import datetime
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
@@ -46,12 +46,11 @@ def extract_rss_image(entry):
             
     return None
 
-# জেমিনি ক্র্যাশ করলেও স্বয়ংক্রিয়ভাবে ১০০% অনুবাদ করার ব্যাকআপ ইঞ্জিন (গিটহাবের জন্য নিরাপদ)
+# জেমিনি ক্র্যাশ করলেও স্বয়ংক্রিয়ভাবে ১০০% অনুবাদ করার ব্যাকআপ ইঞ্জিন
 def translate_to_bengali_fallback(text):
     if not text:
         return ""
     try:
-        # MyMemory translation API (গিটহাব অ্যাকশনস সার্ভার থেকে ব্লক হয় না)
         url = f"https://api.mymemory.translated.net/get?q={urllib.parse.quote(text[:500])}&langpair=en|bn"
         response = requests.get(url, timeout=15)
         if response.status_code == 200:
@@ -61,21 +60,19 @@ def translate_to_bengali_fallback(text):
         print(f"MyMemory translation fallback failed: {e}")
     return text
 
-# জেমিনি এপিআই দিয়ে একবারে বাংলা ও ইংরেজি অনুবাদ এবং বিস্তারিত এসইও কন্টেন্ট তৈরি করা
+# জেমিনি এপিআই দিয়ে একবারে বাংলা ও ইংরেজি অনুবাদ এবং বিস্তারিত কন্টেন্ট তৈরি করা
 def rewrite_bilingual_gemini(api_key, title, raw_desc):
-    # গুগলের নতুন AQ. কি-এর জন্য স্টেবল v1 এপিআই গেটওয়ে ব্যবহার করা হচ্ছে
     url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key={api_key}"
     headers = {'Content-Type': 'application/json'}
     
     prompt = f"""
-    You are an expert bilingual SEO content writer and tech journalist. 
-    Analyze the following technology news or product launch:
+    You are an expert bilingual SEO content writer and tech journalist. Optimize the following AI news in both highly engaging Bengali (Bangla) and professional English.
     
     Original Title: {title}
     Original Content Summary: {raw_desc}
 
     Since the input content summary might be short, you MUST EXPAND it into a fully comprehensive, highly detailed, and informative 3-paragraph news article of about 200-250 words for each language version. 
-    Use your knowledge about the tech industry to explain the background of the company (e.g. Databricks or Railway), what this launch means, and why it is important for developers and businesses.
+    Use your knowledge about the tech industry to explain the background of the company, what this launch means, and why it is important for developers and businesses.
     
     Translate and write the output in both highly engaging Bengali (Bangla) and professional English.
     Also, write a highly descriptive English image prompt (max 15 words) to generate a unique high-tech illustration related to this news.
@@ -122,25 +119,10 @@ def rewrite_bilingual_gemini(api_key, title, raw_desc):
         print(f"Error during Gemini rewrite: {str(e)}")
         return None
 
-# কপিরাইট ও হটলিঙ্কিং এড়াতে নতুন এআই ইমেজ জেনারেট বা আসল ছবি ডাউনলোড করা
-def download_ai_image(orig_img_url, prompt, slug):
+# স্বয়ংক্রিয় এআই ব্যাকআপ ইমেজ জেনারেটর (যদি কোনো খবরের অরিজিনাল ছবি না থাকে)
+def download_ai_image(prompt, slug):
     local_path = f"{IMAGES_DIR}/{slug}.jpg"
     fallback_url = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
-    
-    # ১. প্রথমে মূল খবরের আসল ছবি ডাউনলোড করার চেষ্টা করা হচ্ছে
-    if orig_img_url and orig_img_url.startswith("http"):
-        try:
-            headers = {'User-Agent': 'Mozilla/5.0'}
-            img_response = requests.get(orig_img_url, headers=headers, timeout=20)
-            if img_response.status_code == 200:
-                with open(local_path, "wb") as f:
-                    f.write(img_response.content)
-                print(f"Successfully saved original image for: {slug}")
-                return local_path
-        except Exception as e:
-            print(f"Original image download failed for {slug}: {str(e)}. Trying AI generation...")
-
-    # ২. আসল ছবি কাজ না করলে জেমিনির টাইটেল অনুসারে এআই ইমেজ জেনারেট হবে
     try:
         prompt_encoded = urllib.parse.quote(prompt)
         img_api_url = f"https://image.pollinations.ai/p/{prompt_encoded}?width=800&height=450&nologo=true"
@@ -148,11 +130,9 @@ def download_ai_image(orig_img_url, prompt, slug):
         if img_response.status_code == 200:
             with open(local_path, "wb") as f:
                 f.write(img_response.content)
-            print(f"Successfully saved AI generated image for: {slug}")
             return local_path
     except Exception as e:
         print(f"Error downloading AI image: {str(e)}")
-        
     return fallback_url
 
 # বাংলা ও ইংরেজি পৃথক এসইও স্ট্যাটিক পেজ জেনারেট করা
@@ -169,7 +149,7 @@ def generate_post_html(slug, title, summary, content, img_path, lang, other_lang
     published_by = "প্রকাশিত" if lang == "bn" else "Published"
     source_label = "সূত্র" if lang == "bn" else "Source"
 
-    # ইমেজ লিঙ্কের পাথ ঠিক করা (লোকাল ফাইল হলে ডাবল-ব্যাক স্লাশ হবে, বাহ্যিক হলে ইউআরএল ডিরেক্ট বসবে)
+    # ইমেজ লিঙ্কের পাথ ঠিক করা
     display_img_path = img_path
     if not img_path.startswith("http"):
         display_img_path = f"../../{img_path}"
@@ -271,7 +251,8 @@ def generate_post_html(slug, title, summary, content, img_path, lang, other_lang
             <a href="../../" class="btn">&larr; {back_text}</a>
             <a href="{other_lang_url}" class="btn">{read_other_lang} &rarr;</a>
         </div>
-        <img src="{display_img_path}" alt="{title}" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80'">
+        <!-- 'referrerpolicy' যুক্ত করার কারণে ভেনচারবিট বা টেকক্রাঞ্চের আসল ছবি সরাসরি লোড হবে -->
+        <img src="{display_img_path}" alt="{title}" referrerpolicy="no-referrer" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80'">
         <h1>{title}</h1>
         <div class="meta">
             <span>{published_by}: {datetime.now().strftime("%Y-%m-%d")} | {source_label}: {source}</span>
@@ -322,7 +303,7 @@ def main():
                 
                 print(f"Processing bilingual article: {title}")
                 
-                # অরিজিনাল ইমেজ লিঙ্ক আরএসএস থেকে সংগ্রহ
+                # আরএসএস ফিড থেকে মূল আর্টিকেলের অরিজিনাল ইমেজ লিঙ্ক সংগ্রহ
                 orig_img = extract_rss_image(entry)
                 
                 rewritten = None
@@ -342,21 +323,24 @@ def main():
                     
                     image_prompt = rewritten["image_prompt"]
                 else:
-                    # ফলব্যাক (জেমিনি ফেইল করলে স্বয়ংক্রিয় গুগল ট্র্যান্সলেশন ইঞ্জিন চালু হবে)
                     print("Gemini API failed. Initiating Google Translate Fallback Engine...")
                     title_en = title
                     summary_en = (raw_desc[:150] + "...") if len(raw_desc) > 150 else raw_desc
                     content_en = f"<p>{raw_desc}</p>"
                     
-                    # ১০০% বাংলায় ট্র্যান্সলেট করা হচ্ছে
+                    # বাংলায় অনুবাদ করা হচ্ছে
                     title_bn = translate_to_bengali_fallback(title)
                     summary_bn = translate_to_bengali_fallback(summary_en)
                     content_bn = f"<p>{translate_to_bengali_fallback(raw_desc)}</p>"
                     
                     image_prompt = f"Futuristic technology abstract digital illustration of {title_en[:30]}"
 
-                # আসল ছবি ডাউনলোড অথবা জেমিনির টাইটেল অনুসারে এআই ইমেজ জেনারেশন
-                img_url = download_ai_image(orig_img, image_prompt, slug)
+                # সোর্সে অরিজিনাল ছবি থাকলে সেটিই সরাসরি ব্যবহার হবে (কোনো ডাউনলোড ঝক্কি ছাড়াই)
+                # অন্যথায় স্বয়ংক্রিয়ভাবে এআই দিয়ে ব্যাকআপ ছবি তৈরি হবে
+                if orig_img:
+                    img_url = orig_img
+                else:
+                    img_url = download_ai_image(image_prompt, slug)
 
                 # বাংলা ও ইংরেজি দুটি পৃথক পেজ জেনারেশন
                 generate_post_html(slug, title_bn, summary_bn, content_bn, img_url, "bn", f"../en/{slug}.html", source)
