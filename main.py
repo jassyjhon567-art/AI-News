@@ -9,7 +9,7 @@ from datetime import datetime
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
 
-# ১০টি নিশের প্রতিটিতে ১০টি করে মোট ১০০টি গ্লোবাল সোর্স (১০০% স্কেলযোগ্য)
+# ১০টি নিশের প্রতিটিতে ১০টি করে মোট ১০০টি গ্লোবাল সোর্স
 NICHES_FEEDS = {
     "Artificial Intelligence": [
         "https://techcrunch.com/category/artificial-intelligence/feed/",
@@ -131,6 +131,12 @@ NICHES_FEEDS = {
         "https://www.wired.com/feed/category/culture/latest/rss"
     ]
 }
+
+# গ্লোবাল ভেরিয়েবলসমূহ (যা পূর্বের কোডে বাদ পড়েছিল)
+MAX_NEWS = 50
+NEWS_FILE = "news.json"
+POSTS_DIR = "posts"
+IMAGES_DIR = "images"
 
 def is_duplicate(title1, title2):
     words1 = set(re.sub(r'[^a-z0-9\s]', '', title1.lower()).split())
