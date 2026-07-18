@@ -71,13 +71,31 @@ def rewrite_bilingual_gemini(api_key, title, raw_desc):
         print(f"Error during Gemini rewrite: {str(e)}")
         return None
 
-# বাংলা ও ইংরেজি পৃথক এসইও স্ট্যাটিক পেজ জেনারেট করা (গুগল র‍্যাংকিংয়ের জন্য অত্যন্ত শক্তিশালী)
+# কপিরাইট ও হটলিঙ্কিং এড়াতে নতুন এআই ইমেজ জেনারেট করে নিজের ড্রাইভে সেভ করা
+def download_ai_image(prompt, slug):
+    local_path = f"{IMAGES_DIR}/{slug}.jpg"
+    # কোনো কারণে ডাউনলোড ফেইল করলে ব্যাকআপ হিসেবে ব্যবহারের জন্য একটি সুন্দর কপিরাইট-মুক্ত টেক ইমেজ
+    fallback_url = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
+    
+    try:
+        prompt_encoded = requests.utils.quote(prompt)
+        img_api_url = f"https://image.pollinations.ai/p/{prompt_encoded}?width=800&height=450&nologo=true"
+        img_response = requests.get(img_api_url, timeout=25)
+        if img_response.status_code == 200:
+            with open(local_path, "wb") as f:
+                f.write(img_response.content)
+            return local_path
+    except Exception as e:
+        print(f"Error downloading AI image: {str(e)}")
+        
+    return fallback_url
+
+# বাংলা ও ইংরেজি পৃথক এসইও স্ট্যাটিক পেজ জেনারেট করা
 def generate_post_html(slug, title, summary, content, img_path, lang, other_lang_url):
     lang_dir = os.path.join(POSTS_DIR, lang)
     os.makedirs(lang_dir, exist_ok=True)
     file_path = os.path.join(lang_dir, f"{slug}.html")
     
-    # এসইও-এর জন্য hreflang ট্যাগ সেটআপ করা
     hreflang_bn = f'<link rel="alternate" hreflang="bn" href="../bn/{slug}.html" />'
     hreflang_en = f'<link rel="alternate" hreflang="en" href="../en/{slug}.html" />'
     
@@ -94,11 +112,9 @@ def generate_post_html(slug, title, summary, content, img_path, lang, other_lang
     <title>{title} - Manab AI</title>
     <meta name="description" content="{summary}">
     
-    <!-- Multilingual SEO hreflang tags -->
     {hreflang_bn}
     {hreflang_en}
 
-    <!-- Open Graph tags for Social Sharing -->
     <meta property="og:title" content="{title}">
     <meta property="og:description" content="{summary}">
     <meta property="og:image" content="../../{img_path}">
@@ -143,7 +159,6 @@ def generate_post_html(slug, title, summary, content, img_path, lang, other_lang
 def main():
     gemini_key = os.environ.get("GEMINI_API_KEY")
     
-    # পূর্বের ডাটাবেজ লোড করা
     if os.path.exists(NEWS_FILE):
         try:
             with open(NEWS_FILE, "r", encoding="utf-8") as f:
@@ -174,20 +189,13 @@ def main():
                 title = entry.get('title', 'No Title')
                 raw_desc = re.sub('<[^<]+?>', '', entry.get('summary', ''))
                 
-                # ইমেজ সোর্স খোঁজা
-                orig_img = "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80"
-                if 'media_content' in entry:
-                    orig_img = entry.media_content[0]['url']
-                
                 print(f"Processing bilingual article: {title}")
                 
-                # Gemini দিয়ে একই সাথে বাংলা ও ইংরেজিতে রিরাইটের চেষ্টা
                 rewritten = None
                 if gemini_key:
                     rewritten = rewrite_bilingual_gemini(gemini_key, title, raw_desc)
                 
                 slug = slugify(title[:50])
-                local_img_path = f"{IMAGES_DIR}/{slug}.jpg"
                 
                 if rewritten:
                     title_en = rewritten["seo_title_en"]
@@ -198,21 +206,9 @@ def main():
                     summary_bn = rewritten["seo_summary_bn"]
                     content_bn = rewritten["seo_content_bn"]
                     
-                    # এআই ইমেজ জেনারেশন
-                    try:
-                        img_prompt_encoded = requests.utils.quote(rewritten["image_prompt"])
-                        img_api_url = f"https://image.pollinations.ai/p/{img_prompt_encoded}?width=800&height=450&nologo=true"
-                        img_response = requests.get(img_api_url, timeout=20)
-                        if img_response.status_code == 200:
-                            with open(local_img_path, "wb") as f:
-                                f.write(img_response.content)
-                            img_url = local_img_path
-                        else:
-                            img_url = orig_img
-                    except:
-                        img_url = orig_img
+                    image_prompt = rewritten["image_prompt"]
                 else:
-                    # ফলব্যাক (জেমিনি ফেইল করলে বা কি না থাকলে অরিজিনাল ডাটা বসবে)
+                    # ফলব্যাক (জেমিনি ফেইল করলে অরিজিনাল ডাটা বসবে এবং নিজস্ব জেনারেটেড ইমেজ হবে)
                     print("Gemini API failed. Using fallback original data.")
                     title_en = title
                     summary_en = (raw_desc[:150] + "...") if len(raw_desc) > 150 else raw_desc
@@ -221,9 +217,13 @@ def main():
                     title_bn = title
                     summary_bn = summary_en
                     content_bn = f"<p>{raw_desc}</p><br><p><a href='{orig_link}' target='_blank'>মূল আর্টিকেলটি পড়ুন</a></p>"
-                    img_url = orig_img
+                    
+                    image_prompt = f"Futuristic technology abstract digital illustration of {title_en[:30]}"
 
-                # একই নিউজের জন্য বাংলা ও ইংরেজি দুটি পৃথক ফাইল তৈরি
+                # কপিরাইট এড়াতে এবং নিখুঁতভাবে প্রদর্শনের জন্য এআই ইমেজ জেনারেট করে নিজের ড্রাইভে ডাউনলোড
+                img_url = download_ai_image(image_prompt, slug)
+
+                # বাংলা ও ইংরেজি দুটি পৃথক পেজ জেনারেশন
                 generate_post_html(slug, title_bn, summary_bn, content_bn, img_url, "bn", f"../en/{slug}.html")
                 generate_post_html(slug, title_en, summary_en, content_en, img_url, "en", f"../bn/{slug}.html")
                 
@@ -253,7 +253,7 @@ def main():
             "original_link": "https://manab.ai",
             "published": datetime.now().strftime("%Y-%m-%d"),
             "source": "Manab System",
-            "image": "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80",
+            "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
             "description_en": "Welcome! Your bilingual AI news publishing bot is successfully activated. As soon as new AI updates are released, it will update automatically.",
             "description_bn": "স্বাগতম! আপনার দ্বিভাষিক এআই নিউজ পোস্টিং বটটি সফলভাবে চালু হয়েছে। নতুন কোনো এআই আপডেট আসামাত্রই এখানে তা স্বয়ংক্রিয়ভাবে আপডেট হতে থাকবে।"
         })
