@@ -6,9 +6,16 @@ import socket
 import requests
 import feedparser
 import urllib.parse
+import ssl # পাইথন সিকিউরিটি সার্টিফিকেট বাইপাস করার জন্য
 from datetime import datetime
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
+
+# গিটহাবের উবুন্টু সার্ভারে পাইথন SSL সার্টিফিকেট এরর এড়ানোর জন্য গ্লোবাল বাইপাস
+try:
+    ssl._create_default_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
 
 # গিটহাব অ্যাকশনস বটকে ১০০টি ওয়েবসাইট যেন ব্লক না করে, তার জন্য ব্রাউজার এজেন্ট সেট করা হলো
 feedparser.USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
@@ -137,6 +144,7 @@ NICHES_FEEDS = {
     ]
 }
 
+# গ্লোবাল ভেরিয়েবলসমূহ
 MAX_NEWS = 50
 NEWS_FILE = "news.json"
 POSTS_DIR = "posts"
