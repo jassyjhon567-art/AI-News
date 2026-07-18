@@ -6,7 +6,7 @@ import socket
 import requests
 import feedparser
 import urllib.parse
-import ssl # পাইথন সিকিউরিটি সার্টিফিকেট বাইপাস করার জন্য
+import ssl
 from datetime import datetime
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
@@ -18,8 +18,8 @@ except AttributeError:
     pass
 
 # গিটহাব অ্যাকশনস বটকে ১০০টি ওয়েবসাইট যেন ব্লক না করে, তার জন্য ব্রাউজার এজেন্ট সেট করা হলো
-feedparser.USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-socket.setdefaulttimeout(5) # প্রতিটি আরএসএস ফিড রিড করার সর্বোচ্চ সময় ৫ সেকেন্ড (যাতে রান ফাস্ট হয়)
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+socket.setdefaulttimeout(10) # প্রতিটি আরএসএস ফিড রিড করার সর্বোচ্চ সময় ১০ সেকেন্ড
 
 # ১০টি নিশের প্রতিটিতে ১০টি করে মোট ১০০টি গ্লোবাল সোর্স
 NICHES_FEEDS = {
@@ -159,7 +159,7 @@ def is_duplicate(title1, title2):
     ratio = len(overlap) / min(len(words1), len(words2))
     return ratio > 0.5
 
-# আরএসএস ফিড থেকে মূল আর্টিকেলের অরিজিনাল ইমেজ লিঙ্ক খুঁজে বের করার ফাংশন
+# আরএসএস ফিড থেকে মূল আর্টিকেলের অরিজিনাল ইমেজ লিঙ্ক খুঁজে বের করার ফাংশน
 def extract_rss_image(entry):
     if 'media_content' in entry and len(entry.media_content) > 0:
         if 'url' in entry.media_content[0]:
@@ -296,7 +296,7 @@ def download_ai_image(prompt, slug, title):
         print(f"Error downloading AI image: {str(e)}")
     return fallback_url
 
-# বাংলা ও ইংরেজি পৃথক এসইও স্ট্যাটিক পেজ জেনারেট করা (১০টি প্যারামিটার সম্বলিত বাগমুক্ত ফাংশন)
+# বাংলা ও ইংরেজি পৃথক এসইও স্ট্যাটিক পেজ জেনারেট করা
 def generate_post_html(slug, title, summary, content, img_path, lang, other_lang_url, source, original_date, orig_link):
     lang_dir = os.path.join(POSTS_DIR, lang)
     os.makedirs(lang_dir, exist_ok=True)
@@ -466,19 +466,20 @@ def main():
         existing_news = []
 
     existing_links = {item['original_link'] for item in existing_news}
-    headers = {'User-Agent': 'Mozilla/5.0'}
     new_articles_count = 0
 
     os.makedirs(IMAGES_DIR, exist_ok=True)
     os.makedirs(os.path.join(POSTS_DIR, "bn"), exist_ok=True)
     os.makedirs(os.path.join(POSTS_DIR, "en"), exist_ok=True)
 
-    # সব সোর্স থেকে খবরের ডেটা স্ক্যান
+    # সব সোর্স থেকে খবরের ডেটা স্ক্যান (ব্রাউজার হেডার দিয়ে সিকিউরড মেথড)
     raw_feed_entries = []
     for niche, feeds_list in NICHES_FEEDS.items():
         for url in feeds_list:
             try:
-                feed = feedparser.parse(url) # feedparser এর মাধ্যমে ডায়নামিক ও সিকিউরড পার্সিং
+                # সিকিউরড ইউজার এজেন্ট সরাসরি feedparser.parse-এ পাস করা হয়েছে
+                feed = feedparser.parse(url, agent=USER_AGENT) 
+                print(f"Scanning {url}... Found {len(feed.entries)} entries.")
                 for entry in feed.entries:
                     raw_feed_entries.append((entry, niche))
             except Exception as e:
