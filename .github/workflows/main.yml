@@ -16,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        ref: main # এটি Detached HEAD সমস্যা সমাধান করবে
+        ref: main # Detached HEAD সমস্যা সমাধান করার জন্য
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -39,6 +39,12 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add news.json posts/ images/
+        
+        # ফাইল ও ফোল্ডারগুলো তৈরি হয়েছে কিনা তা পরীক্ষা করে সেফলি অ্যাড করা হচ্ছে
+        if [ -f news.json ]; then git add news.json; fi
+        if [ -d posts ]; then git add posts/; fi
+        if [ -d images ]; then git add images/; fi
+        
+        # কোনো পরিবর্তন থাকলেই কেবল সেভ হবে, অন্যথায় ক্র্যাশ ছাড়াই সফলভাবে শেষ হবে
         git diff-index --quiet HEAD || git commit -m "Manab AI: Generated New SEO Posts and AI Images"
-        git push origin main # সরাসরি মেইন ব্রাঞ্চে পুশ করা নিশ্চিত করবে
+        git push origin main
