@@ -2,12 +2,17 @@ import os
 import json
 import re
 import time
+import socket
 import requests
 import feedparser
 import urllib.parse
 from datetime import datetime
 from google.oauth2 import service_account
 from google.auth.transport.requests import AuthorizedSession
+
+# গিটহাব অ্যাকশনস বটকে ১০০টি ওয়েবসাইট যেন ব্লক না করে, তার জন্য ব্রাউজার এজেন্ট সেট করা হলো
+feedparser.USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+socket.setdefaulttimeout(5) # প্রতিটি আরএসএস ফিড রিড করার সর্বোচ্চ সময় ৫ সেকেন্ড (যাতে রান ফাস্ট হয়)
 
 # ১০টি নিশের প্রতিটিতে ১০টি করে মোট ১০০টি গ্লোবাল সোর্স
 NICHES_FEEDS = {
@@ -132,7 +137,6 @@ NICHES_FEEDS = {
     ]
 }
 
-# গ্লোবাল ভেরিয়েবলসমূহ (যা পূর্বের কোডে বাদ পড়েছিল)
 MAX_NEWS = 50
 NEWS_FILE = "news.json"
 POSTS_DIR = "posts"
@@ -466,8 +470,7 @@ def main():
     for niche, feeds_list in NICHES_FEEDS.items():
         for url in feeds_list:
             try:
-                response = requests.get(url, headers=headers, timeout=15)
-                feed = feedparser.parse(response.content)
+                feed = feedparser.parse(url) # feedparser এর মাধ্যমে ডায়নামিক ও সিকিউরড পার্সিং
                 for entry in feed.entries:
                     raw_feed_entries.append((entry, niche))
             except Exception as e:
