@@ -22,27 +22,29 @@ def slugify(text):
     text = re.sub(r'[\s-]+', '-', text)
     return text.strip('-')
 
-# Gemini API দিয়ে বাংলায় নতুন কন্টেন্ট ও ইমেজ জেনারেট করার প্রম্পট তৈরি করা
-def rewrite_with_gemini(api_key, title, raw_desc):
+# জেমিনি এপিআই দিয়ে একবারে বাংলা ও ইংরেজি অনুবাদ এবং এসইও কন্টেন্ট তৈরি করা
+def rewrite_bilingual_gemini(api_key, title, raw_desc):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
     headers = {'Content-Type': 'application/json'}
     
     prompt = f"""
-    You are an expert SEO content writer and technology journalist. Rewrite the following AI news or launch in highly engaging, friendly Bengali (Bangla) language.
-    Keep technical terms in English (e.g. 'Artificial Intelligence', 'LLM', 'neural network') if they are commonly searched.
-
+    You are an expert bilingual SEO content writer and tech journalist. Optimize the following AI news in both highly engaging Bengali (Bangla) and professional English.
+    
     Original Title: {title}
     Original Content Summary: {raw_desc}
 
-    Make it highly informative and SEO-optimized.
-    Also, write a highly descriptive English image prompt (max 15 words) for generating a futuristic, high-tech, or AI-themed illustration relevant to this news. Do not use words like 'photorealistic' or 'copied'.
+    Make both versions highly informative and keyword-rich for Google Search.
+    Also, write a highly descriptive English image prompt (max 15 words) to generate a unique high-tech illustration related to this news.
 
     Provide the output STRICTLY in the following JSON format:
     {{
-        "seo_title": "A catchy, SEO-optimized title in Bengali",
-        "seo_summary": "A 150-character meta description/summary in Bengali",
-        "seo_content": "The full rewritten article in Bengali. Wrap paragraphs in HTML <p> tags. Add a section 'কেন এটি গুরুত্বপূর্ণ' (Why it matters) as <h3>.",
-        "image_prompt": "Futuristic digital art of [insert key element based on article]"
+        "seo_title_en": "Catchy, SEO-optimized English title",
+        "seo_summary_en": "A 150-character SEO meta description in English",
+        "seo_content_en": "Full rewritten article in English. Wrap paragraphs in HTML <p> tags. Add a section 'Why It Matters' as <h3>.",
+        "seo_title_bn": "Catchy, SEO-optimized Bengali title",
+        "seo_summary_bn": "A 150-character SEO meta description in Bengali",
+        "seo_content_bn": "Full rewritten article in Bengali. Wrap paragraphs in HTML <p> tags. Add a section 'কেন এটি গুরুত্বপূর্ণ' as <h3>.",
+        "image_prompt": "Futuristic digital art of AI technology relevant to this article"
     }}
     Ensure your output is valid JSON. Do not wrap in markdown codeblocks like ```json.
     """
@@ -69,93 +71,66 @@ def rewrite_with_gemini(api_key, title, raw_desc):
         print(f"Error during Gemini rewrite: {str(e)}")
         return None
 
-# প্রতিটি নিউজের জন্য এসইও বান্ধব স্ট্যাটিক HTML পেজ জেনারেশন
-def generate_post_html(slug, post_data, img_path):
-    os.makedirs(POSTS_DIR, exist_ok=True)
-    file_path = os.path.join(POSTS_DIR, f"{slug}.html")
+# বাংলা ও ইংরেজি পৃথক এসইও স্ট্যাটিক পেজ জেনারেট করা (গুগল র‍্যাংকিংয়ের জন্য অত্যন্ত শক্তিশালী)
+def generate_post_html(slug, title, summary, content, img_path, lang, other_lang_url):
+    lang_dir = os.path.join(POSTS_DIR, lang)
+    os.makedirs(lang_dir, exist_ok=True)
+    file_path = os.path.join(lang_dir, f"{slug}.html")
     
+    # এসইও-এর জন্য hreflang ট্যাগ সেটআপ করা
+    hreflang_bn = f'<link rel="alternate" hreflang="bn" href="../bn/{slug}.html" />'
+    hreflang_en = f'<link rel="alternate" hreflang="en" href="../en/{slug}.html" />'
+    
+    back_text = "হোমে ফিরে যান" if lang == "bn" else "Back to Home"
+    read_other_lang = "ইংরেজিতে পড়ুন" if lang == "bn" else "Read in Bengali"
+    published_by = "প্রকাশিত" if lang == "bn" else "Published"
+    powered_by = "অটোমেশন" if lang == "bn" else "Automation"
+
     html_content = f"""<!DOCTYPE html>
-<html lang="bn">
+<html lang="{lang}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{post_data['seo_title']} - Manab AI</title>
-    <meta name="description" content="{post_data['seo_summary']}">
-    <meta property="og:title" content="{post_data['seo_title']}">
-    <meta property="og:description" content="{post_data['seo_summary']}">
-    <meta property="og:image" content="../{img_path}">
+    <title>{title} - Manab AI</title>
+    <meta name="description" content="{summary}">
+    
+    <!-- Multilingual SEO hreflang tags -->
+    {hreflang_bn}
+    {hreflang_en}
+
+    <!-- Open Graph tags for Social Sharing -->
+    <meta property="og:title" content="{title}">
+    <meta property="og:description" content="{summary}">
+    <meta property="og:image" content="../../{img_path}">
     <meta property="og:type" content="article">
 
     <style>
-        body {{
-            background-color: #0d0e15;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }}
-        .container {{
-            max-width: 800px;
-            width: 90%;
-            margin: 3rem auto;
-            background-color: #151824;
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
-        }}
-        img {{
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }}
-        h1 {{
-            font-size: 2.2rem;
-            color: #00f2fe;
-            line-height: 1.4;
-            margin-bottom: 1.5rem;
-        }}
-        .meta {{
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 1rem;
-        }}
-        .content {{
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #e2e8f0;
-        }}
-        .content p {{
-            margin-bottom: 1.5rem;
-        }}
-        .content h3 {{
-            color: #00f2fe;
-            margin-top: 2rem;
-        }}
-        a.back {{
-            color: #00f2fe;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }}
+        body {{ background-color: #0d0e15; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }}
+        .container {{ max-width: 800px; width: 90%; margin: 3rem auto; background-color: #151824; padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15); }}
+        img {{ width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; border: 1px solid rgba(255, 255, 255, 0.05); }}
+        h1 {{ font-size: 2.2rem; color: #00f2fe; line-height: 1.4; margin-bottom: 1.5rem; }}
+        .meta {{ color: #94a3b8; font-size: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; display: flex; justify-content: space-between; }}
+        .content {{ font-size: 1.1rem; line-height: 1.8; color: #e2e8f0; }}
+        .content p {{ margin-bottom: 1.5rem; }}
+        .content h3 {{ color: #00f2fe; margin-top: 2rem; }}
+        .nav-links {{ display: flex; justify-content: space-between; margin-bottom: 2rem; }}
+        a.btn {{ color: #00f2fe; text-decoration: none; font-weight: bold; font-size: 0.95rem; }}
+        a.btn:hover {{ text-decoration: underline; }}
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="../" class="back">&larr; হোমে ফিরে যান</a>
-        <img src="../{img_path}" alt="{post_data['seo_title']}">
-        <h1>{post_data['seo_title']}</h1>
-        <div class="meta">প্রকাশিত: {datetime.now().strftime("%Y-%m-%d")} | Manab AI অটোমেশন</div>
+        <div class="nav-links">
+            <a href="../../" class="btn">&larr; {back_text}</a>
+            <a href="{other_lang_url}" class="btn">{read_other_lang} &rarr;</a>
+        </div>
+        <img src="../../{img_path}" alt="{title}" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80'">
+        <h1>{title}</h1>
+        <div class="meta">
+            <span>{published_by}: {datetime.now().strftime("%Y-%m-%d")} | Manab AI {powered_by}</span>
+        </div>
         <div class="content">
-            {post_data['seo_content']}
+            {content}
         </div>
     </div>
 </body>
@@ -167,11 +142,8 @@ def generate_post_html(slug, post_data, img_path):
 
 def main():
     gemini_key = os.environ.get("GEMINI_API_KEY")
-    if not gemini_key:
-        print("GEMINI_API_KEY is not set. Exiting.")
-        return
-
-    # ডাটাবেজ লোড করা
+    
+    # পূর্বের ডাটাবেজ লোড করা
     if os.path.exists(NEWS_FILE):
         try:
             with open(NEWS_FILE, "r", encoding="utf-8") as f:
@@ -186,6 +158,8 @@ def main():
     new_articles_count = 0
 
     os.makedirs(IMAGES_DIR, exist_ok=True)
+    os.makedirs(os.path.join(POSTS_DIR, "bn"), exist_ok=True)
+    os.makedirs(os.path.join(POSTS_DIR, "en"), exist_ok=True)
 
     for source, url in FEEDS.items():
         try:
@@ -197,60 +171,100 @@ def main():
                 if orig_link in existing_links:
                     continue 
 
-                title = entry.get('title', '')
+                title = entry.get('title', 'No Title')
                 raw_desc = re.sub('<[^<]+?>', '', entry.get('summary', ''))
                 
-                print(f"New article found: {title}. Rewriting and generating image...")
+                # ইমেজ সোর্স খোঁজা
+                orig_img = "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80"
+                if 'media_content' in entry:
+                    orig_img = entry.media_content[0]['url']
                 
-                # Gemini দিয়ে রিরাইট
-                rewritten = rewrite_with_gemini(gemini_key, title, raw_desc)
-                if not rewritten:
-                    continue
+                print(f"Processing bilingual article: {title}")
                 
-                slug = slugify(rewritten["seo_title"])
+                # Gemini দিয়ে একই সাথে বাংলা ও ইংরেজিতে রিরাইটের চেষ্টা
+                rewritten = None
+                if gemini_key:
+                    rewritten = rewrite_bilingual_gemini(gemini_key, title, raw_desc)
+                
+                slug = slugify(title[:50])
                 local_img_path = f"{IMAGES_DIR}/{slug}.jpg"
                 
-                # ৫. নতুন এআই ইমেজ জেনারেট করে ডাউনলোড করা (কপি না করে নতুন তৈরি করা)
-                img_prompt_encoded = requests.utils.quote(rewritten["image_prompt"])
-                img_api_url = f"https://image.pollinations.ai/p/{img_prompt_encoded}?width=800&height=450&nologo=true"
-                
-                try:
-                    img_response = requests.get(img_api_url, timeout=30)
-                    if img_response.status_code == 200:
-                        with open(local_img_path, "wb") as f:
-                            f.write(img_response.content)
-                        img_url = local_img_path
-                    else:
-                        img_url = "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80"
-                except Exception as e:
-                    print(f"Failed to generate image: {str(e)}")
-                    img_url = "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80"
+                if rewritten:
+                    title_en = rewritten["seo_title_en"]
+                    summary_en = rewritten["seo_summary_en"]
+                    content_en = rewritten["seo_content_en"]
+                    
+                    title_bn = rewritten["seo_title_bn"]
+                    summary_bn = rewritten["seo_summary_bn"]
+                    content_bn = rewritten["seo_content_bn"]
+                    
+                    # এআই ইমেজ জেনারেশন
+                    try:
+                        img_prompt_encoded = requests.utils.quote(rewritten["image_prompt"])
+                        img_api_url = f"https://image.pollinations.ai/p/{img_prompt_encoded}?width=800&height=450&nologo=true"
+                        img_response = requests.get(img_api_url, timeout=20)
+                        if img_response.status_code == 200:
+                            with open(local_img_path, "wb") as f:
+                                f.write(img_response.content)
+                            img_url = local_img_path
+                        else:
+                            img_url = orig_img
+                    except:
+                        img_url = orig_img
+                else:
+                    # ফলব্যাক (জেমিনি ফেইল করলে বা কি না থাকলে অরিজিনাল ডাটা বসবে)
+                    print("Gemini API failed. Using fallback original data.")
+                    title_en = title
+                    summary_en = (raw_desc[:150] + "...") if len(raw_desc) > 150 else raw_desc
+                    content_en = f"<p>{raw_desc}</p><br><p><a href='{orig_link}' target='_blank'>Read Original Article</a></p>"
+                    
+                    title_bn = title
+                    summary_bn = summary_en
+                    content_bn = f"<p>{raw_desc}</p><br><p><a href='{orig_link}' target='_blank'>মূল আর্টিকেলটি পড়ুন</a></p>"
+                    img_url = orig_img
 
-                # ৬. স্ট্যাটিক পোস্ট পেজ জেনারেট করা
-                generate_post_html(slug, rewritten, img_url)
+                # একই নিউজের জন্য বাংলা ও ইংরেজি দুটি পৃথক ফাইল তৈরি
+                generate_post_html(slug, title_bn, summary_bn, content_bn, img_url, "bn", f"../en/{slug}.html")
+                generate_post_html(slug, title_en, summary_en, content_en, img_url, "en", f"../bn/{slug}.html")
                 
                 existing_news.insert(0, {
-                    "title": rewritten["seo_title"],
-                    "link": f"posts/{slug}.html", 
+                    "title_en": title_en,
+                    "title_bn": title_bn,
+                    "link_en": f"posts/en/{slug}.html",
+                    "link_bn": f"posts/bn/{slug}.html",
                     "original_link": orig_link,
                     "published": datetime.now().strftime("%Y-%m-%d"),
                     "source": source,
                     "image": img_url,
-                    "description": rewritten["seo_summary"]
+                    "description_en": summary_en,
+                    "description_bn": summary_bn
                 })
                 new_articles_count += 1
                 
         except Exception as e:
             print(f"Error processing feed {source}: {str(e)}")
 
+    if not existing_news:
+        existing_news.append({
+            "title_en": "Manab AI System is Successfully Active!",
+            "title_bn": "মানব এআই (Manab AI) সফলভাবে সক্রিয় হয়েছে!",
+            "link_en": "#",
+            "link_bn": "#",
+            "original_link": "https://manab.ai",
+            "published": datetime.now().strftime("%Y-%m-%d"),
+            "source": "Manab System",
+            "image": "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80",
+            "description_en": "Welcome! Your bilingual AI news publishing bot is successfully activated. As soon as new AI updates are released, it will update automatically.",
+            "description_bn": "স্বাগতম! আপনার দ্বিভাষিক এআই নিউজ পোস্টিং বটটি সফলভাবে চালু হয়েছে। নতুন কোনো এআই আপডেট আসামাত্রই এখানে তা স্বয়ংক্রিয়ভাবে আপডেট হতে থাকবে।"
+        })
+
+    existing_news = existing_news[:MAX_NEWS]
+    with open(NEWS_FILE, "w", encoding="utf-8") as f:
+        json.dump(existing_news, f, ensure_ascii=False, indent=4)
+    print(f"Database updated. Total articles: {len(existing_news)}")
+    
     if new_articles_count > 0:
-        existing_news = existing_news[:MAX_NEWS]
-        with open(NEWS_FILE, "w", encoding="utf-8") as f:
-            json.dump(existing_news, f, ensure_ascii=False, indent=4)
-        print(f"Added {new_articles_count} new posts.")
         submit_to_google_indexing()
-    else:
-        print("No new updates.")
 
 def submit_to_google_indexing():
     repo_full = os.environ.get("GITHUB_REPOSITORY", "")
