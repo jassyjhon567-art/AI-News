@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jassyjhon567-art.github.io/aifocusdaily//sitemap.xml
