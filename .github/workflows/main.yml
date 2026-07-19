@@ -47,7 +47,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "Manab AI Bot"
-          git add news.json posts/ images/
+          git add news.json posts/ images/ sitemap.xml robots.txt index.html
           if git diff --cached --quiet; then
             echo "No content changes to commit."
           else
@@ -55,4 +55,3 @@ jobs:
             git pull --rebase origin main
             git push origin HEAD:main
           fi
-
