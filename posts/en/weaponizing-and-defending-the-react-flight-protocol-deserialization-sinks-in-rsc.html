@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Server Components Vulnerability: How the Flight Protocol Can Be Weaponized for Remote Code Execution | AI News</title>
+<meta name="description" content="Security research into React Server Components reveals how protocol manipulation in the Flight mechanism can lead to critical remote code execution vulnerabilities like React2Shell.">
+<meta name="keywords" content="react, server, components, vulnerability, how, flight, protocol, weaponized, remote, code, execution">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.html">
+<meta property="og:title" content="React Server Components Vulnerability: How the Flight Protocol Can Be Weaponized for Remote Code Execution">
+<meta property="og:description" content="Security research into React Server Components reveals how protocol manipulation in the Flight mechanism can lead to critical remote code execution vulnerabilities like React2Shell.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="React Server Components Vulnerability: How the Flight Protocol Can Be Weaponized for Remote Code Execution">
+<meta name="twitter:description" content="Security research into React Server Components reveals how protocol manipulation in the Flight mechanism can lead to critical remote code execution vulnerabilities like React2Shell.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "React Server Components Vulnerability: How the Flight Protocol Can Be Weaponized for Remote Code Execution", "description": "Security research into React Server Components reveals how protocol manipulation in the Flight mechanism can lead to critical remote code execution vulnerabilities like React2Shell.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.jpg"], "datePublished": "2026-07-28T08:35:33Z", "dateModified": "2026-07-28T08:35:33Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.html">বাংলা</a>
+  </div>
+  <h1>React Server Components Vulnerability: How the Flight Protocol Can Be Weaponized for Remote Code Execution</h1>
+  <div class="meta">www.smashingmagazine.com &middot; Tue, 21 Jul 2026 10:00:00 GMT</div>
+  <img class="hero-img" src="../../images/weaponizing-and-defending-the-react-flight-protocol-deserialization-sinks-in-rsc.jpg" alt="React Server Components Vulnerability: How the Flight Protocol Can Be Weaponized for Remote Code Execution" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';">
+  <p class="summary">Security research into React Server Components reveals how protocol manipulation in the Flight mechanism can lead to critical remote code execution vulnerabilities like React2Shell.</p>
+  <div class="content">
+    <p>React Server Components (RSCs) have rapidly transformed modern web application development by enabling optimized server-side rendering and fluid streaming of interactive user interfaces. At the core of this architecture lies React's custom Flight protocol, a specialized communication mechanism designed to facilitate lightweight and efficient data transmission between backend server environments and frontend client applications. However, recent technical security analyses reveal that this high-performance data streaming model introduces severe architectural flaws, converting essential system channels into potential exploitation vectors.</p>
+    <p>Cybersecurity researcher Durgesh Pawar recently conducted a detailed breakdown of the critical vulnerability known as React2Shell, which received a maximum CVSS severity score of 10.0. The core issue originates from insecure deserialization sinks embedded deep within the React Flight protocol handling routines. When the backend server processes incoming serialized data streams, inadequate input sanitization enables attackers to manipulate underlying protocol structures. By carefully crafting payload objects, malicious actors can successfully bypass traditional application security controls and achieve arbitrary remote code execution on target servers.</p>
+    <p>Defending modern web systems against these high-risk deserialization vulnerabilities demands a proactive, comprehensive approach to overall application security and framework hardening. Engineering teams utilizing React Server Component technology must implement strict schema validation, enforce rigorous data sanitization routines, and rapidly deploy updated framework dependency versions to mitigate exploit paths. As current web development increasingly relies on dynamic, streamed component architectures, understanding and fixing protocol-level security vulnerabilities will be essential for safeguarding critical enterprise infrastructure, cloud environments, and sensitive user data against sophisticated cyber threats worldwide.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://smashingmagazine.com/2026/07/weaponizing-defending-react-flight-protocol/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
