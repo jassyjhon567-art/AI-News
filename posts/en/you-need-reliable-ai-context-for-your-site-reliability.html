@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Context Engineering and AI Are Transforming Modern Site Reliability | AI News</title>
+<meta name="description" content="Asaf Savich of Komodor discusses how context engineering enables AI tools to streamline site reliability engineering, shifting human roles toward AI management and high-level strategy.">
+<meta name="keywords" content="how, context, engineering, transforming, modern, site, reliability">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/you-need-reliable-ai-context-for-your-site-reliability.html">
+<meta property="og:title" content="How Context Engineering and AI Are Transforming Modern Site Reliability">
+<meta property="og:description" content="Asaf Savich of Komodor discusses how context engineering enables AI tools to streamline site reliability engineering, shifting human roles toward AI management and high-level strategy.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/you-need-reliable-ai-context-for-your-site-reliability.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/you-need-reliable-ai-context-for-your-site-reliability.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Context Engineering and AI Are Transforming Modern Site Reliability">
+<meta name="twitter:description" content="Asaf Savich of Komodor discusses how context engineering enables AI tools to streamline site reliability engineering, shifting human roles toward AI management and high-level strategy.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/you-need-reliable-ai-context-for-your-site-reliability.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/you-need-reliable-ai-context-for-your-site-reliability.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/you-need-reliable-ai-context-for-your-site-reliability.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "How Context Engineering and AI Are Transforming Modern Site Reliability", "description": "Asaf Savich of Komodor discusses how context engineering enables AI tools to streamline site reliability engineering, shifting human roles toward AI management and high-level strategy.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/you-need-reliable-ai-context-for-your-site-reliability.jpg"], "datePublished": "2026-07-28T14:08:20Z", "dateModified": "2026-07-28T14:08:20Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/you-need-reliable-ai-context-for-your-site-reliability.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/you-need-reliable-ai-context-for-your-site-reliability.html">বাংলা</a>
+  </div>
+  <h1>How Context Engineering and AI Are Transforming Modern Site Reliability</h1>
+  <div class="meta">stackoverflow.blog &middot; Tue, 28 Jul 2026 07:40:00 GMT</div>
+  <img class="hero-img" src="../../images/you-need-reliable-ai-context-for-your-site-reliability.jpg" alt="How Context Engineering and AI Are Transforming Modern Site Reliability" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">Asaf Savich of Komodor discusses how context engineering enables AI tools to streamline site reliability engineering, shifting human roles toward AI management and high-level strategy.</p>
+  <div class="content">
+    <p>In a recent industry discussion, host Ryan sat down with Asaf Savich, the AI Engineering Group Manager at Komodor, to explore the changing landscape of site reliability engineering (SRE). As modern cloud architectures become increasingly distributed and microservice-driven, operational reliability now demands navigating immense amounts of cross-service context. Engineering teams are constantly tasked with understanding intricate service dependencies, tracing cascading failures, and maintaining visibility across complex multi-cloud environments, making traditional troubleshooting methods far less effective.</p>
+    <p>To overcome these operational challenges, the integration of artificial intelligence into reliability workflows has gained significant traction, but its success hinges on robust context engineering. Savich explained that AI agents require rich, well-structured, and highly relevant contextual data from across logs, metrics, traces, and system topologies to deliver reliable insights. Without precise context engineering, AI models risk delivering false positives or hallucinated solutions. Providing AI with accurate context enables automated systems to correctly pinpoint root causes, speed up incident response, and reduce mean time to resolution.</p>
+    <p>As a result of these technological advancements, the responsibilities of human SREs are undergoing a major transition from manual operational tasks to strategic oversight and AI agent management. Rather than spending countless hours manually sifting through logs or executing routine diagnostic steps, engineers are moving into roles where they curate context, supervise intelligent automation tools, and design resilient operational guardrails. Ultimately, this shift allows engineering teams to focus on long-term infrastructure resilience, strategic system architecture, and overall business growth while AI handles routine troubleshooting.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://stackoverflow.blog/2026/07/28/you-need-reliable-ai-context-for-your-site-reliability/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
