@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>আপনার শেল স্ক্রিপ্টে কেন 'কোনো কাজ না করা' কোলন কমান্ড ব্যবহার করবেন | AI News</title>
+<meta name="description" content="যদিও ইউনিক্স শেল কোলন কমান্ডটি কেবল একটি নিষ্ক্রিয় বা &#x27;নো-অপারেশন&#x27; নির্দেশের কাজ করে, তবুও স্ক্রিপ্টে এর ব্যবহার পাঠযোগ্যতা, পসিক্স সামঞ্জস্যতা এবং ভেরিয়েবল ব্যবস্থাপনা বৃদ্ধি করে।">
+<meta name="keywords" content="আপনার, শেল, স্ক্রিপ্টে, কেন, 'কোনো, কাজ, করা', কোলন, কমান্ড, ব্যবহার, করবেন">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.html">
+<meta property="og:title" content="আপনার শেল স্ক্রিপ্টে কেন &#x27;কোনো কাজ না করা&#x27; কোলন কমান্ড ব্যবহার করবেন">
+<meta property="og:description" content="যদিও ইউনিক্স শেল কোলন কমান্ডটি কেবল একটি নিষ্ক্রিয় বা &#x27;নো-অপারেশন&#x27; নির্দেশের কাজ করে, তবুও স্ক্রিপ্টে এর ব্যবহার পাঠযোগ্যতা, পসিক্স সামঞ্জস্যতা এবং ভেরিয়েবল ব্যবস্থাপনা বৃদ্ধি করে।">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.html">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="আপনার শেল স্ক্রিপ্টে কেন &#x27;কোনো কাজ না করা&#x27; কোলন কমান্ড ব্যবহার করবেন">
+<meta name="twitter:description" content="যদিও ইউনিক্স শেল কোলন কমান্ডটি কেবল একটি নিষ্ক্রিয় বা &#x27;নো-অপারেশন&#x27; নির্দেশের কাজ করে, তবুও স্ক্রিপ্টে এর ব্যবহার পাঠযোগ্যতা, পসিক্স সামঞ্জস্যতা এবং ভেরিয়েবল ব্যবস্থাপনা বৃদ্ধি করে।">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.jpg">
+<link rel="alternate" hreflang="en" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "আপনার শেল স্ক্রিপ্টে কেন 'কোনো কাজ না করা' কোলন কমান্ড ব্যবহার করবেন", "description": "যদিও ইউনিক্স শেল কোলন কমান্ডটি কেবল একটি নিষ্ক্রিয় বা 'নো-অপারেশন' নির্দেশের কাজ করে, তবুও স্ক্রিপ্টে এর ব্যবহার পাঠযোগ্যতা, পসিক্স সামঞ্জস্যতা এবং ভেরিয়েবল ব্যবস্থাপনা বৃদ্ধি করে।", "image": ["https://jassyjhon567-art.github.io/AI-News/images/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.jpg"], "datePublished": "2026-07-29T08:43:22Z", "dateModified": "2026-07-29T08:43:22Z", "inLanguage": "bn", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/bn/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.html">English</a>
+  </div>
+  <h1>আপনার শেল স্ক্রিপ্টে কেন 'কোনো কাজ না করা' কোলন কমান্ড ব্যবহার করবেন</h1>
+  <div class="meta">www.reddit.com &middot; 2026-07-28T14:59:49+00:00</div>
+  <img class="hero-img" src="../../images/a-shell-colon-does-nothing-use-it-anyway-filip-rosen.jpg" alt="আপনার শেল স্ক্রিপ্টে কেন 'কোনো কাজ না করা' কোলন কমান্ড ব্যবহার করবেন" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">যদিও ইউনিক্স শেল কোলন কমান্ডটি কেবল একটি নিষ্ক্রিয় বা 'নো-অপারেশন' নির্দেশের কাজ করে, তবুও স্ক্রিপ্টে এর ব্যবহার পাঠযোগ্যতা, পসিক্স সামঞ্জস্যতা এবং ভেরিয়েবল ব্যবস্থাপনা বৃদ্ধি করে।</p>
+  <div class="content">
+    <p>ইউনিক্স-সদৃশ অপারেটিং সিস্টেমে কার্যক্ষমতা স্বয়ংক্রিয় করার জন্য শেল স্ক্রিপ্টিং বিভিন্ন ধরনের কমান্ড, বিল্ট-ইন ফাংশন এবং সিনট্যাক্স নিয়মের ওপর নির্ভর করে। এসব বৈশিষ্ট্যের মধ্যে একটি ক্ষুদ্র অথচ গুরুত্বপূর্ণ উপাদান হলো কোলন অপারেটর (:), যা মূলত একটি বিল্ট-ইন 'নো-অপারেশন' (no-op) কমান্ড হিসেবে কাজ করে। এটি চালনা করা হলে পঠিত আর্গুমেন্টগুলো মূল্যায়ন করে অবিলম্বে একটি সফল বা শূন্য (০) এক্সিট স্ট্যাটাস প্রদান করে, তবে এটি কোনো আউটপুট তৈরি করে না বা সিস্টেমের অবস্থা পরিবর্তন করে না। প্রথমবারের মতো দেখলে এটিকে পুরোপুরি অনাবশ্যক মনে হতে পারে, তবে এর কার্যকারিতা অনুধাবন করলে স্পষ্ট হয় কেন অভিজ্ঞ ডেভেলপাররা নিয়মিত এটি ব্যবহার করেন।</p>
+    <p>কোলন কমান্ডটি বিভিন্ন ধরনের বিশেষ এবং ব্যবহারিক ভূমিকা পালন করে যা স্ক্রিপ্টের গঠন ও স্পষ্টতা উন্নত করে। এর একটি সাধারণ ব্যবহার হলো ইনফিনিট লুপ বা অসীম লুপ তৈরিতে, যেখানে 'while :' কমান্ডটি পসিক্স (POSIX) মানদণ্ড মেনে চলার পাশাপাশি 'while true'-এর চেয়ে তুলনামূলক দ্রুত কাজ করে। এছাড়া, বাহ্যিক কোনো কমান্ড না চালিয়েই ভেরিয়েবলের ডিফল্ট মান নির্ধারণ বা শর্ত পর্যবেক্ষণে প্যারামিটার সম্প্রসারণের ক্ষেত্রে কোলন ব্যাপকভাবে ব্যবহৃত হয়। উদাহরণস্বরূপ, ${variable:=default} ধরনের সিনট্যাক্স নিঃশব্দে ভেরিয়েবল অ্যাসাইনমেন্ট মূল্যায়ন করতে কোলনের ওপর নির্ভর করে, যা কোনো অনাকাঙ্ক্ষিত এরর ছাড়াই কোড চালনায় সাহায্য করে।</p>
+    <p>কেবল কার্যক্ষমতার দিক থেকেই নয়, কোলন কমান্ডের ব্যবহার ব্যাশ (Bash), জেডশেল (Zsh) এবং ড্যাশ (Dash)-এর মতো বিভিন্ন শেল পরিবেশে স্ক্রিপ্টের পাঠযোগ্যতা বজায় রাখতে এবং ঐতিহাসিক সামঞ্জস্য রক্ষায় ভূমিকা রাখে। শর্তাধীন ব্লকে যেখানে এখনো কোনো কোড লেখা হয়নি, সেখানে খালি জায়গার বদলে এটি একটি হালকা প্লেসহোল্ডার হিসেবে ব্যবহৃত হয়ে সিনট্যাক্স এরর প্রতিরোধ করে। সফটওয়্যার ডেভেলপার ফিলিপ রোসিন যেমনটা উল্লেখ করেছেন, শেলের কোলন কমান্ড গ্রহণ করা পরিচ্ছন্ন কোডিং চর্চাকে উৎসাহিত করে। এই সাধারণ বিল্ট-ইন কমান্ডটি ব্যবহারের মাধ্যমে প্রোগ্রামাররা ঐতিহ্যবাহী ইউনিক্স ডিজাইন নীতি বজায় রেখে আরও পরিষ্কার ও শক্তিশালী স্ক্রিপ্ট তৈরি করতে পারেন।</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://www.reddit.com/r/programming/comments/1v90z1b/a_shell_colon_does_nothing_use_it_anyway_filip/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
