@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Efficiently Build Marketing Landing Pages Using shadcn/ui | AI News</title>
+<meta name="description" content="Using component libraries like shadcn/ui streamlines marketing landing page development, allowing creators to rapidly build responsive, customizable layouts without wasting time recreating standard web components.">
+<meta name="keywords" content="how, efficiently, build, marketing, landing, pages, using, shadcn">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/how-to-create-a-marketing-landing-page-using-shadcnui.html">
+<meta property="og:title" content="How to Efficiently Build Marketing Landing Pages Using shadcn/ui">
+<meta property="og:description" content="Using component libraries like shadcn/ui streamlines marketing landing page development, allowing creators to rapidly build responsive, customizable layouts without wasting time recreating standard web components.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/how-to-create-a-marketing-landing-page-using-shadcnui.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/how-to-create-a-marketing-landing-page-using-shadcnui.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Efficiently Build Marketing Landing Pages Using shadcn/ui">
+<meta name="twitter:description" content="Using component libraries like shadcn/ui streamlines marketing landing page development, allowing creators to rapidly build responsive, customizable layouts without wasting time recreating standard web components.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/how-to-create-a-marketing-landing-page-using-shadcnui.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/how-to-create-a-marketing-landing-page-using-shadcnui.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/how-to-create-a-marketing-landing-page-using-shadcnui.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "How to Efficiently Build Marketing Landing Pages Using shadcn/ui", "description": "Using component libraries like shadcn/ui streamlines marketing landing page development, allowing creators to rapidly build responsive, customizable layouts without wasting time recreating standard web components.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/how-to-create-a-marketing-landing-page-using-shadcnui.jpg"], "datePublished": "2026-08-01T19:08:41Z", "dateModified": "2026-08-01T19:08:41Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/how-to-create-a-marketing-landing-page-using-shadcnui.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/how-to-create-a-marketing-landing-page-using-shadcnui.html">বাংলা</a>
+  </div>
+  <h1>How to Efficiently Build Marketing Landing Pages Using shadcn/ui</h1>
+  <div class="meta">www.freecodecamp.org &middot; Fri, 31 Jul 2026 11:01:41 +0000</div>
+  <img class="hero-img" src="../../images/how-to-create-a-marketing-landing-page-using-shadcnui.jpg" alt="How to Efficiently Build Marketing Landing Pages Using shadcn/ui" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1200&h=675&fit=crop';">
+  <p class="summary">Using component libraries like shadcn/ui streamlines marketing landing page development, allowing creators to rapidly build responsive, customizable layouts without wasting time recreating standard web components.</p>
+  <div class="content">
+    <p>Creating an engaging and high-converting marketing landing page often presents a recurring challenge for developers and digital marketers alike. Most web projects begin with the exact same fundamental problem: staring at a blank canvas and redundantly building web sections that have already been created countless times before. Core components such as eye-catching hero banners, feature comparison grids, interactive pricing tables, and social proof testimonials are essential building blocks for almost every promotional website. Constantly re-engineering these foundational layouts from scratch not only consumes valuable development time but also diverts critical attention away from crafting unique brand messaging and user-centric marketing strategies.</p>
+    <p>To resolve this widespread inefficiency, modern web developers are increasingly turning to flexible design systems and contemporary component collections like shadcn/ui. Built on top of robust accessible primitives such as Radix UI and styled seamlessly using Tailwind CSS, shadcn/ui offers a unique approach by providing beautifully designed components that developers can copy, paste, and fully own within their codebase. This method provides an exceptional balance between rapid page assembly and complete creative freedom, enabling development teams to construct responsive, accessible, and visually compelling landing pages in a fraction of the time traditionally required.</p>
+    <p>By integrating these reusable UI elements into the workflow, creators can maintain strict design consistency across digital products while significantly accelerating production timelines. Rather than wrestling with repetitive CSS layout boilerplate and basic interactivity, teams can focus their energy on optimizing user experience, fine-tuning copy, and boosting overall conversion rates. Ultimately, utilizing tools like shadcn/ui transforms the landing page development process, making web design substantially more efficient, maintainable, and scalable for modern digital businesses.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://www.freecodecamp.org/news/how-to-create-a-marketing-landing-page-using-shadcn-ui/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
