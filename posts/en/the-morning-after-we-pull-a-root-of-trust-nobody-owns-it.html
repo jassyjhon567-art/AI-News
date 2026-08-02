@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Managing Machine Identities: Why Certificate Inventories Are Critical for Enterprise Security | AI News</title>
+<meta name="description" content="Building a comprehensive certificate and key inventory is essential for preventing downtime and maintaining clear operational ownership during critical public key infrastructure updates.">
+<meta name="keywords" content="managing, machine, identities, why, certificate, inventories, critical, enterprise, security">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.html">
+<meta property="og:title" content="Managing Machine Identities: Why Certificate Inventories Are Critical for Enterprise Security">
+<meta property="og:description" content="Building a comprehensive certificate and key inventory is essential for preventing downtime and maintaining clear operational ownership during critical public key infrastructure updates.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Managing Machine Identities: Why Certificate Inventories Are Critical for Enterprise Security">
+<meta name="twitter:description" content="Building a comprehensive certificate and key inventory is essential for preventing downtime and maintaining clear operational ownership during critical public key infrastructure updates.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Managing Machine Identities: Why Certificate Inventories Are Critical for Enterprise Security", "description": "Building a comprehensive certificate and key inventory is essential for preventing downtime and maintaining clear operational ownership during critical public key infrastructure updates.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.jpg"], "datePublished": "2026-08-02T08:28:10Z", "dateModified": "2026-08-02T08:28:10Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.html">বাংলা</a>
+  </div>
+  <h1>Managing Machine Identities: Why Certificate Inventories Are Critical for Enterprise Security</h1>
+  <div class="meta">www.darkreading.com &middot; Fri, 31 Jul 2026 14:00:00 GMT</div>
+  <img class="hero-img" src="../../images/the-morning-after-we-pull-a-root-of-trust-nobody-owns-it.jpg" alt="Managing Machine Identities: Why Certificate Inventories Are Critical for Enterprise Security" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&h=675&fit=crop';">
+  <p class="summary">Building a comprehensive certificate and key inventory is essential for preventing downtime and maintaining clear operational ownership during critical public key infrastructure updates.</p>
+  <div class="content">
+    <p>In the rapidly evolving landscape of enterprise cybersecurity, revoking or replacing an outdated Root of Trust is a necessary measure to maintain overall system integrity. However, the immediate aftermath of such cryptographic updates frequently exposes a critical operational vulnerability within modern networks. When a core certificate authority is retired or invalidated, organizations regularly discover that no specific operational team claims ownership over the dependent digital certificates scattered across their infrastructure. This distinct lack of clear governance often results in unexpected application downtime, uncoordinated outages, and severe visibility gaps that sophisticated threat actors can exploit.</p>
+    <p>To effectively mitigate these operational risks, cybersecurity experts emphasize that constructing a comprehensive certificate and key inventory is the single most valuable action an enterprise can take. Contemporary corporate environments, characterized by complex multi-cloud deployments, legacy hardware, and rapid software delivery pipelines, often harbor thousands of unmapped digital credentials. Without a centralized ledger detailing every active public key infrastructure asset, emergency certificate revocations trigger chaotic organizational scrambling. Establishing systematic visibility and mapping precise certificate locations enables security teams to address vulnerabilities long before trust store modifications occur.</p>
+    <p>Ultimately, managing machine identities requires the exact same strategic oversight and strict accountability typically reserved for human user credentials. Modern organizations must pair continuous automated discovery tools with explicit policy frameworks that assign unambiguous operational ownership for every deployed certificate and private key. By establishing transparent governance and maintaining an accurate, up-to-date cryptographic inventory, enterprise leaders can ensure seamless trust store migrations, eliminate unexpected system disruptions, and significantly strengthen their overall long-term security posture.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://www.darkreading.com/cyber-risk/morning-after-we-pull-root-of-trust-nobody-owns-it" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
