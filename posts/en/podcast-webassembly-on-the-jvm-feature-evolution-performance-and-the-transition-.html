@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebAssembly on the JVM: Exploring Feature Evolution, Performance Gains, and the Shift to Endive | AI News</title>
+<meta name="description" content="Andrea Peruffo details how WebAssembly on the JVM is evolving through JIT compilation performance gains and modular enterprise adoption like Endive.">
+<meta name="keywords" content="webassembly, jvm, exploring, feature, evolution, performance, gains, shift, endive">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.html">
+<meta property="og:title" content="WebAssembly on the JVM: Exploring Feature Evolution, Performance Gains, and the Shift to Endive">
+<meta property="og:description" content="Andrea Peruffo details how WebAssembly on the JVM is evolving through JIT compilation performance gains and modular enterprise adoption like Endive.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WebAssembly on the JVM: Exploring Feature Evolution, Performance Gains, and the Shift to Endive">
+<meta name="twitter:description" content="Andrea Peruffo details how WebAssembly on the JVM is evolving through JIT compilation performance gains and modular enterprise adoption like Endive.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "WebAssembly on the JVM: Exploring Feature Evolution, Performance Gains, and the Shift to Endive", "description": "Andrea Peruffo details how WebAssembly on the JVM is evolving through JIT compilation performance gains and modular enterprise adoption like Endive.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.jpg"], "datePublished": "2026-08-03T14:41:08Z", "dateModified": "2026-08-03T14:41:08Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.html">বাংলা</a>
+  </div>
+  <h1>WebAssembly on the JVM: Exploring Feature Evolution, Performance Gains, and the Shift to Endive</h1>
+  <div class="meta">www.infoq.com &middot; Mon, 03 Aug 2026 11:00:00 GMT</div>
+  <img class="hero-img" src="../../images/podcast-webassembly-on-the-jvm-feature-evolution-performance-and-the-transition-.jpg" alt="WebAssembly on the JVM: Exploring Feature Evolution, Performance Gains, and the Shift to Endive" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">Andrea Peruffo details how WebAssembly on the JVM is evolving through JIT compilation performance gains and modular enterprise adoption like Endive.</p>
+  <div class="content">
+    <p>WebAssembly (Wasm) is rapidly extending its reach far beyond its original domain within web browsers, establishing a powerful and transformative role on server-side Java Virtual Machine (JVM) infrastructure. In a comprehensive podcast discussion, technology specialist Andrea Peruffo detailed how WebAssembly is steadily adapting to meet the demands of complex backend environments. As modern enterprise architectures increasingly prioritize multi-language interoperability, isolation, and operational safety, integrating Wasm with the JVM offers developers an exceptionally versatile and secure platform for running untrusted or sandboxed code.</p>
+    <p>A central aspect of this ongoing technological shift lies in the dramatic performance advancements achieved by modern Wasm runtimes. Early implementations relied primarily on basic interpreter-based execution, which often limited performance under heavy workloads. However, these runtimes have progressively evolved to incorporate sophisticated Just-In-Time (JIT) compilation techniques. This critical transition substantially reduces execution overhead and latency while maximizing overall system throughput, effectively allowing server-side WebAssembly applications to achieve near-native execution speeds without compromising strong memory safety guarantees.</p>
+    <p>The conversation also illuminated a broad spectrum of real-world production use cases that demonstrate the concrete value of WebAssembly on the JVM. Key adoption areas span from edge computing platforms that demand ultra-fast startup times to enterprise software suites utilizing modular plugin architectures for customizable functionality. Furthermore, the transition toward innovative frameworks like Endive highlights a maturing ecosystem. Together, these developments are redefining how developers build, secure, and deploy resilient backend microservices in dynamic cloud environments.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://www.infoq.com/podcasts/feature-evolution-performance-transition-endive/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=global" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
