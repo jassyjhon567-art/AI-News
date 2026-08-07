@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Open-Sources Polyglot Unit-Test Agent Outperforming Stock Copilot in Internal Benchmarks | AI News</title>
+<meta name="description" content="Microsoft has open-sourced code-testing-generator, an AI agent achieving a 92.1% task completion rate in unit testing by analyzing repository contexts before generating, running, and validating code.">
+<meta name="keywords" content="microsoft, open, sources, polyglot, unit, test, agent, outperforming, stock, copilot, internal, benchmarks">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.html">
+<meta property="og:title" content="Microsoft Open-Sources Polyglot Unit-Test Agent Outperforming Stock Copilot in Internal Benchmarks">
+<meta property="og:description" content="Microsoft has open-sourced code-testing-generator, an AI agent achieving a 92.1% task completion rate in unit testing by analyzing repository contexts before generating, running, and validating code.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Microsoft Open-Sources Polyglot Unit-Test Agent Outperforming Stock Copilot in Internal Benchmarks">
+<meta name="twitter:description" content="Microsoft has open-sourced code-testing-generator, an AI agent achieving a 92.1% task completion rate in unit testing by analyzing repository contexts before generating, running, and validating code.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Microsoft Open-Sources Polyglot Unit-Test Agent Outperforming Stock Copilot in Internal Benchmarks", "description": "Microsoft has open-sourced code-testing-generator, an AI agent achieving a 92.1% task completion rate in unit testing by analyzing repository contexts before generating, running, and validating code.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.jpg"], "datePublished": "2026-08-07T13:05:43Z", "dateModified": "2026-08-07T13:05:43Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.html">বাংলা</a>
+  </div>
+  <h1>Microsoft Open-Sources Polyglot Unit-Test Agent Outperforming Stock Copilot in Internal Benchmarks</h1>
+  <div class="meta">www.marktechpost.com &middot; Fri, 07 Aug 2026 05:42:45 +0000</div>
+  <img class="hero-img" src="../../images/microsoft-open-sources-code-testing-generator-a-polyglot-unit-test-agent-that-hi.jpg" alt="Microsoft Open-Sources Polyglot Unit-Test Agent Outperforming Stock Copilot in Internal Benchmarks" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">Microsoft has open-sourced code-testing-generator, an AI agent achieving a 92.1% task completion rate in unit testing by analyzing repository contexts before generating, running, and validating code.</p>
+  <div class="content">
+    <p>Microsoft has officially open-sourced code-testing-generator, an advanced polyglot unit-test agent designed to automate and enhance software testing workflows. Now available under the permissive MIT license within the open-source dotnet/skills repository, this new tool aims to significantly elevate automated test creation efficiency across various software projects. Unlike traditional completion tools, the agent thoroughly analyzes an entire target repository prior to writing any code, accurately identifying the underlying programming language, existing testing frameworks, established coding conventions, and actual build and test execution commands.</p>
+    <p>The core operating principle of code-testing-generator revolves around a comprehensive multi-step workflow: planning, writing, running, and dynamically validating the tests it generates. By understanding the repository's context upfront, the agent ensures that generated unit tests integrate seamlessly with existing codebases without introducing syntax errors or build failures. This intelligent, repository-aware approach enables it to adapt to diverse polyglot development environments and legacy projects, effectively solving a major hurdle in current AI-assisted software development practices.</p>
+    <p>During Microsoft's rigorous internal evaluations featuring a 152-task benchmark, the newly released agent demonstrated superior performance. It achieved a remarkable 92.1% task completion rate, successfully resolving 140 tasks, compared to a 78.9% success rate recorded by standard stock GitHub Copilot utilizing the exact same underlying model architecture. The significant performance improvement was concentrated almost entirely in handling vague prompts and complex diff-targeted testing requests. Furthermore, this open-source initiative highlights Microsoft's ongoing dedication to empowering global developer communities with robust, context-aware artificial intelligence tools.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://www.marktechpost.com/2026/08/06/microsoft-open-sources-code-testing-generator/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
