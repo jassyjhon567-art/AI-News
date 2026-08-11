@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 6: Observability for AI Agents: Tracing, Metrics, and Drift | AI News</title>
+<meta name="description" content="Part 6 of a series building a support-ticket agent with no framework. Previous: Part 5 (guardrails). Repo: github.com/akash-pal/agent-from-scratch &quot;Run the eval set&quot; and &quot;is this...">
+<meta name="keywords" content="part, observability, agents, tracing, metrics, drift">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/part-6-observability-for-ai-agents-tracing-metrics-and-drift.html">
+<meta property="og:title" content="Part 6: Observability for AI Agents: Tracing, Metrics, and Drift">
+<meta property="og:description" content="Part 6 of a series building a support-ticket agent with no framework. Previous: Part 5 (guardrails). Repo: github.com/akash-pal/agent-from-scratch &quot;Run the eval set&quot; and &quot;is this...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/part-6-observability-for-ai-agents-tracing-metrics-and-drift.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/part-6-observability-for-ai-agents-tracing-metrics-and-drift.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Part 6: Observability for AI Agents: Tracing, Metrics, and Drift">
+<meta name="twitter:description" content="Part 6 of a series building a support-ticket agent with no framework. Previous: Part 5 (guardrails). Repo: github.com/akash-pal/agent-from-scratch &quot;Run the eval set&quot; and &quot;is this...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/part-6-observability-for-ai-agents-tracing-metrics-and-drift.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/part-6-observability-for-ai-agents-tracing-metrics-and-drift.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/part-6-observability-for-ai-agents-tracing-metrics-and-drift.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Part 6: Observability for AI Agents: Tracing, Metrics, and Drift", "description": "Part 6 of a series building a support-ticket agent with no framework. Previous: Part 5 (guardrails). Repo: github.com/akash-pal/agent-from-scratch \"Run the eval set\" and \"is this...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/part-6-observability-for-ai-agents-tracing-metrics-and-drift.jpg"], "datePublished": "2026-08-11T19:07:56Z", "dateModified": "2026-08-11T19:07:56Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/part-6-observability-for-ai-agents-tracing-metrics-and-drift.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/part-6-observability-for-ai-agents-tracing-metrics-and-drift.html">বাংলা</a>
+  </div>
+  <h1>Part 6: Observability for AI Agents: Tracing, Metrics, and Drift</h1>
+  <div class="meta">dev.to &middot; Tue, 11 Aug 2026 18:43:58 +0000</div>
+  <img class="hero-img" src="../../images/part-6-observability-for-ai-agents-tracing-metrics-and-drift.jpg" alt="Part 6: Observability for AI Agents: Tracing, Metrics, and Drift" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">Part 6 of a series building a support-ticket agent with no framework. Previous: Part 5 (guardrails). Repo: github.com/akash-pal/agent-from-scratch "Run the eval set" and "is this...</p>
+  <div class="content">
+    <p>Part 6 of a series building a support-ticket agent with no framework. Previous: Part 5 (guardrails). Repo: github.com/akash-pal/agent-from-scratch "Run the eval set" and "is this agent healthy right now" are different questions, and it's easy to only build infrastructure for the first one. Eval sets run offline, on cases you already thought of. Production traffic doesn't ask permission to send you a ticket type you didn't anticipate. Observability is what tells you when that's happening — and it's also, unglamorously, what makes offline evaluation possible in the first place: you can't debug a failing eval case without knowing what the agent actually did, step by step. The minimum trace payload Every tool call in this build logs a structured record — src/trace.ts : export interface TraceStep { trace_id : string ; step_id : number ; tool_name : string ; args_hash : string ; // hashed, never raw args duration_ms : number ; result_summary : string ; model : string ; token_usage : { input : number ; output : number }; } Two details here that look small and aren't: args_hash , not raw args . This trace log is meant to be safe to keep around, ship to a monitoring system, or paste into a bug report — none of which should require thinking about what secrets might be embedded in a tool call's arguments. Hashing means you can still confirm two calls used identical arguments (for debugging idempotency, for instance) without ever persisting the actual values: export function hashArgs ( args : Record &lt; string , unknown &gt; ): string { return " sha256: " + createHash ( " sha256 " ). update ( JSON . stringify ( args )). digest ( " hex " ). slice ( 0 , 8 ); } result_summary , truncated. Full tool results can be large (a kb_search returning full article bodies, for instance) — logging the whole thing on every step makes trace output unreadable and bloats whatever's storing it. summarizeResult takes the first few fields and truncates long values: const MAX_FIELD_LEN = 70 ; export function summarizeResult ( result : Record &lt; string , unknown &gt; ): string { const entries = Object . entries ( result ). slice ( 0 , 4 ); return entries . map (([ k , v ]) =&gt; ` ${ k } = ${ truncate ( JSON . stringify ( v ))} ` ). join ( " " ); } Readable in a terminal, structured everywhere else The trace log doubles as CLI output — this build's whole point is being inspectable, so watching an agent run in real time matters. Early on, that meant a raw JSON blob per line, which is technically complete and practically unreadable. The fix was a small formatting pass, not a new logging system: export function logTrace ( step : TraceStep ): void { const timing = ` ${ step . duration_ms } ms, ${ step . token_usage . input } → ${ step . token_usage . output } tok` ; console . log ( ` ${ DIM } [ ${ step . step_id } ] ${ RESET } ${ CYAN }${ step . tool_name }${ RESET } ${ DIM } ( ${ timing } ) ${ RESET } ` ); console . log ( ` ${ step . result_summary } ` ); } Output in an actual terminal: [1] order_lookup (0ms, 1077→23 tok) order_id="ord_1005" status="processing" items=[...] total_usd=45 [2] kb_search (1ms, 1268→20 tok) articles=[...] relevance_scores=[0.48,0.24,0.24] Colors auto-disable when stdout isn't a real TTY ( process.stdout.isTTY ), so piping this to a file or a CI log doesn't leave you with literal escape-code garbage — small thing, but the kind of small thing that makes the difference between a trace log people actually read and one they ignore. Three production monitoring layers Trace-per-step is the foundation, but three distinct layers sit on top of it, each answering a different question: Trace logging — every run, every tool call: input, response, latency, cost. This is what you already have from the payload above. Online metrics — aggregate numbers over time: success rate, escalation rate, average tool calls per run, average token cost per run. This is where you'd notice, for instance, that escalation rate crept from 8% to 15% over a week. Drift detection — compare those metrics week over week. This one's easy to skip and shouldn't be: model provider updates cause silent regressions with zero code changes on your side . The agent that scored 95% on your eval set last month can start failing differently this month because the underlying model changed, not because anything you wrote did. This repo doesn't implement online metrics or drift detection — it's a CLI reference build with no persistent request volume to aggregate — but the trace payload is written specifically so those layers could be built on top of it without changing the tracing code itself. That's the actual design goal: the minimum payload isn't "the metrics you need now," it's "the raw material any metrics system would need later." Why this matters for debugging, not just monitoring Go back to Part 3's eval failure: [FAIL] hard_04 (hard) - trajectory: expected [order_lookup, refund_eligibility, issue_refund] as a subsequence, got [order_lookup, refund_eligibility] That failure message exists because of tracing, full stop. Without a structured, step-by-step record of what tools got called, "the eval failed" would be all you'd know — not why . The actual bug behind that failure (Part 5's phantom refund proposal) was findable specifically because the trajectory was visible, not just the final pass/fail. What's next Part 7: Iterating to Green: Real Bugs, and When You'd Actually Reach for a Framework → closes the series: the full iteration log — every real bug found running this agent against the eval set, what fixed each one, and when you'd actually reach for a framework instead of this raw loop. Repo: github.com/akash-pal/agent-from-scratch</p>
+    <p>The report highlights key developments related to "Part 6: Observability for AI Agents: Tracing, Metrics, and Drift", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/akashpal/part-6-observability-for-ai-agents-tracing-metrics-and-drift-2pgh" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
