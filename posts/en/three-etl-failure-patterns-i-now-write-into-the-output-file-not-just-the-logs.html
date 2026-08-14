@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three ETL failure patterns I now write into the output file, not just the logs | AI News</title>
+<meta name="description" content="My Reddit scraper returned empty arrays for 71 days. Nothing broke visibly. The market-listening output file kept being written, kept being committed to git, kept looking like a...">
+<meta name="keywords" content="three, etl, failure, patterns, now, write, output, file, just, logs">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.html">
+<meta property="og:title" content="Three ETL failure patterns I now write into the output file, not just the logs">
+<meta property="og:description" content="My Reddit scraper returned empty arrays for 71 days. Nothing broke visibly. The market-listening output file kept being written, kept being committed to git, kept looking like a...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Three ETL failure patterns I now write into the output file, not just the logs">
+<meta name="twitter:description" content="My Reddit scraper returned empty arrays for 71 days. Nothing broke visibly. The market-listening output file kept being written, kept being committed to git, kept looking like a...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Three ETL failure patterns I now write into the output file, not just the logs", "description": "My Reddit scraper returned empty arrays for 71 days. Nothing broke visibly. The market-listening output file kept being written, kept being committed to git, kept looking like a...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.jpg"], "datePublished": "2026-08-14T07:28:46Z", "dateModified": "2026-08-14T07:28:46Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.html">বাংলা</a>
+  </div>
+  <h1>Three ETL failure patterns I now write into the output file, not just the logs</h1>
+  <div class="meta">dev.to &middot; Fri, 14 Aug 2026 07:05:44 +0000</div>
+  <img class="hero-img" src="../../images/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs.jpg" alt="Three ETL failure patterns I now write into the output file, not just the logs" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">My Reddit scraper returned empty arrays for 71 days. Nothing broke visibly. The market-listening output file kept being written, kept being committed to git, kept looking like a...</p>
+  <div class="content">
+    <p>My Reddit scraper returned empty arrays for 71 days. Nothing broke visibly. The market-listening output file kept being written, kept being committed to git, kept looking like a healthy daily snapshot. Nobody caught it until the interpretation layer noticed that Reddit-sourced signals hadn't changed in two months. The three patterns I added afterward are small. Combined, they mean that failure mode can't happen silently again — the artifact itself reports what went wrong, not just the runner logs that nobody reads unless something is already on fire. All three are implemented in scripts/market-listening/collect.mjs , with the 71-day blind spot documented in the inline comments. Pattern 1: sources_ok lives in the artifact, not the logs The daily output JSON now contains a sources_ok object with a boolean per source: { "sources_ok" : { "youtube" : true , "autocomplete" : true , "bluesky" : true }, "errors" : [], ... } If any YouTube request fails, sources_ok.youtube flips to false . The file that gets committed to git carries its own health signal. That's the core change: the failure state lives in the artifact, not in a log stream. Why this matters over logging: the committed artifact shows up in git diffs, gets reviewed in the daily health check, and is read by the interpretation layer before it uses any of the data. Logs from a GitHub Actions cron are reviewed only if someone suspects a problem. The artifact is reviewed on every downstream read. The pipeline health monitor checks sources_ok on every run and opens a GitHub issue if any source is false . The interpretation layer that reads these files is fail-closed on sources_ok : if sources_ok.youtube === false , the YouTube signals for that day are ignored rather than mixed into the weekly aggregate. Separating collection from interpretation makes this guard practical — the interpretation step reads the artifact and checks health before consuming any of the results. Pattern 2: errors[] alongside the results The boolean sources_ok tells you something failed. The errors array tells you what and when: function recordError ( source , detail ) { const entry = { source , detail , at : new Date (). toISOString () }; errors . push ( entry ); console . error ( `ERROR [ ${ source } ] ${ detail } ` ); return entry ; } Every failed fetch calls recordError with the source name, the error detail (including HTTP status codes), and an ISO timestamp. These accumulate in the errors array and are written into the same artifact as the successful results. The practical difference: if a run produces errors: [{ "source": "bluesky", "detail": "HTTP 403", "at": "2026-08-13T07:..." }] , I can see the exact failure mode without opening any runner log. After eight days of that, the error messages have been consistent enough that I know exactly what the Bluesky API is rejecting — not just "bluesky failed." The at timestamp matters too. If a script partially completes and then errors, the timestamps in errors[] tell you at what point in the run things started going wrong, without reconstructing it from log correlation. This is different from the approach I described in catching silent failures in a GitHub Actions pipeline , which focuses on job-level failures in CI. These failures are internal to a single job that mostly succeeds — partial failures within a healthy-looking run, which CI-level checks won't catch. Pattern 3: the vacuous-true guard on .every() The sources_ok flag for YouTube is computed by checking whether every query produced valid voted results: const ok = QUERIES . length &gt; 0 && QUERIES . every (( q ) =&gt; queries [ q ]. reps_ok &gt;= MIN_APPEARANCES && queries [ q ]. accepted &gt; 0 ); if ( ! ok ) recordError ( " youtube " , " one or more queries produced no voted results " ); Without QUERIES.length &gt; 0 , an accidentally-empty QUERIES array would satisfy .every() vacuously — [].every(fn) returns true for any fn . The script would commit an artifact with sources_ok.youtube = true and zero actual data inside. This is more plausible than it sounds. Any config change that blanks the query list — a bad merge, an over-aggressive deduplication, an env substitution that resolves to empty string — would silently produce an artifact that reports itself as healthy. The length guard is three tokens. The same pattern applies to any validation using .every() , .all() , or equivalent over a collection that can be empty. If an empty input is a failure condition — and it usually is — guard on length first. The validation chain length &gt; 0 && every(condition) handles it cleanly. What the three patterns give you together A single fetch failure: sources_ok flips to false. The git diff shows it. The health check catches it. The interpretation layer ignores that source for that day. The error detail explains what happened. A config accident that empties the query list: the length guard trips, the source reports false, the artifact contains no data but reports that explicitly rather than vacuously reporting success. An extended outage (like the current Bluesky block): eight consecutive artifacts, each with sources_ok.bluesky = false and matching error entries. The pattern in the committed history is unmistakable and requires no log archaeology. The 71-day Reddit blind spot was eventually caught from the outside — someone noticed the data wasn't changing. These patterns are designed to make that kind of failure visible from the inside, in the artifact itself, immediately on the day it happens. Part of an ongoing 6-month experiment running three AI-curated directory sites. The technical claims here are real; this article was AI-assisted.</p>
+    <p>The report highlights key developments related to "Three ETL failure patterns I now write into the output file, not just the logs", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/morinaga/three-etl-failure-patterns-i-now-write-into-the-output-file-not-just-the-logs-4in0" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
