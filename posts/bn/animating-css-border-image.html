@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সিএসএস বর্ডার-ইমেজ অ্যানিমেশনের সৃজনশীল কৌশল | AI News</title>
+<meta name="description" content="সিএসএস বর্ডার-ইমেজ স্লাইস অ্যানিমেট করার মাধ্যমে ওয়েব ডেভেলপাররা কোনো উপাদানে দৃষ্টিনন্দন এবং গতিশীল বর্ডার তৈরি করতে পারেন।">
+<meta name="keywords" content="সিএসএস, বর্ডার, ইমেজ, অ্যানিমেশনের, সৃজনশীল, কৌশল">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/animating-css-border-image.html">
+<meta property="og:title" content="সিএসএস বর্ডার-ইমেজ অ্যানিমেশনের সৃজনশীল কৌশল">
+<meta property="og:description" content="সিএসএস বর্ডার-ইমেজ স্লাইস অ্যানিমেট করার মাধ্যমে ওয়েব ডেভেলপাররা কোনো উপাদানে দৃষ্টিনন্দন এবং গতিশীল বর্ডার তৈরি করতে পারেন।">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/animating-css-border-image.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/bn/animating-css-border-image.html">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="সিএসএস বর্ডার-ইমেজ অ্যানিমেশনের সৃজনশীল কৌশল">
+<meta name="twitter:description" content="সিএসএস বর্ডার-ইমেজ স্লাইস অ্যানিমেট করার মাধ্যমে ওয়েব ডেভেলপাররা কোনো উপাদানে দৃষ্টিনন্দন এবং গতিশীল বর্ডার তৈরি করতে পারেন।">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/animating-css-border-image.jpg">
+<link rel="alternate" hreflang="en" href="https://jassyjhon567-art.github.io/AI-News/posts/en/animating-css-border-image.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/animating-css-border-image.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "সিএসএস বর্ডার-ইমেজ অ্যানিমেশনের সৃজনশীল কৌশল", "description": "সিএসএস বর্ডার-ইমেজ স্লাইস অ্যানিমেট করার মাধ্যমে ওয়েব ডেভেলপাররা কোনো উপাদানে দৃষ্টিনন্দন এবং গতিশীল বর্ডার তৈরি করতে পারেন।", "image": ["https://jassyjhon567-art.github.io/AI-News/images/animating-css-border-image.jpg"], "datePublished": "2026-08-15T18:31:35Z", "dateModified": "2026-08-15T18:31:35Z", "inLanguage": "bn", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/bn/animating-css-border-image.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/en/animating-css-border-image.html">English</a>
+  </div>
+  <h1>সিএসএস বর্ডার-ইমেজ অ্যানিমেশনের সৃজনশীল কৌশল</h1>
+  <div class="meta">css-tricks.com &middot; Mon, 10 Aug 2026 15:58:47 +0000</div>
+  <img class="hero-img" src="../../images/animating-css-border-image.jpg" alt="সিএসএস বর্ডার-ইমেজ অ্যানিমেশনের সৃজনশীল কৌশল" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">সিএসএস বর্ডার-ইমেজ স্লাইস অ্যানিমেট করার মাধ্যমে ওয়েব ডেভেলপাররা কোনো উপাদানে দৃষ্টিনন্দন এবং গতিশীল বর্ডার তৈরি করতে পারেন।</p>
+  <div class="content">
+    <p>আধুনিক ওয়েব ডিজাইনে অসাধারণ দৃশ্যগত সম্ভাবনা থাকা সত্ত্বেও সিএসএস বর্ডার-ইমেজ অন্যতম একটি কম ব্যবহৃত বৈশিষ্ট্য হিসেবে রয়ে গেছে। যেখানে সাধারণ ডিজাইনে সলিড, ড্যাশড বা গোলাকার সীমানার ওপর নির্ভর করা হয়, সেখানে বর্ডার-ইমেজ প্রোপার্টি ব্যবহার করে ডেভেলপাররা কাস্টম গ্রাফিক্স এবং গ্রেডিয়েন্টের মাধ্যমে উপাদানগুলোকে সাজাতে পারেন। প্রচলিত নকশার সীমাবদ্ধতা অতিক্রম করে এটি ওয়েবসাইটে অনন্য নান্দনিকতা যোগ করার সুযোগ দেয়।</p>
+    <p>এই কৌশলের একটি বিশেষ দিক হলো কোনো উপাদানের চারপাশের বর্ডার-ইমেজ স্লাইস কীভাবে কাজ করে তা নিয়ন্ত্রণ করা। স্লাইসিংয়ের মান, গ্রেডিয়েন্ট অফসেট কিংবা মূল ইমেজে কি-ফ্রেম অ্যানিমেশন প্রয়োগ করে একটি ফ্রেমের চারপাশ জুড়ে মসৃণ ও ধারাবাহিক গতি তৈরি করা সম্ভব। এই পদ্ধতিটি জটিল জাভাস্ক্রিপ্ট অ্যানিমেশন বা অতিরিক্ত এইচটিএমএল উপাদানের ওপর নির্ভর না করেই হালকা ও উচ্চ-দক্ষতাসম্পন্ন ভিজ্যুয়াল ইফেক্ট প্রদান করে।</p>
+    <p>সিএসএস-ট্রিকসের মতো ডেভেলপার কমিউনিটিতে শেয়ার করা এসব কৌশল দেখায় কীভাবে সিএসএসের গভীর ব্যবহারের মাধ্যমে সাধারণ ইন্টারফেসকে আকর্ষণীয় করে তোলা যায়। আধুনিক ওয়েব ডিজাইনে অ্যানিমেটেড বর্ডার-ইমেজ যুক্ত করার মাধ্যমে ইন্টারঅ্যাক্টিভ বাটন এবং গুরুত্বপূর্ণ উপাদানগুলোকে সুন্দরভাবে উপস্থাপন করা সম্ভব, যা সাইটের লোডিং গতি বা কার্যক্ষমতাকে কোনোভাবেই ব্যাহত করে না।</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://css-tricks.com/animating-css-border-image/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
