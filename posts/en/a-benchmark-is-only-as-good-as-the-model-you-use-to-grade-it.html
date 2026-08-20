@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A benchmark is only as good as the model you use to grade it | AI News</title>
+<meta name="description" content="I built a pytest harness that runs the same set of questions through five language models at once - a free local Llama, plus GPT, DeepSeek, and two Claude models - and compares...">
+<meta name="keywords" content="benchmark, only, good, model, you, use, grade">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.html">
+<meta property="og:title" content="A benchmark is only as good as the model you use to grade it">
+<meta property="og:description" content="I built a pytest harness that runs the same set of questions through five language models at once - a free local Llama, plus GPT, DeepSeek, and two Claude models - and compares...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A benchmark is only as good as the model you use to grade it">
+<meta name="twitter:description" content="I built a pytest harness that runs the same set of questions through five language models at once - a free local Llama, plus GPT, DeepSeek, and two Claude models - and compares...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "A benchmark is only as good as the model you use to grade it", "description": "I built a pytest harness that runs the same set of questions through five language models at once - a free local Llama, plus GPT, DeepSeek, and two Claude models - and compares...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.jpg"], "datePublished": "2026-08-20T12:49:39Z", "dateModified": "2026-08-20T12:49:39Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.html">বাংলা</a>
+  </div>
+  <h1>A benchmark is only as good as the model you use to grade it</h1>
+  <div class="meta">dev.to &middot; Thu, 20 Aug 2026 12:25:39 +0000</div>
+  <img class="hero-img" src="../../images/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it.jpg" alt="A benchmark is only as good as the model you use to grade it" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">I built a pytest harness that runs the same set of questions through five language models at once - a free local Llama, plus GPT, DeepSeek, and two Claude models - and compares...</p>
+  <div class="content">
+    <p>I built a pytest harness that runs the same set of questions through five language models at once - a free local Llama, plus GPT, DeepSeek, and two Claude models - and compares them on the three things a team pays for: cost per query, speed, and answer quality. The plan was simple. Run the grid, read the scoreboard, say which model to use. The scoreboard came back clean and easy to read. This is the story of why I didn't trust it, and what I found when I checked. The thing I stopped trusting wasn't any of the models. It was the tool I was using to score them. It's also the first project in this series that spends real money. Every one before it ran locally, for free. Here each call costs something, and the whole comparison came to about 21 cents. That price is small, but it changed how I tested, and not in the way I expected. The scoreboard, and why I didn't stop there Five models, the same ten questions, twice each, every call measured. Here is the run, ordered by quality score (a second model grades each answer on correctness and relevance, combined into a 0-1 score, pass line 0.7): model quality mean $/query mean latency out-tokens deepseek-v4-pro 0.970 $0.000138 2713 ms 113 claude-haiku-4-5 0.967 $0.000537 1597 ms 104 gpt-5.6-luna 0.962 $0.000082 1323 ms 65 claude-sonnet-5 0.937 $0.002426 4093 ms 239 llama3.2 (local) 0.922 $0.000000 7859 ms 130 Read it straight and it looks finished. The whole quality column sits in a tiny band, 0.92 to 0.97. The cheapest, fastest paid model scores right in there with the rest. The most expensive one, Sonnet, at about thirty times the price per query, sits no higher than the others - its answers are just longer (239 tokens to GPT's 65), which costs more and takes longer without scoring better. So the easy takeaway is: use the small cheap model, skip the expensive one. I want to be careful with that, because it's the kind of tidy result I've learned to distrust. The gaps between the top models are tiny, and a ranking built on tiny gaps usually isn't saying what it looks like it's saying. Then I checked whether the win was real So before ranking anything, I put a range around each score - and around the difference between each pair of models on the same questions - to see whether the gaps were real or just noise. Every paid-vs-paid range crossed zero. Which means: on this set of questions, the paid models are a tie on quality. The order between them is noise. I can show how much noise - this run GPT came third, and a previous run the same setup put GPT first. The ranking moved. The tie didn't. So I don't want to say "model X is best." The honest version is smaller: the paid models score about the same here, so quality doesn't pick between them. If you have to choose, it comes down to cost and speed, not the score. That's a weaker claim than a leaderboard, and it's the one that holds up when you run it again. The judge was one of the contestants Every quality number came from a judge. And the judge was the free local Llama - which is also one of the five models being graded. A contestant was scoring its own group, and scoring bigger models it isn't really equipped to grade. The whole quality side of the benchmark leaned on that. So I asked the project's own question one level up. It asks "cheap model or expensive one?" I asked the same thing about the judge. I re-graded the same 200 saved answers with a paid judge instead. No model was called again - the judge only reads the answer text already sitting on disk - so the re-grade cost about three cents. The swap did one thing, over and over: answer model cheap judge paid judge pass rate (cheap -&gt; paid) claude-haiku-4-5 0.969 1.000 40/40 -&gt; 40/40 gpt-5.6-luna 0.966 1.000 39/40 -&gt; 40/40 deepseek-v4-pro 0.957 1.000 40/40 -&gt; 40/40 claude-sonnet-5 0.938 0.997 39/40 -&gt; 40/40 llama3.2 (local) 0.936 0.919 39/40 -&gt; 35/40 &lt;- the only one that drops Every paid model went up toward the top. Llama was the only one that went down. Under the cheap judge it looked a hair behind the pack (0.936, just under Sonnet). Under the better judge the gap opened, and its pass rate fell from 39 out of 40 to 35 out of 40, while every paid model held at a clean 40. The cheap judge had been closing a gap that the better judge shows is real. Then I read the answers where the two judges disagreed, which is the only place you actually learn anything. They weren't random. The same thing kept happening: the cheap judge was too soft on the weak model's wrong answers. Those wrong answers came from a second, harder set. The easy ten couldn't separate the models - everyone passed - so I wrote ten more with real traps, the kind of question where a weak model actually slips. That's where the gap shows up: "What is the only sea with no land coastline?" (Sargasso). Llama answered "the Mediterranean Sea" - wrong. The cheap judge gave it 8 out of 10 for correctness and passed it. The paid judge gave it 0 out of 10 and failed it. "How many r's in strawberry?" (three). Llama answered "twice." The cheap judge passed it as partly right. The paid judge failed it. A wrong sea and a wrong count, both passed, by the judge every quality number in the benchmark depended on. That's the finding I care about most. The cheap judge isn't just softer across the board. It's soft in the one spot a benchmark most needs it to be strict: catching a weak model's wrong answers. If I'd trusted its totals, I'd have shipped a scoreboard that scored real mistakes as passes. It wasn't only the wrong answers Once I stopped trusting the judge, the same thing showed up elsewhere. I ran a pairwise test: show the judge two answers to one question, ask which is better, then show it the same two swapped. Nothing about the answers changed, only the order. A judge going on quality picks the same one both times. When it picks differently, it went on position, not quality. On the easy questions the cheap judge changed its winner on 45% of the pairs - nearly half - when the only thing that moved was the order. The paid judge did that on 19%. And when the cheap judge flipped, 42 out of 45 times it landed on whichever answer it saw first. It wasn't weighing the answers, it was rewarding the top slot. You can watch it happen in its own reasoning. On "how many planets are in our solar system," both answers said eight and listed them - the same answer, really. Shown one of them first, the cheap judge praised it for mentioning Pluto's reclassification. Shown the other first - the one that left Pluto out - it praised that one for not bringing Pluto up. Same question, opposite reasons, and both times it picked whatever was on top. It played favourites too. Grading a group it was competing in, it ranked its own answers third of five, when scored on their own they come last. Same lesson as the sea and the strawberry: the cheap judge is a worse tool, and a benchmark is only as good as the judge that scores it. The evidence had to be able to rebuild itself There's a scar behind these numbers. I had a rule from the earlier projects: keep every receipt, never throw away the raw output a claim rests on. For the position-bias finding I did that by hand - I copied the judge's exact words into the writeup as proof. Later I wanted to point each quote back to the exact call it came from. But the first run had only saved the judge's verdict, not its reasoning, so to get the wording again I had to run it again. And re-running gives you new answers - that's just what these models do, the same question comes back different. So the words I'd copied now described answers that no longer existed. My proof was pointing at nothing. The rule wasn't wrong, it just wasn't enough. Evidence you freeze by hand drifts the moment the thing it describes moves. So I changed how the receipts work: nothing is frozen by hand anymore. Every quote and every number in the writeups is rebuilt by a small generator that reads the same saved answers the report reads, so the proof and the report come from one place and can't drift apart. If I can't rebuild a receipt from the saved answers, it isn't a receipt. That's also the honest version of a line I keep repeating - the scores here are one run. A re-run moves them, which is the exact thing that once left my evidence pointing at nothing. What the price tag changed Here's the part I didn't see coming, and it's why this project felt different from the four before it. When every call costs money, there's a steady pull to test less. Run one pass instead of two. Use the free judge instead of paying for a good one. Try one question and call it done. The whole thing here cost about 21 cents, and the instinct the price creates is to push that toward zero. That instinct is backwards, and this run showed it on itself. The one place I "spent extra" was running every question twice. By the save-money logic the second pass is waste - the same question again. But three of the five models scored 19 out of 20 instead of a clean sweep, and reading the runs showed why: those answers sit right on the pass line and cross it between the two passes. Pass the first time, fail the second, same question. One pass would have recorded a coin flip as a fact. The "wasteful" second pass was the one that told the truth. So the money didn't make me test less. It made me test on purpose. Every call had to earn its place, which is what a test should do anyway. Normal automation hides the cost, so nobody asks whether a given test is worth running. A price per call puts that question in front of you. The few cents you save by testing less can buy you the wrong model, or a judge you can't trust, and that choice gets multiplied by every request you ever serve. The cheap-out is the expensive mistake. What I'd tell someone starting out Two things, and neither is about a specific model. Don't rank models on the raw scores alone. The scores here differ by a hundredth of a point, and a gap that small is usually just luck - run it again and it moves. So before trusting any order, I checked how much each score would swing on a re-run, and once you allow for that swing the paid models come out the same. That check turns "model X wins" into the truer, more useful "these are a tie, decide on cost." And don't let the thing you're testing also be the thing that grades the test. The whole quality side of this benchmark ran through a judge that was one of the models, wasn't strong enough for the job, and passed the exact answers I most needed it to catch. I only saw it because I paid a few cents to grade the answers a second way and read where the two disagreed. That reading was the work. Keep the size honest too: ten easy questions plus a harder set, two passes, one local model and four paid ones. The exact scores are one run - run it again and they move, sometimes enough to reorder the list. What stays the same is the shape: the paid models tie, the cheap judge makes the weak model look better than it is, and the second pass earns its cost. Those carry over. The exact numbers don't, and saying so is part of the job. Repo: github.com/sbezjak/llm-benchmark This is the fifth and last of five projects on testing AI systems, after an eval harness , a RAG system , a red-team suite , and an agent tester . This one closes the loop: the judge you use to grade all of them is the thing you have to check first. Next isn't a project. It's an article on what all five taught me about working with the model, not just testing it - and I'm not just writing the lessons down, I'm testing them back on the projects to see if they hold.</p>
+    <p>The report highlights key developments related to "A benchmark is only as good as the model you use to grade it", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/sara_bezjak/a-benchmark-is-only-as-good-as-the-model-you-use-to-grade-it-4h01" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
