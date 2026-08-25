@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost) | AI News</title>
+<meta name="description" content="Why a Local RAG Chatbot for Trading Research Most &quot;AI trading assistant&quot; products are black boxes: your notes, strategy docs, and market notes get shipped to a third-party API,...">
+<meta name="keywords" content="build, local, rag, chatbot, trading, research, using, ollama, termux, zero, api, cost">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.html">
+<meta property="og:title" content="Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost)">
+<meta property="og:description" content="Why a Local RAG Chatbot for Trading Research Most &quot;AI trading assistant&quot; products are black boxes: your notes, strategy docs, and market notes get shipped to a third-party API,...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost)">
+<meta name="twitter:description" content="Why a Local RAG Chatbot for Trading Research Most &quot;AI trading assistant&quot; products are black boxes: your notes, strategy docs, and market notes get shipped to a third-party API,...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost)", "description": "Why a Local RAG Chatbot for Trading Research Most \"AI trading assistant\" products are black boxes: your notes, strategy docs, and market notes get shipped to a third-party API,...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.jpg"], "datePublished": "2026-08-25T12:51:40Z", "dateModified": "2026-08-25T12:51:40Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.html">বাংলা</a>
+  </div>
+  <h1>Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost)</h1>
+  <div class="meta">dev.to &middot; Tue, 25 Aug 2026 12:31:40 +0000</div>
+  <img class="hero-img" src="../../images/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost.jpg" alt="Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost)" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">Why a Local RAG Chatbot for Trading Research Most "AI trading assistant" products are black boxes: your notes, strategy docs, and market notes get shipped to a third-party API,...</p>
+  <div class="content">
+    <p>Why a Local RAG Chatbot for Trading Research Most "AI trading assistant" products are black boxes: your notes, strategy docs, and market notes get shipped to a third-party API, billed per token, and stored who-knows-where. For a retail NIFTY trader or a quant researcher, that is the worst of all worlds — you pay continuously, you leak your edge, and you cannot audit what the model actually read. This guide shows how to build a Retrieval-Augmented Generation (RAG) chatbot that runs 100% locally on an Android phone using Termux + Ollama. It ingests your own research (PDFs, markdown notes, option-chain exports) and answers questions grounded only in that data. No OpenAI key. No Anthropic key. No monthly bill. No data leaving the device. OBSERVED: Running ollama run llama3.2 on a mid-range phone inside Termux is slow but usable for document Q&A (3–8 tokens/sec). On a laptop it is smooth. SOURCE: Local testing on Termux 0.118, Ollama 0.3.x, Android 14. DERIVED: For production research volumes, run Ollama on a spare x64 machine and point Termux at it over LAN. What You Will Build A four-part pipeline: Ingest — load your research docs (markdown, PDF, CSV) into chunks. Embed — turn chunks into vectors with a local embedding model. Store — keep vectors in a local file-based index (no server needed). Answer — retrieve top-k chunks and ask a local LLM to answer strictly from them. The whole thing is ~200 lines of Python. No paid APIs. Prerequisites Android phone with Termux installed (F-Droid version, not Play Store). ~2 GB free storage. Basic Python comfort. pkg update && pkg upgrade -y pkg install python clang ffmpeg -y pip install ollama numpy Install Ollama inside Termux: curl -fsSL https://ollama.com/install.sh | sh NOTE: The official install script targets Linux. On Termux you often need the community build. If the script fails, install the ollama package via a Termux-compatible binary or run Ollama on a LAN machine and use ollama serve remotely. Pull a small model and an embedding model: ollama pull llama3.2 ollama pull nomic-embed-text Step 1 — Ingest Your Research Create a docs/ folder and drop in your material: strategy notes ( .md ), exported option-chain snapshots ( .csv ), PDFs of NISM material, etc. import os , glob , re def load_text ( path ): if path . endswith ( " .md " ) or path . endswith ( " .txt " ): return open ( path , encoding = " utf-8 " , errors = " ignore " ). read () if path . endswith ( " .csv " ): return open ( path , encoding = " utf-8 " , errors = " ignore " ). read () # PDF would need PyPDF2; keep it simple for the guide return "" raw = [] for p in glob . glob ( " docs/* " ): txt = load_text ( p ) if txt : raw . append (( p , txt )) print ( f " Loaded { len ( raw ) } documents " ) Step 2 — Chunk With Overlap Naive splitting breaks tables and sentences. Use a sliding window with overlap so context survives the cut. def chunk ( text , size = 600 , overlap = 100 ): words = text . split () out = [] i = 0 while i &lt; len ( words ): out . append ( " " . join ( words [ i : i + size ])) i += size - overlap return out chunks = [] meta = [] for name , txt in raw : for c in chunk ( txt ): chunks . append ( c ) meta . append ( name ) print ( f " Total chunks: { len ( chunks ) } " ) DERIVED: A 600-word window with 100-word overlap keeps most option-chain tables and bullet lists intact while staying under the embedding model's token limit. Step 3 — Embed Locally Use nomic-embed-text through Ollama's API. This runs on-device. import ollama , numpy as np def embed ( texts ): vecs = [] for t in texts : r = ollama . embeddings ( model = " nomic-embed-text " , prompt = t ) vecs . append ( r [ " embedding " ]) return np . array ( vecs ) X = embed ( chunks ) np . save ( " index_vecs.npy " , X ) import json json . dump ( meta , open ( " index_meta.json " , " w " )) print ( " Embedded " , X . shape ) No data left your phone. The embeddings are computed by the local model. Step 4 — Retrieve by Similarity At query time, embed the question and find the nearest chunks with cosine similarity. def retrieve ( query , k = 4 ): q = ollama . embeddings ( model = " nomic-embed-text " , prompt = query )[ " embedding " ] q = np . array ( q ) sims = X @ q / ( np . linalg . norm ( X , axis = 1 ) * np . linalg . norm ( q ) + 1e-9 ) top = sims . argsort ()[ - k :][:: - 1 ] return [ chunks [ i ] for i in top ] context = " \n\n " . join ( retrieve ( " What was our stop-loss rule for NIFTY weekly expiry? " )) print ( context [: 800 ]) Step 5 — Grounded Answer (No Hallucination) The key RAG rule: the LLM may only use the retrieved context. We force this by prepending the context and instructing the model to say "not in my notes" when absent. def answer ( query ): ctx = " \n\n " . join ( retrieve ( query , k = 4 )) prompt = f """ Answer ONLY using the context below. If the answer is not in the context, say " Not in my research notes. " CONTEXT: { ctx } QUESTION: { query } ANSWER: """ r = ollama . generate ( model = " llama3.2 " , prompt = prompt , options = { " temperature " : 0 }) return r [ " response " ] print ( answer ( " Summarize our PCR-based filter for Bank Nifty entries " )) Because the prompt carries the source text, the model cannot invent facts it was not given. That is the entire point of RAG for trading research: reproducible, citable answers from your own edge. Why This Beats a Cloud Assistant for Traders Concern Cloud assistant Local RAG (this guide) Monthly cost Per-token billing One-time, free after setup Data privacy Docs sent to vendor Never leaves device Auditability Opaque You hold the chunks Hallucination Possible Constrained to context Internet needed Yes No (after model download) OBSERVED: For a 50-document research folder (~300 chunks), retrieval is sub-second on-device; full answer generation takes 5–15s on phone, &lt;2s on laptop. Common Failure Modes (and Fixes) "Not in my research notes" too often → chunks too small or embedding model weak. Increase size to 900, or use mxbai-embed-large for better recall. Answers drift from context → lower temperature to 0, and add an explicit "quote the source sentence" instruction. Slow on phone → run Ollama on a LAN x64 box: ollama serve there, then point OLLAMA_HOST at it from Termux. PDFs not loading → add PyPDF2 extraction; keep PDFs text-layer clean. Production Hardening (If You Ship It) Swap the numpy index for chromadb or faiss when chunks exceed ~5,000. Add a CLI or simple Flask endpoint so you can query from a browser. Version your docs/ folder in Git so the knowledge base is reproducible. Log every query+answer pair for later review (your own data, your own server). FAQ Can this run fully offline? Yes — after you download llama3.2 and nomic-embed-text once over Wi-Fi, all inference and embedding happen on-device. No internet required for Q&A. Is the RAG answer guaranteed accurate? No model is. RAG reduces hallucination by constraining the model to retrieved context, but you must still verify trading decisions yourself. This is research tooling, not advice. Why not just use ChatGPT with file upload? File upload sends your documents to a third party, bills per token, and gives you no audit trail of what was read. For proprietary strategy notes, local RAG is the only privacy-preserving option. What model should I use on a low-end phone? llama3.2 (3B) is the practical floor. For embeddings, nomic-embed-text is small and good. On a laptop, llama3.1:8b gives noticeably better reasoning. How is this related to a trading AI engine? The same retrieval + grounding principle powers production trading research: capture real market data, store it, retrieve relevant slices, and let a model reason strictly from evidence — not from memory or hype. Final Word Building a local RAG chatbot is the difference between renting intelligence and owning a research tool. For a NIFTY or options trader sitting on years of notes, the math is simple: a one-time setup, zero recurring cost, full privacy, and answers you can trace back to the exact chunk you wrote. The code here is deliberately minimal so you can read every line. Clone it, point docs/ at your own research, and you have a private analyst that never sleeps and never bills you. Shakti Tiwari is an AI/ML builder and NISM-Series-XII certified educator, not a SEBI-registered research analyst. This is educational content, not trading advice.</p>
+    <p>The report highlights key developments related to "Build a Local RAG Chatbot for Trading Research Using Ollama + Termux (Zero API Cost)", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/shaktitiwari/build-a-local-rag-chatbot-for-trading-research-using-ollama-termux-zero-api-cost-5df4" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
