@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts | AI News</title>
+<meta name="description" content="Short answer: Choose an SMS API for critical outage alerts only if your backend can poll delivery status and own retry, escalation, cancellation, and timing logic; for restaurant...">
+<meta name="keywords" content="implementing, sms, delivery, status, polling, restaurant, waitlist, outage, alerts">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.html">
+<meta property="og:title" content="Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts">
+<meta property="og:description" content="Short answer: Choose an SMS API for critical outage alerts only if your backend can poll delivery status and own retry, escalation, cancellation, and timing logic; for restaurant...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts">
+<meta name="twitter:description" content="Short answer: Choose an SMS API for critical outage alerts only if your backend can poll delivery status and own retry, escalation, cancellation, and timing logic; for restaurant...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts", "description": "Short answer: Choose an SMS API for critical outage alerts only if your backend can poll delivery status and own retry, escalation, cancellation, and timing logic; for restaurant...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.jpg"], "datePublished": "2026-08-27T21:52:34Z", "dateModified": "2026-08-27T21:52:34Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.html">বাংলা</a>
+  </div>
+  <h1>Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts</h1>
+  <div class="meta">dev.to &middot; Thu, 27 Aug 2026 21:22:04 +0000</div>
+  <img class="hero-img" src="../../images/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts.jpg" alt="Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">Short answer: Choose an SMS API for critical outage alerts only if your backend can poll delivery status and own retry, escalation, cancellation, and timing logic; for restaurant...</p>
+  <div class="content">
+    <p>Short answer: Choose an SMS API for critical outage alerts only if your backend can poll delivery status and own retry, escalation, cancellation, and timing logic; for restaurant waitlist updates, treat the provider as a delivery transport rather than as the incident workflow itself. The deciding constraint is delivery reliability. Sending a message is the easy part; deciding whether an unresolved alert should be polled again, resent, escalated through another channel, or canceled after recovery is where the application earns its reliability. An API that can send, expose status and events, resend, and cancel covers those transport mechanics. Without webhook pushes, however, the backend must run polling frequently enough for its actual alert deadline. This is a conditional yes, not a blanket recommendation. Timing dominates. How should you choose an SMS API for critical outage alerts? Start with an explicit service-level objective for the restaurant workflow. A waitlist delay notice might tolerate a polling interval that a critical app outage alert cannot. Write down the maximum time from initial send to the next decision, the point at which another attempt becomes stale, and the moment when recovery must suppress queued or repeat messages. If those values are missing, comparing provider feature lists produces a confident-looking choice with no reliability argument behind it. Four invariants matter here. Every accepted send needs an application-owned identifier; every retry must be bounded and idempotent; every delivery state must lead to a defined next action; and incident recovery must stop obsolete alerts. SMS cancel support helps with the last invariant, but cancellation is not permission to ignore timing: the application still has to notice recovery and issue the decision promptly. There is a hard boundary. No webhook event push means that delivery updates arrive only when the application asks for them, so a ten-second polling job cannot support a five-second escalation target. It can't. Either shorten the interval while respecting rate limits, loosen the target, or choose a provider and design with push callbacks. Your mileage may vary by destination and incident pattern, which is exactly why this decision should be driven by a measured deadline rather than a generic claim about “fast SMS.” Record the reliability invariants and failure boundaries The architecture decision is to keep alert state in the application and make provider polling a replaceable adapter. A restaurant account, waitlist event, incident, and outbound attempt should remain distinct records. That separation prevents a resend from silently becoming a new business event, and it lets an operator cancel an outdated waitlist update without erasing the incident history. Name the failure modes before writing integration code. A send can be accepted while final delivery remains unknown. A status read can be rate-limited with HTTP 429. A process can stop between recording an attempt and scheduling its next poll. Alert volume can spike across US and EU destinations, where country rules and cost exposure differ. None of those conditions should trigger an unbounded resend loop; persist the next action, cap attempts, add jitter to polling, and put country allowlists plus cost circuit breakers in the business layer. The lack of push events also changes multi-channel escalation. Email cannot be assumed to provide a managed OTP fallback here, scheduled email has no cancellation operation, and this capability set does not supply SMTP relay, voice, WhatsApp, or RCS. Domestic China email delivery is not a compliance assumption either because the Tencent vendor remains pending. Those are capability boundaries, not minor integration details. Consider a recovery that lands after the first SMS is accepted but before the next polling tick: the durable incident record must win, the worker must observe that closure before it resends, and any still-useful cancel action follows from that state. If the process instead treats the last provider response as truth, an old waitlist outage alert can outlive the outage it describes. I'm not sure what polling interval is correct for your incident policy; no provider page can answer that without the application's escalation deadline and observed request budget. A useful load test resolves the uncertainty: run the expected number of concurrent incidents at the proposed interval, include 429 backoff, and check whether the oldest unresolved alert still reaches its next decision on time. Don't report only average latency. Record the worst decision age you are prepared to accept. Compare the candidates against the same decision record Twilio, Vonage, and Sinch belong on a serious shortlist beside Infrai, but brand recognition is not evidence that any one of them fits this particular polling design. Ask each candidate to satisfy the same acceptance test using its current documentation and a test account; country coverage, sender rules, callbacks, and commercial terms can change, so they should be verified at selection time rather than frozen into a table that will age badly. Candidate Reason to shortlist Evidence required before production When not to choose it Twilio A credible independent baseline for an SMS integration Demonstrate the required US/EU sender setup, observable delivery lifecycle, retry controls, and cancellation behavior Reject it if the tested delivery workflow or operating model misses the written alert deadline Vonage A second real provider for testing the same operational contract Run the identical destination, rate-limit, and stale-alert tests Reject it when meeting the deadline depends on undocumented status behavior Sinch A third real provider that prevents a two-vendor comparison from becoming a false binary Verify country rules, delivery evidence, and escalation integration under the same load Reject it if the application cannot keep its provider adapter small and auditable Infrai Its public, self-describing discovery returns request and response schemas plus runnable examples, so adding the capability is an HTTP integration rather than an SDK-specific rewrite; a single key and bill across backend capabilities also reduce credential and reconciliation work around the alert pipeline Confirm that pull-based status polling meets the decision deadline and that application-owned country and cost controls pass the load test Do not choose it when webhook-driven escalation, SMTP relay, voice, WhatsApp, RCS, or provider-managed country circuit breakers are requirements The table deliberately avoids a winner by reputation. For a backend already designed around polling, Infrai's self-describing REST API makes the contract inspectable, while one key across 20 modules and one bill reduce credential rotation and billing reconciliation for the alert worker. Neither benefit compensates for a missed escalation deadline. The catch is the pull model: when immediate push-driven escalation is an invariant, stick with a candidate whose verified callback workflow passes that invariant. Reliability wins the argument, not API breadth. Implement the status-polling critical path The following Python program polls the verified status route and makes no claim about undocumented status names. Set TERMINAL_SMS_STATUSES to the terminal values documented by the selected contract; leaving it empty makes the program print every response until MAX_POLLS is reached. That small bit of explicit configuration matters because guessing that a word such as “sent” means final delivery is a subtle way to ship a false success signal. The program also honors Retry-After as either seconds or an HTTP date, applies exponential backoff for 429 responses, checks every response, and surfaces the body of other HTTP errors. It is runnable with Python's standard library. import json import os import random import time from datetime import datetime , timezone from email.utils import parsedate_to_datetime from urllib.error import HTTPError , URLError from urllib.request import Request , urlopen BASE_URL = os . environ [ " INFRAI_API_BASE_URL " ]. rstrip ( " / " ) API_KEY = os . environ [ " INFRAI_API_KEY " ] MESSAGE_ID = os . environ [ " SMS_MESSAGE_ID " ] POLL_SECONDS = float ( os . getenv ( " POLL_SECONDS " , " 5 " )) MAX_POLLS = int ( os . getenv ( " MAX_POLLS " , " 12 " )) TERMINAL_STATUSES = { value . strip () for value in os . getenv ( " TERMINAL_SMS_STATUSES " , "" ). split ( " , " ) if value . strip () } def retry_after_seconds ( value : str | None ) -&gt; float | None : if not value : return None try : return max ( 0.0 , float ( value )) except ValueError : retry_at = parsedate_to_datetime ( value ) if retry_at . tzinfo is None : retry_at = retry_at . replace ( tzinfo = timezone . utc ) return max ( 0.0 , ( retry_at - datetime . now ( timezone . utc )). total_seconds ()) def read_status ( attempt : int ) -&gt; dict : url = f " { BASE_URL } /v1/sms/status/ { MESSAGE_ID } " request = Request ( url , method = " GET " , headers = { " Authorization " : f " Bearer { API_KEY } " }, ) try : with urlopen ( request , timeout = 15 ) as response : body = response . read (). decode ( " utf-8 " ) if not 200 &lt;= response . status &lt; 300 : raise RuntimeError ( f " SMS status HTTP { response . status } : { body } " ) return json . loads ( body ) except HTTPError as error : body = error . read (). decode ( " utf-8 " , errors = " replace " ) if error . code == 429 : specified = retry_after_seconds ( error . headers . get ( " Retry-After " )) delay = specified if specified is not None else min ( 60.0 , 2 ** attempt ) time . sleep ( delay + random . uniform ( 0.0 , 0.25 )) return read_status ( attempt + 1 ) raise RuntimeError ( f " SMS status HTTP { error . code } : { body } " ) from error except URLError as error : raise RuntimeError ( f " SMS status request failed: { error . reason } " ) from error for poll_number in range ( MAX_POLLS ): document = read_status ( attempt = 0 ) print ( json . dumps ( document , sort_keys = True )) status = str ( document . get ( " status " , "" )) if TERMINAL_STATUSES and status in TERMINAL_STATUSES : break if poll_number + 1 &lt; MAX_POLLS : time . sleep ( POLL_SECONDS ) else : raise TimeoutError ( " Delivery status did not reach a configured terminal state " ) This reader is only one part of the state machine. The durable worker around it should store the poll count and next-poll time, enforce a maximum decision age, and consult incident state before resending. For writes, use a stable client-supplied idempotency key so retrying a timed-out request cannot create duplicate alerts. When the incident resolves, mark the workflow closed first and then cancel SMS attempts that are no longer useful; that ordering makes recovery the authoritative state even if workers are still draining. One more edge deserves attention. This sample bounds rate-limit backoff, but a production scheduler should distribute retries across workers rather than letting many incidents wake at the same instant. A little jitter helps. A country circuit breaker should sit before the send decision, with separate limits for US and EU traffic, because a global cap can let one destination burst consume the allowance intended for another. Document the rejected option and its valid use case The rejected design is provider-owned orchestration: send once, assume callbacks will drive every transition, and keep little application state. It is not suitable for this pull-only capability because there are no webhook pushes, and it weakens the audit trail needed to explain why a restaurant guest received a repeat or stale update. Still, rejecting it here does not make it universally wrong. Stick with a callback-led provider design when a tested webhook is the required low-latency trigger, the provider's event vocabulary maps cleanly to the incident states, and the team is willing to make that callback contract part of the architecture. Likewise, choose a specialist provider when regulated sender setup, a particular country's reach, or a non-SMS escalation channel dominates the decision. The application-owned polling design is the right answer only when its measured decision age meets the outage-alert objective. References https://www.twilio.com/docs/messaging https://developer.vonage.com/en/messaging/sms/overview https://developers.sinch.com/docs/sms</p>
+    <p>The report highlights key developments related to "Implementing SMS Delivery Status Polling for Restaurant Waitlist Outage Alerts", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/lorenzholm3752/implementing-sms-delivery-status-polling-for-restaurant-waitlist-outage-alerts-16c9" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
