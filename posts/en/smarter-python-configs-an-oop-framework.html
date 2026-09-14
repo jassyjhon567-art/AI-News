@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smarter Python Configs: an OOP Framework | AI News</title>
+<meta name="description" content="Originally published on wisl.dev . Update: this framework grew into bakefile , a task runner: the same base, service, and instance inheritance, rearchitected and published as a...">
+<meta name="keywords" content="smarter, python, configs, oop, framework">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/smarter-python-configs-an-oop-framework.html">
+<meta property="og:title" content="Smarter Python Configs: an OOP Framework">
+<meta property="og:description" content="Originally published on wisl.dev . Update: this framework grew into bakefile , a task runner: the same base, service, and instance inheritance, rearchitected and published as a...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/smarter-python-configs-an-oop-framework.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/smarter-python-configs-an-oop-framework.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smarter Python Configs: an OOP Framework">
+<meta name="twitter:description" content="Originally published on wisl.dev . Update: this framework grew into bakefile , a task runner: the same base, service, and instance inheritance, rearchitected and published as a...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/smarter-python-configs-an-oop-framework.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/smarter-python-configs-an-oop-framework.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/smarter-python-configs-an-oop-framework.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Smarter Python Configs: an OOP Framework", "description": "Originally published on wisl.dev . Update: this framework grew into bakefile , a task runner: the same base, service, and instance inheritance, rearchitected and published as a...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/smarter-python-configs-an-oop-framework.jpg"], "datePublished": "2026-09-14T03:38:33Z", "dateModified": "2026-09-14T03:38:33Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/smarter-python-configs-an-oop-framework.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/smarter-python-configs-an-oop-framework.html">বাংলা</a>
+  </div>
+  <h1>Smarter Python Configs: an OOP Framework</h1>
+  <div class="meta">dev.to &middot; Mon, 14 Sep 2026 03:17:49 +0000</div>
+  <img class="hero-img" src="../../images/smarter-python-configs-an-oop-framework.jpg" alt="Smarter Python Configs: an OOP Framework" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">Originally published on wisl.dev . Update: this framework grew into bakefile , a task runner: the same base, service, and instance inheritance, rearchitected and published as a...</p>
+  <div class="content">
+    <p>Originally published on wisl.dev . Update: this framework grew into bakefile , a task runner: the same base, service, and instance inheritance, rearchitected and published as a library. The story behind it: Developer Workflows Need an Abstraction . Managing configurations across multiple environments and services is one of those things that should be simple, but rarely is. If you've worked with .env files, you know the drill: every environment (e.g., sit , uat , canary , prod ) has its own set of config files, and every service (be it Cloud Run, Dataflow, or others) duplicates a large portion of the same values. Add CI/CD pipelines into the mix, and the friction becomes obvious. Slight changes in config require regenerating .env files, updating deployment scripts, and often maintaining separate CI/CD logic per service and per environment. This setup creates redundancy and slows down delivery. So I built an OOP-based configuration framework in Python , built on top of Pydantic, to simplify and centralize configuration management . Here's how it works. Why do configs get so redundant? In most systems, we deal with multiple environments, such as sit (system integration test), uat (user acceptance test), canary , and prod (production). Some teams might use different naming conventions like dev , qa , stage , or preprod , but the core challenge remains the same: Each environment requires its own config setup , often with small differences. Additionally: Each service (e.g., Dataflow job, Cloud Run service) needs its own config. A large portion of the config values are shared (Docker registry URLs, GCP credentials, etc). CI/CD pipelines often need to be duplicated to reflect these separate configurations. That's a lot of repetitive work for something that's logically hierarchical and composable . The tell-tale smell: a config change that touches three environments means three .env edits, three deployment-script checks, and three chances to get it wrong. Hierarchy collapses all of that into one edit at the right layer. What does a layered config look like? Layered composition: the base layer holds shared values, service and instance mixins add specifics, and the environment mixin flips the switches Instead of treating configs as raw key-value pairs in .env , I defined them as Python classes , layered to reflect how configs are structured in reality. The framework is built on Pydantic's BaseModel for type-safe config validation, and Object-Oriented Programming (OOP) to encourage composition and reuse. Let's walk through the layers. Base Layer: BaseConfigs Contains shared, global settings like: env : environment identifier (e.g., sit , prod ) is_localhost : true/false for local development logging_level_per_module Local GCP credentials path Also provides template methods such as: setup_environment() deploy() assert_deploy() Each environment-specific mixin (e.g., ProdConfigsMixin ) will override env = "prod" and anything else environment-specific. Service Layer: e.g. DataflowConfigsMixin , CloudRunConfigsMixin Contains service-specific variables: For example, in DataflowConfigsMixin : dataflow_job_name dataflow_gcp_project dataflow_subnetwork Also contains service-specific behavior like: deploy() method for triggering Dataflow job assert_deploy() logic tailored to Dataflow logs or job status For a Cloud Run-based service, you'd swap in CloudRunConfigsMixin . Instance Layer: e.g. DataflowJobAConfigsMixin Overrides any instance-specific config: dataflow_job_name = "dataflow_job_a" assert_deploy() might validate output in BigQuery or check an API result Each job or service instance gets its own mixin, where you specialize the behavior. How do the pieces come together? Here's how all the pieces assemble in configs.py : sit_configs = SitCommonConfigs () uat_configs = UatCommonConfigs () canary_configs = CanaryCommonConfigs () prod_configs = ProdCommonConfigs () configs = get_configs ( prod_configs = prod_configs , canary_configs = canary_configs , uat_configs = uat_configs , sit_configs = sit_configs , ) get_configs() returns the config object for the current environment, determined by a single ENV variable in .env . Example of an environment-specific class: class ProdCommonConfigs ( DataflowJobAConfigsMixin , ProdDataflowConfigsMixin , DataflowConfigsMixin , ProdConfigsMixin , BaseConfigs , ): pass What does the CLI give us? We provide a small CLI tool ( ac , short for Abacus Configs ) with a few essential commands: ac echo_configs Outputs all resolved configs for the current environment: &gt; ac echo_configs export ENV=sit export IS_LOCALHOST=True export DATAFLOW_GCP_PROJECT=production-project ... You can use this in shell sessions or pipelines with: &gt; eval $( ac echo_configs ) This means you can dynamically generate environment variables from your Python config at runtime: no more handcrafting .env files for CI/CD. eval $(ac echo_configs) inside a pipeline step means the pipeline itself carries zero environment-specific values. The same YAML deploys sit , uat , and prod : only the ENV variable changes. ac deploy Triggers the appropriate deploy() method for the current config. Could be deploying a Dataflow job or pushing to Cloud Run, depending on the config object's class structure. ac assert_deploy Runs validations defined in the config class: Check for logs Confirm data landed in a target system Make an API call to confirm behavior This fine-grained control is often needed to test service correctness post-deployment. Why does this work? Because all config objects implement the same interface ( deploy , assert_deploy , etc.), CI/CD pipelines no longer need to be duplicated per service or environment. Here's what changes: Environment-specific behavior is encoded in the config object CI/CD pipelines can simply run ac deploy and ac assert_deploy in the right environment Adding a new service or environment requires only a new config class, not a whole new pipeline On top of that: Zero duplication : shared logic and values are defined once, and reused through inheritance Type-safe : configs are validated early using Pydantic Flexible overrides : environment, service, and instance layers allow for precise customizations Testable & extensible : logic like deploy() can easily be unit tested or extended Unified CI/CD : one pipeline logic to rule them all Where to take it next This configuration system has significantly reduced overhead for our dev teams. It's made configs declarative , validated , and reusable , and has unified deployment across environments and services. If you're finding yourself copying .env files, duplicating CI pipelines, or fighting config drift, this might be worth exploring in your Python projects.</p>
+    <p>The report highlights key developments related to "Smarter Python Configs: an OOP Framework", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/wisl/smarter-python-configs-an-oop-framework-2ggj" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
