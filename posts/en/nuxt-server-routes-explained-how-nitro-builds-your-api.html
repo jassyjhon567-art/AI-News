@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuxt Server Routes Explained: How Nitro Builds Your API | AI News</title>
+<meta name="description" content="Open any Nuxt project and there&#x27;s a good chance a server/api folder is already sitting in it — a hello.ts here, a login.post.ts there. Ask most people what it is and the answer is...">
+<meta name="keywords" content="nuxt, server, routes, explained, how, nitro, builds, your, api">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/nuxt-server-routes-explained-how-nitro-builds-your-api.html">
+<meta property="og:title" content="Nuxt Server Routes Explained: How Nitro Builds Your API">
+<meta property="og:description" content="Open any Nuxt project and there&#x27;s a good chance a server/api folder is already sitting in it — a hello.ts here, a login.post.ts there. Ask most people what it is and the answer is...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/nuxt-server-routes-explained-how-nitro-builds-your-api.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/nuxt-server-routes-explained-how-nitro-builds-your-api.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nuxt Server Routes Explained: How Nitro Builds Your API">
+<meta name="twitter:description" content="Open any Nuxt project and there&#x27;s a good chance a server/api folder is already sitting in it — a hello.ts here, a login.post.ts there. Ask most people what it is and the answer is...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/nuxt-server-routes-explained-how-nitro-builds-your-api.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/nuxt-server-routes-explained-how-nitro-builds-your-api.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/nuxt-server-routes-explained-how-nitro-builds-your-api.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Nuxt Server Routes Explained: How Nitro Builds Your API", "description": "Open any Nuxt project and there's a good chance a server/api folder is already sitting in it — a hello.ts here, a login.post.ts there. Ask most people what it is and the answer is...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/nuxt-server-routes-explained-how-nitro-builds-your-api.jpg"], "datePublished": "2026-09-29T12:15:08Z", "dateModified": "2026-09-29T12:15:08Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/nuxt-server-routes-explained-how-nitro-builds-your-api.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/nuxt-server-routes-explained-how-nitro-builds-your-api.html">বাংলা</a>
+  </div>
+  <h1>Nuxt Server Routes Explained: How Nitro Builds Your API</h1>
+  <div class="meta">dev.to &middot; Tue, 29 Sep 2026 12:10:53 +0000</div>
+  <img class="hero-img" src="../../images/nuxt-server-routes-explained-how-nitro-builds-your-api.jpg" alt="Nuxt Server Routes Explained: How Nitro Builds Your API" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';">
+  <p class="summary">Open any Nuxt project and there's a good chance a server/api folder is already sitting in it — a hello.ts here, a login.post.ts there. Ask most people what it is and the answer is...</p>
+  <div class="content">
+    <p>Open any Nuxt project and there's a good chance a server/api folder is already sitting in it — a hello.ts here, a login.post.ts there. Ask most people what it is and the answer is usually "the API routes." Ask what actually runs those files, in what order, and whether they can use the same useState or useRoute composables as the rest of the app, and the answers get much shakier. That gap is where the interesting bugs live: a middleware that silently runs before the one it's supposed to follow, an event handler that dies with useState is not defined for no obvious reason, a readBody() that comes back empty. This article is written against Nuxt 4.x (verified against the v4.5 release line, August 2026 — Nuxt 3 reached end-of-life on July 31, 2026). The directory names below assume the server/ layout, which — unlike pages/ , components/ , and the rest of your app code — stays at the project root in both Nuxt 3 and Nuxt 4's new app/ -nested structure. If you've read the hydration mismatch episode or the useState vs ref episode , this one picks up the other half of "what runs where": not the Vue app rendering twice, but the completely separate server world sitting next to it. What you'll learn By the end of this article you'll be able to: Explain what Nitro and server/api / server/routes / server/middleware actually are, and how a filename becomes a route Read and write request data correctly with getQuery , getRouterParam , and readBody Predict the real execution order of your server middleware — not the order you assume Explain why Vue composables like useState don't work inside a server route, and what to use instead Know when calling your own API route with useFetch during SSR involves the network at all Who this is for You've built Nuxt pages and components, and you've probably already dropped a file into server/api and had it work. You don't need prior backend framework experience — this article treats Nitro as its own subject, not "Express with different syntax." Table of contents The problem: it looks like the rest of your app, but it isn't The mental model: two runtimes, one project Building server routes, stage by stage Edge cases and gotchas Best practices FAQ Cheat sheet Key takeaways The problem: it looks like the rest of your app, but it isn't Say you want a small /api/profile endpoint that returns the current user, and — since you already have a useState('user') that holds the logged-in user everywhere else in the app — reusing it here feels natural: // server/api/profile.get.ts — looks reasonable, isn't export default defineEventHandler (( event ) =&gt; { const user = useState ( ' user ' ) // ❌ throws at runtime return { user : user . value } }) Run it, and instead of JSON you get a 500: useState is not defined . It's the exact composable you use in every .vue file, so it reads like a missing import — but it isn't one. server/ gets its own auto-imports (h3 helpers, Nitro utilities, server/utils ), and Vue composables aren't among them; import it from #app explicitly and the build refuses with "Vue app aliases are not allowed in server runtime." The problem is where it's being called from. useState , useRoute , useFetch — the whole family of Nuxt composables — depend on there being a current Nuxt application instance to attach to. A server/api file has no such thing. It's not part of the Vue app at all; it's a plain request handler that Nitro invokes directly, with nothing Vue-shaped anywhere near it. This is the trap the "Nuxt is just Vue with routing" mental model sets. server/api looks like it belongs to the same app as your pages because it lives in the same repo, ships in the same deploy, and even shares the same nuxt dev process — but it's a different runtime with a different lifecycle, and the rules that make composables work don't apply there. The mental model: two runtimes, one project A Nuxt project is really two separate request-handling worlds glued together at build time: The Vue/app world. Pages, components, layouts, and composables. Every request for a page spins up a Nuxt application instance (server-side, then again client-side for hydration), and that instance is what useState , useRoute , and friends attach themselves to. This is the world the last two episodes of this series lived in. The Nitro/h3 world. server/api , server/routes , and server/middleware . Nitro is the server engine Nuxt is built on — it's what starts the process, decides which file handles which URL, and runs each matched file as a plain function that receives an H3Event (from h3 , the tiny HTTP toolkit Nitro is built around) and returns a value. There is no component tree here, no "current instance," nothing for a Vue composable to hook into. It doesn't know or care that a Vue app exists elsewhere in the same process. The two worlds do talk to each other, but only across an explicit boundary: a page calls useFetch('/api/profile') or $fetch('/api/profile') , which sends a request that Nitro routes to your server/api/profile.get.ts handler exactly like it would route a request from curl or a browser tab. The response crosses back as plain, serializable data — never a live object, never a shared reference, never a ref . Whatever you build inside a server route has to assume it's talking to some client, not sharing memory with one. Key concept: if you can't point to the .vue file or component setup() a piece of code runs inside, it isn't in the Vue world — and a server/api , server/routes , or server/middleware file never is. Building server routes, stage by stage Stage 1 — filenames are routes Nitro turns server/api and server/routes into a router by convention, no manual registration: server/api/hello.ts → matches any method at /api/hello server/api/hello.get.ts → matches only GET /api/hello ; hello.post.ts only POST server/api/users/[id].ts → dynamic segment, matched with getRouterParam(event, 'id') server/api/files/[...slug].ts → catch-all, everything after /files/ lands in getRouterParam(event, 'slug') (an unnamed catch-all, [...].ts , lands in event.context.params._ instead) server/routes/robots.txt.ts → same rules, but no automatic /api prefix — useful for exact, non-API paths like robots.txt , sitemap.xml , or a webhook URL a third party expects at a fixed path Stage 2 — reading input, returning output Every handler is wrapped in defineEventHandler , and gets one H3Event to work with: // server/api/users/[id].get.ts export default defineEventHandler ( async ( event ) =&gt; { const id = getRouterParam ( event , ' id ' ) const { includeOrders } = getQuery ( event ) // ?includeOrders=true const user = await findUser ( id ) if ( ! user ) { throw createError ({ status : 404 , statusText : ' User not found ' }) } return { user , includeOrders : includeOrders === ' true ' } }) Whatever you return — an object, an array, a string — gets serialized to the right response automatically (JSON for objects and arrays; strings sent as-is, with a text/html content type unless you set one). createError is the correct way to fail: it sets the real HTTP status and gives the client a structured error body, instead of a generic 500 from an uncaught throw. For a POST / PUT body, readBody(event) parses it based on the request's content type — JSON, form-encoded, or plain text. Stage 3 — middleware runs on everything , in an order you don't choose server/middleware/*.ts files run before every request Nitro handles — not just /api/* , but page requests too, since a page request is also something Nitro routes. A middleware doesn't return a response (to end a request early, throw createError instead of returning); it inspects or mutates the request and lets it continue, usually by writing to event.context so a later handler can read it: // server/middleware/auth.ts export default defineEventHandler (( event ) =&gt; { const token = getHeader ( event , ' authorization ' ) event . context . user = token ? verifyToken ( token ) : null // no return — request continues to the matched route }) The order these run in is alphabetical by filename, sorted as a string — not the order you created them in, and not numeric order either. "10.rate-limit.ts" sorts before "2.legacy.ts" , because string comparison looks at the character '1' before it ever gets to '2' . If you need explicit ordering, zero-pad: 01. , 02. , 03. — never bare 1. , 2. , 10. . Stage 4 — the SSR bridge, without the network hop you'd expect When a page calls useFetch('/api/profile') (or the plain $fetch it's built on) while rendering on the server, Nitro doesn't open a real HTTP connection to itself. It recognizes the request is for one of its own routes and calls the matching function directly, in-process — this is documented, intentional behavior, not an implementation detail you're relying on by accident. The same call from the browser , after hydration, does go over real HTTP, because at that point there's no server process to short-circuit into. useFetch also writes the server-side result into the page's payload, so the client doesn't refetch it on hydration — the same payload mechanism the hydration-mismatch episode in this series covers in more depth. Edge cases and gotchas The numeric-prefix sort trap isn't limited to server/middleware . Global route middleware (files ending .global.ts , which run in the Vue/app world, not Nitro's) follow the exact same alphabetical-string rule. If you've zero-padded one and not the other, you now have two different, easy-to-miss ordering bugs in the same project. event.context.params can be typed as possibly- undefined even on a route where a dynamic segment guarantees it exists, because the type comes from the general Nitro types, not your specific route. Prefer getRouterParam(event, 'id') over reaching into event.context.params directly — it reads the same value with a cleaner, purpose-built API. defineCachedEventHandler and readBody don't currently mix well — the cached handler's event type deliberately omits body , and the cache key is built from the URL (plus any varies headers), never the body — so two different POST bodies would share one cached response. Don't cache routes whose output depends on the request body. A server/api route your page never calls directly is still public. There's no implicit auth boundary between "routes I use internally" and "routes anyone can hit" — every file under server/api is a real, reachable HTTP endpoint the moment it ships, whether or not any of your own pages ever call it. Best practices Never reach for a Vue composable inside a server route. If server-side logic needs to be shared between multiple handlers, put it in server/utils/ as a plain function — it's auto-imported inside server/ , same as composables are inside app/ , but it's just a function, not something tied to a Vue instance. Zero-pad any filename whose order matters — 01.auth.ts , 02.logging.ts — so a later teammate adding 03.rate-limit.ts doesn't silently jump ahead of 2.something.ts that was never renumbered. Validate input at the top of the handler , before touching a database or an external API — readValidatedBody with a schema (Zod or otherwise) turns a malformed request into a clean 400 instead of a confusing failure three lines deeper. Keep secrets out of the public runtime config. nuxt.config 's runtimeConfig (server-only) versus runtimeConfig.public (shipped to the client bundle) is the one line standing between an API key and every visitor's browser dev tools — a server route can safely read the private half; in a page component the private keys exist only during the server render and never reach the browser — so never render them or put them in useState . Treat every server/api file as a public endpoint from the day it's created , and add auth/validation before the first real feature depends on it, not after. FAQ Can I use useState or useRoute inside a server route? No — those composables require a live Nuxt application instance, which only exists in the Vue/app world (pages, components, plugins). A server/api / server/routes / server/middleware file runs as a plain Nitro/h3 handler with no such instance. Share logic through server/utils/ instead. What's the actual difference between server/api and server/routes ? Identical routing rules (filenames, method suffixes, dynamic segments) — the only difference is that server/api files are automatically prefixed with /api , and server/routes files are not. Use server/routes for paths that need to be exact, like /robots.txt or a fixed webhook URL. Why does my logging middleware run before my auth middleware, even though I created auth first? server/middleware files run in alphabetical order of their filename, sorted as a string — creation order and file-tree position don't matter. Rename the files with zero-padded numeric prefixes ( 01.auth.ts , 02.logging.ts ) to force the order you want. Does calling my own /api route with useFetch make a real network request? Only from the browser. During SSR, Nitro recognizes the target is one of its own routes and calls the handler function directly, in the same process — no HTTP round trip. After hydration, the same call from the browser does go over the network like any other request. Can a dynamic route segment ever be undefined at runtime? Not for a segment your filename guarantees — [id].ts will always have an id on a matched request, even though its TypeScript type may be looser than that. Use getRouterParam(event, 'id') (still typed string | undefined ) or getValidatedRouterParams with a schema when you want a guaranteed, typed value. Cheat sheet Want to... Do this Match any method at /api/x server/api/x.ts Match only GET / POST /etc. server/api/x.get.ts / x.post.ts Match a dynamic segment server/api/x/[id].ts → getRouterParam(event, 'id') Match a catch-all server/api/x/[...slug].ts → getRouterParam(event, 'slug') Serve a path with no /api prefix server/routes/robots.txt.ts Run code before every request server/middleware/NN.name.ts (zero-padded prefix) Pass data from middleware to a handler event.context.yourKey = value Read the query string / body getQuery(event) / readBody(event) Fail with a real HTTP status throw createError({ status, statusText }) Share logic between server routes a plain function in server/utils/ Keep a value out of the client bundle runtimeConfig (not .public ) in nuxt.config 🎮 Try it yourself ▶️ Open the interactive playground → Runs right in your browser — poke at it and watch the concept react live. Key takeaways server/api , server/routes , and server/middleware run in Nitro — a separate request-handling world from the Vue app your pages render in, with no component instance and no access to composables like useState or useRoute . Routing is entirely filename-driven: the path, the HTTP method, dynamic segments, and catch-alls are all decided by how you name the file, not by any registration code. server/middleware order is alphabetical string-sort of the filename, not creation order and not numeric order — zero-pad any prefix that has to hold a specific position. Calling your own API route with useFetch during SSR skips the network and calls the function directly; the same call from the browser after hydration is a real HTTP request. 🧠 Test yourself Think it clicked? Take the 8-question quiz → Instant feedback, a hint on every question, and an explanation for each answer — right or wrong. The endpoint that finally made sense That /api/profile handler from the top of the article has an honest fix now: drop the useState call, read the user from event.context (set by an auth middleware upstream), and return plain data. Nothing about the fix is exotic — it's just respecting that the file it lives in was never part of the Vue app to begin with. Next time a server route throws useState is not defined , or a middleware runs in an order you didn't expect, you'll know exactly which of the two worlds you're standing in — and that's most of the debugging done before you've even opened the stack trace. 📚 Read next Nuxt Hydration Mismatch: Why It Happens and How to Fix It useAsyncData Keys in Nuxt: Caching, Dedupe & the Sharing Bug Nuxt useState vs ref(): Why Server State Leaks Across Users 🚀 Want more like this? Every guide, playground, and quiz lives on bestpractic.org — open it and sign up free so the next one finds you. Thanks for reading! Let's stay connected: ⭐ GitHub — follow me and star the projects: github.com/parsajiravand 💬 Discord — join the frontend best-practices community: discord.gg/d9KRhuAwQ 📸 Instagram — frontend best practices, daily: @bestpractice___</p>
+    <p>The report highlights key developments related to "Nuxt Server Routes Explained: How Nitro Builds Your API", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/parsajiravand/nuxt-server-routes-explained-how-nitro-builds-your-api-9m2" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
