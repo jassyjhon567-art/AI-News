@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Windows context menu editor in one PowerShell file | AI News</title>
+<meta name="description" content="The Windows right-click menu is built from several different places, and Windows 11 hides half of it behind &quot;Show more options&quot;. Most tools I found each cover one part of it. I...">
+<meta name="keywords" content="windows, context, menu, editor, one, powershell, file">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-windows-context-menu-editor-in-one-powershell-file.html">
+<meta property="og:title" content="A Windows context menu editor in one PowerShell file">
+<meta property="og:description" content="The Windows right-click menu is built from several different places, and Windows 11 hides half of it behind &quot;Show more options&quot;. Most tools I found each cover one part of it. I...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-windows-context-menu-editor-in-one-powershell-file.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/a-windows-context-menu-editor-in-one-powershell-file.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Windows context menu editor in one PowerShell file">
+<meta name="twitter:description" content="The Windows right-click menu is built from several different places, and Windows 11 hides half of it behind &quot;Show more options&quot;. Most tools I found each cover one part of it. I...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-windows-context-menu-editor-in-one-powershell-file.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-windows-context-menu-editor-in-one-powershell-file.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-windows-context-menu-editor-in-one-powershell-file.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "A Windows context menu editor in one PowerShell file", "description": "The Windows right-click menu is built from several different places, and Windows 11 hides half of it behind \"Show more options\". Most tools I found each cover one part of it. I...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/a-windows-context-menu-editor-in-one-powershell-file.jpg"], "datePublished": "2026-10-03T20:42:16Z", "dateModified": "2026-10-03T20:42:16Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/a-windows-context-menu-editor-in-one-powershell-file.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-windows-context-menu-editor-in-one-powershell-file.html">বাংলা</a>
+  </div>
+  <h1>A Windows context menu editor in one PowerShell file</h1>
+  <div class="meta">dev.to &middot; Sat, 03 Oct 2026 20:27:29 +0000</div>
+  <img class="hero-img" src="../../images/a-windows-context-menu-editor-in-one-powershell-file.jpg" alt="A Windows context menu editor in one PowerShell file" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">The Windows right-click menu is built from several different places, and Windows 11 hides half of it behind "Show more options". Most tools I found each cover one part of it. I...</p>
+  <div class="content">
+    <p>The Windows right-click menu is built from several different places, and Windows 11 hides half of it behind "Show more options". Most tools I found each cover one part of it. I wanted one list for all of it, so I built Context Menu Editor : a single PowerShell script with a WPF window, free and MIT licensed. You can try it without installing anything: irm https://rocisapps.com/cme | iex You can read the source first, and the same script is attached to every GitHub release. Here is how it works, and the parts that were harder than I expected. Three kinds of entries Windows builds the menu from three different places, and each one is switched off differently: Shell verbs under Software\Classes\&lt;class&gt;\shell\&lt;verb&gt; . Adding a LegacyDisable value turns one off without deleting it. Shell extension handlers under shellex\ContextMenuHandlers (7-Zip, antivirus, PowerToys). You turn one off by adding its CLSID to the per-user Shell Extensions\Blocked list. Windows 11 packaged items , which apps declare in their AppxManifest.xml as windows.fileExplorerContextMenus . They have no command line at all, only a COM handler, and they are blocked the same way as extensions. Reading all three into one list, with the right "off" mechanism behind each switch, is most of the work. # Turn a shell extension off for the current user (restart Explorer afterwards) $blocked = [ Microsoft.Win32.Registry ]:: CurrentUser.CreateSubKey ( 'Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Blocked' ) $blocked . SetValue ( '{00000000-0000-0000-0000-000000000000}' , '' ) # the handler's CLSID Do not use the registry provider All registry access goes through Microsoft.Win32.Registry . The PowerShell registry provider treats the * in HKCU\Software\Classes\*\shell as a wildcard, so a path that means "all files" quietly matches other keys. The .NET API takes the path literally: $shell = [ Microsoft.Win32.Registry ]:: CurrentUser.OpenSubKey ( 'Software\Classes\*\shell' ) $shell . GetSubKeyNames () Send to, and items with no command line Send to is a folder of shortcuts, so adding an app is easy. Windows 11 packaged items are not: Blip, for example, has a submenu of devices and no executable to point a shortcut at. The shortcut targets a small C# helper instead, which finds the item by its CLSID and calls it on the selected files, the way Explorer does. Submenu entries are matched by title first and by position only as a fallback, so pairing a new device does not change where an existing shortcut sends. The helper is compiled at runtime with Add-Type and stored outside the script's folder, so shortcuts keep working if the editor moves. One script, built from many files The source is split into small files: core functions, UI, XAML, and JSON for the tweaks list. A Compile.ps1 stitches them into the single script people run. Two details only showed up with the one-line launch: irm | iex passes a byte order mark through as code, which breaks parsing. The output is therefore pure ASCII and written without a BOM, and the compiler refuses non-ASCII characters. Windows PowerShell 5.1 reads a BOM-less file as ANSI, which is only safe because of the ASCII rule. The short URL is a redirect on my own domain to the latest GitHub release asset, so a new release is live as soon as it is published. Startup time The first version took about two seconds before any window appeared, and most of that was reading the registry. Two changes helped. Open the window first. It appears straight away with a "reading" state, and the scan runs once the first frame is on screen: $Window . Add_ContentRendered ({ $Window . Dispatcher . BeginInvoke ( [ System.Windows.Threading.DispatcherPriority ]:: Background , [ Action ]{ Invoke-Scan ; Update-View }) }) The window now appears in 0.6 to 0.8 seconds, and the full list is ready at about the same total time as before. Cache the compiled helper. Compiling the C# types cost 0.1 to 0.3 seconds on every start. Now they are compiled once and loaded from a cache file in about 15 milliseconds: Add-Type -TypeDefinition $source -OutputAssembly $dll -OutputType Library # first run only Add-Type -LiteralPath $dll # every run An elevated run never loads that cache. An administrator process should not load code from a folder a standard user can write to, so it compiles in memory instead. PowerShell traps I hit Variable names are case-insensitive, so a local $s quietly replaced a global $S . The shared state is now $App . A function that returns an array with return ,$array can come out nested after @() or a pipeline. Returning the array directly is safer. R is an alias for Invoke-History , which matters when a script defines a short helper function. The `u{...} Unicode escape does not exist in Windows PowerShell 5.1. Testing without touching your own menus -LibraryOnly loads every function without opening the window, so the scanner and every write operation can be scripted. An early test run wrote into my real Send to folder, which taught me to point tests at a temporary Send to folder and a temporary backup folder. A separate sweep opens every page of the window and fails on any error, in both PowerShell 7 and 5.1. Safety Anything you edit or delete is exported to a .reg file first, and the last change can be undone from the status bar. Per-user changes need no administrator rights. The script makes no network calls except downloading itself again when you choose "run as administrator". Try it, and tell me what is missing Run it: irm https://rocisapps.com/cme | iex Source (MIT): https://github.com/RoeeIlouz/ROCIsContextMenu-Editor Guides: get the full right-click menu back in Windows 11 and remove items from the right-click menu I am the author. If something breaks on your setup, or an entry is missing from the list, open an issue on GitHub. Please include your Windows version, PowerShell edition and what caused it to break.</p>
+    <p>The report highlights key developments related to "A Windows context menu editor in one PowerShell file", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/rocisapps/a-windows-context-menu-editor-in-one-powershell-file-2mc" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
