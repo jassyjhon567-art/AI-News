@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Making LLM ratings auditable: quotes, limitations, and "can't judge" instead of zero | AI News</title>
+<meta name="description" content="I&#x27;m building a side project, WeChat Source . It&#x27;s a directory that helps Chinese readers find WeChat Official Accounts (the newsletter-style publications inside WeChat). The site...">
+<meta name="keywords" content="making, llm, ratings, auditable, quotes, limitations, can't, judge, instead, zero">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.html">
+<meta property="og:title" content="Making LLM ratings auditable: quotes, limitations, and &quot;can&#x27;t judge&quot; instead of zero">
+<meta property="og:description" content="I&#x27;m building a side project, WeChat Source . It&#x27;s a directory that helps Chinese readers find WeChat Official Accounts (the newsletter-style publications inside WeChat). The site...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Making LLM ratings auditable: quotes, limitations, and &quot;can&#x27;t judge&quot; instead of zero">
+<meta name="twitter:description" content="I&#x27;m building a side project, WeChat Source . It&#x27;s a directory that helps Chinese readers find WeChat Official Accounts (the newsletter-style publications inside WeChat). The site...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Making LLM ratings auditable: quotes, limitations, and \"can't judge\" instead of zero", "description": "I'm building a side project, WeChat Source . It's a directory that helps Chinese readers find WeChat Official Accounts (the newsletter-style publications inside WeChat). The site...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.jpg"], "datePublished": "2026-10-08T12:58:34Z", "dateModified": "2026-10-08T12:58:34Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.html">বাংলা</a>
+  </div>
+  <h1>Making LLM ratings auditable: quotes, limitations, and "can't judge" instead of zero</h1>
+  <div class="meta">dev.to &middot; Thu, 08 Oct 2026 12:46:13 +0000</div>
+  <img class="hero-img" src="../../images/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero.jpg" alt="Making LLM ratings auditable: quotes, limitations, and "can't judge" instead of zero" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">I'm building a side project, WeChat Source . It's a directory that helps Chinese readers find WeChat Official Accounts (the newsletter-style publications inside WeChat). The site...</p>
+  <div class="content">
+    <p>I'm building a side project, WeChat Source . It's a directory that helps Chinese readers find WeChat Official Accounts (the newsletter-style publications inside WeChat). The site is in Chinese, but the design problem behind it isn't: how do you show LLM-generated ratings without them turning into confident-sounding noise? Here are the rules I ended up with. All of them are visible on every account page. 1. Fix the evidence window Each account is rated on up to its 20 most recent articles with readable text , using at most the first 6,000 characters of each. If an account has fewer than 20 usable articles, it gets no overall score. A small sample produces a confident-looking number with little behind it, so I'd rather show nothing. 2. Every rating carries quotes and a limitation There are five dimensions: depth of argument, source transparency, information gain, clarity, and caution in stating opinions. Each gets a 1–5 score plus: a short explanation, a "limitations" paragraph saying what the account does badly on that dimension, and quotes from specific articles (with article IDs) as evidence. The page also states the scale: 3 is acceptable, 4 is good, and 5 requires strong evidence. 3. Verify the quotes, and degrade gracefully LLMs sometimes "quote" text that doesn't exist. Quotes are checked against the stored article text, and any that don't match are removed. If that leaves a dimension without solid evidence, it's displayed as "can't judge" , with a note that the quotes failed verification and the item needs re-analysis or a human review. Importantly, "can't judge" is not counted as zero. Treating "unknown" as "bad" would quietly punish accounts for the model's mistakes. 4. Show provenance Each profile shows how many articles it's based on, the model name, a rubric version string, and the analysis date. There's also a line saying the score is the platform's AI analysis, not an official evaluation. If the rubric changes, older profiles are at least identifiable. 5. Don't let similarity pose as quality At the bottom of each account page there's a "keep exploring" list. It's a rule-based match on shared categories and tags, and the page says exactly that, including the similarity percentage and the shared category. It would be easy to let people assume these are quality recommendations. They aren't, so the label says so. What it doesn't solve Coverage is the real bottleneck. About 180 accounts are curated so far. The ~9,900 total includes many that have only basic info and no articles collected yet. The model can still be wrong about tone or intent. Quotes make that visible, but they don't prevent it. Stack Next.js front end (served under a /wechat base path), a Python back end, and Cloudflare in front. If you've shipped LLM-generated ratings or summaries, I'm curious how you handle evidence and "unknown" states. And if you read Chinese, the site is here . Feedback is very welcome.</p>
+    <p>The report highlights key developments related to "Making LLM ratings auditable: quotes, limitations, and "can't judge" instead of zero", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/stiamora/making-llm-ratings-auditable-quotes-limitations-and-cant-judge-instead-of-zero-27in" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
