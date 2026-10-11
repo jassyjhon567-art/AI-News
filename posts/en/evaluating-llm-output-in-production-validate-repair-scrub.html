@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluating LLM Output in Production: Validate, Repair, Scrub | AI News</title>
+<meta name="description" content="Checking what an LLM writes is the easy part. The hard part is what to do when the check says FAIL. I tried a lot of things on a real product. I ended up with two steps: repair...">
+<meta name="keywords" content="evaluating, llm, output, production, validate, repair, scrub">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/evaluating-llm-output-in-production-validate-repair-scrub.html">
+<meta property="og:title" content="Evaluating LLM Output in Production: Validate, Repair, Scrub">
+<meta property="og:description" content="Checking what an LLM writes is the easy part. The hard part is what to do when the check says FAIL. I tried a lot of things on a real product. I ended up with two steps: repair...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/evaluating-llm-output-in-production-validate-repair-scrub.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/evaluating-llm-output-in-production-validate-repair-scrub.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evaluating LLM Output in Production: Validate, Repair, Scrub">
+<meta name="twitter:description" content="Checking what an LLM writes is the easy part. The hard part is what to do when the check says FAIL. I tried a lot of things on a real product. I ended up with two steps: repair...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/evaluating-llm-output-in-production-validate-repair-scrub.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/evaluating-llm-output-in-production-validate-repair-scrub.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/evaluating-llm-output-in-production-validate-repair-scrub.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Evaluating LLM Output in Production: Validate, Repair, Scrub", "description": "Checking what an LLM writes is the easy part. The hard part is what to do when the check says FAIL. I tried a lot of things on a real product. I ended up with two steps: repair...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/evaluating-llm-output-in-production-validate-repair-scrub.jpg"], "datePublished": "2026-10-11T12:13:30Z", "dateModified": "2026-10-11T12:13:30Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/evaluating-llm-output-in-production-validate-repair-scrub.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/evaluating-llm-output-in-production-validate-repair-scrub.html">বাংলা</a>
+  </div>
+  <h1>Evaluating LLM Output in Production: Validate, Repair, Scrub</h1>
+  <div class="meta">dev.to &middot; Sun, 11 Oct 2026 12:08:13 +0000</div>
+  <img class="hero-img" src="../../images/evaluating-llm-output-in-production-validate-repair-scrub.jpg" alt="Evaluating LLM Output in Production: Validate, Repair, Scrub" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">Checking what an LLM writes is the easy part. The hard part is what to do when the check says FAIL. I tried a lot of things on a real product. I ended up with two steps: repair...</p>
+  <div class="content">
+    <p>Checking what an LLM writes is the easy part. The hard part is what to do when the check says FAIL. I tried a lot of things on a real product. I ended up with two steps: repair the sentence that failed. And if that doesn't work, cut it. The whole idea in one minute: a wrong date the repair fixes, and an invented sentence it can't. The situation I build StreetLens . You walk, and it tells you the story of the place in front of you, in your ear. For every place we have the facts. Dates, names, measurements, the stories behind them. A model turns them into a script of about 800 words. A voice reads it. A model writing 800 words will drift. A height rounded. A date a bit off. A detail that isn't in the facts at all. And the listener can't check, they're standing in the street. A guide that invents is worse than no guide. The check is the easy part The writer's prompt says it, first rule: - Every factual claim — dates, names, locations, events, measurements — must come from the source facts. No exceptions. But a rule in a prompt is a request, not a guarantee. So every script goes through a validator : a second model that reads the script next to its facts and says PASS or FAIL. The validator is a must. That part was never a question. Thousands of scripts, 8 languages. You check everything, or you don't know what you ship. The validator answers in JSON, with a reason: { "result" : "FAIL" , "reason" : "Script states nearly two hectares of gardens, but source says the villa sits within 1.5 hectares" } Keep that reason in mind. It turned out to be the most important part. It says FAIL. Now what? Thats where I spent my time. A FAIL is easy to get. Knowing what to do with it is not. I regenerated the whole script. The wrong number was gone. And a new problem showed up somewhere else, in a sentence that was fine before. 800 new words, 800 new chances to drift. I fixed scripts by hand. Fine for ten. Not for hundreds of places in 8 languages. And not again every time a prompt changes. I asked a model to "correct this script". It corrected it. And rewrote half of it on the way. Nicer sentences, a different tone, new details the validator didn't like. Dozens of tries like this. Every time the same lesson: the more the fix touches, the more it breaks. What I wanted was simple. A fix that touches only the sentence that failed. What I ended up with: repair, then scrub The repair The repair is not a new model with new rules. It's the writer itself. Same prompt, with one more section at the end: ## 🔧 REPAIR MODE You previously generated an audio script for this POI, but validation identified a factual issue that needs correction. ### Validation Issue Found: {validator_reason} ## What to Fix: - ONLY the specific factual errors explicitly mentioned in the validation failure reason above ⚠️ DO NOT introduce ANY new factual claims that weren't in the previous script ⚠️ Your ONLY job is to fix the identified error, not to improve or expand the script Three things go in. The script. The facts. The validator's reason. The reason is what realy makes it work. "Nearly two hectares, but the facts say 1.5" tells the model where to look and what is true. No guessing. A real one. Villa Windsor, 833 words: - Around you spreads nearly two hectares of gardens, quiet lawns within western Paris woods. + Around you spreads one and a half hectares of gardens, quiet lawns within western Paris woods. One sentence changed. The rest stayed word for word. Same tone, same pauses, same story. And because the repair is the writer, the fixed sentence sounds like the others. Then the repaired script goes back to the same validator. The repair never decides that it worked. The validator does. In my logs, the repair fixed 65 of 73 failed places on the first try. 89%. The scrubber Sometimes the repair can't fix it. The fact is just not there, and the model keeps trying to say something about it. After three tries, the scrubber takes over. Different job. It doesn't try to fix the fact anymore. It cuts it: You are a factual scrubber for audio tour scripts. For those parts ONLY: * Remove the sentence entirely A script with one sentence less is still a good script. Then, again, the validator. If even that fails, the place goes to an error folder. Not to the app. Is this new? Not the idea of sending the error back. Guardrails AI calls it "reask". Instructor retries with the validation error. Research loops like Self-Refine let a model critique and fix its own output. What I didn't find written up is this combination, for long text: the repair is the writer's own prompt plus a repair section, so the voice stays the same it changes only the flagged sentence and keeps the other 800 words, instead of regenerating a last step that cuts the sentence, instead of throwing the script away the same validator decides after every step What the logs showed Two things I didn't expect. The scrubber never ran. One setting sent a place to the error folder after the first failed repair. Attempts two and three never happened. The gate held, nothing wrong went out. But my net was smaller than I thought. Check that your last net really runs. Most failures were my fault, not the model's. The validator wanted abbreviations spelled out. The writer was never told. The writer was told to round decimals. The validator failed rounded numbers. Two prompts that didn't agree. The repair fixed those too, but one shared set of rules would have avoided them for free. Lessons learned The check is not the hard part. You have to do it, on everything. The hard part is the FAIL. Don't regenerate. Repair. A new script brings new mistakes. A repair touches one sentence. Give the repair the reason. The script, the facts, and why it failed. Without the reason, the model guesses. With it, it fixes. Make the repair the writer. Same prompt, same rules, plus "fix only this". The fixed sentence sounds like the rest. Keep a scrubber for the end. When a fact can't be fixed, cut the sentence. One sentence less is better than no script. And much better than a wrong one. The validator always has the last word. After the repair, after the scrubber. Nothing goes out around it. This is how every StreetLens script is made today. Not the first thing I tried. What was left after everything else broke something.</p>
+    <p>The report highlights key developments related to "Evaluating LLM Output in Production: Validate, Repair, Scrub", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/cornelcroi/evaluating-llm-output-in-production-validate-repair-scrub-26fd" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
