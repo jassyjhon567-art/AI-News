@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Does AI get worse with more documents? Open-source vs paid models, tested. | AI News</title>
+<meta name="description" content="This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked Lots of companies now hand an AI model a stack of their own documents and ask it questions: &quot;How many...">
+<meta name="keywords" content="does, get, worse, more, documents, open, source, paid, models, tested">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.html">
+<meta property="og:title" content="Does AI get worse with more documents? Open-source vs paid models, tested.">
+<meta property="og:description" content="This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked Lots of companies now hand an AI model a stack of their own documents and ask it questions: &quot;How many...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Does AI get worse with more documents? Open-source vs paid models, tested.">
+<meta name="twitter:description" content="This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked Lots of companies now hand an AI model a stack of their own documents and ask it questions: &quot;How many...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Does AI get worse with more documents? Open-source vs paid models, tested.", "description": "This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked Lots of companies now hand an AI model a stack of their own documents and ask it questions: \"How many...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.jpg"], "datePublished": "2026-10-12T04:36:33Z", "dateModified": "2026-10-12T04:36:33Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.html">বাংলা</a>
+  </div>
+  <h1>Does AI get worse with more documents? Open-source vs paid models, tested.</h1>
+  <div class="meta">dev.to &middot; Mon, 12 Oct 2026 04:23:20 +0000</div>
+  <img class="hero-img" src="../../images/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested.jpg" alt="Does AI get worse with more documents? Open-source vs paid models, tested." referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked Lots of companies now hand an AI model a stack of their own documents and ask it questions: "How many...</p>
+  <div class="content">
+    <p>This is a submission for the Kaggle Benchmarking Challenge What I Benchmarked Lots of companies now hand an AI model a stack of their own documents and ask it questions: "How many days of leave do I get?" or "Who signs off on this purchase?" Developers call this RAG, but the idea is simple. The AI reads what you give it and answers from that. There is a common worry about this setup: the more documents you hand over, the worse the answers get. The right page gets buried, an old copy gets picked by mistake, or the AI makes something up. I wanted to see whether that is true, so I built a test. The setup. I invented a company and generated 50 short internal documents for it: leave policies, travel rules, supplier contracts, product sheets. Because the company is made up, no AI model could have seen these documents before. Then I asked each model 90 questions. For each question the model got a pile of documents, anywhere from 2 to 50, and had to do two things: give the answer, and say which document it came from. If the answer was not in the pile, it had to say "not found". I changed four things from question to question: What I changed The options What I wanted to learn Size of the pile 2, 5, 10, 25 or 50 documents Do answers get worse as the pile grows? Where the right document sits Top, middle or bottom of the pile Does the AI skim over the middle? Kind of question One-step, two-step, or no answer exists Can it look things up, connect two documents, and admit when it doesn't know? The other documents in the pile Unrelated, or very similar to the right one Do look-alike documents confuse it? Two of these need a little more explanation. Out-of-date copies. Ten documents have an older version with the same wording and different numbers. In the harder questions, the old version is in the pile next to the current one. This is what a real shared drive looks like. Two-step questions. Every document ends with a line like this: Unresolved questions about this document are escalated to whoever approved the Annual Leave Policy for the Marrowby studio. The question asks: who is that person? To answer, the model has to go to a second document, the Annual Leave Policy, and find the name of the person who approved it. One document points to the other, and the answer is only in the second one. Models Tested I tested seven models. I picked them to cover the choices a team actually faces: the big expensive model or the small cheap one, and a paid service or a free model you run yourself. Model What it is Claude Sonnet 5.5 Anthropic's main model Claude Haiku 4.5 Anthropic's smaller, cheaper model GPT-5.5 OpenAI's main model GPT-5.4 mini OpenAI's smaller, cheaper model Gemini 3.8 Flash Google's fast model Gemma 4 (31B) A free model from Google that you can run on your own machines gpt-oss-20b A small free model from OpenAI that you can run on your own machines The comparison I cared about most was big against small from the same company, and whether the free models could keep up. Findings A bigger pile did not make the answers worse This was the thing I set out to measure, and the answer was no. Here is how often each model got the right answer as the pile grew. Each box is about 12 questions. Model 2 docs 5 docs 10 docs 25 docs 50 docs Claude Sonnet 5.5 100% 100% 100% 100% 100% Gemini 3.8 Flash 100% 100% 100% 100% 100% Gemma 4 100% 100% 100% 100% 100% gpt-oss-20b 100% 100% 100% 92% 100% GPT-5.5 100% 100% 100% 100% (5 of 5) no data Claude Haiku 4.5 67% 58% 50% 75% 50% GPT-5.4 mini 67% 58% 50% 42% 50% Four models scored the same with 50 documents as with 2. The two at the bottom were already struggling with only 2 documents, so the size of the pile is not what hurt them. Their numbers bounce around because each box is only 12 questions, and one wrong answer moves the score by 8 points. It also made no difference whether the right document was at the top, in the middle or at the bottom. One caution: my documents are short, less than a page each. Fifty of them come to about 16,500 words, roughly 35 pages. I can say the pile size did not matter up to there. I cannot say what happens with a pile ten times bigger. Two-step questions are where the small models failed When I split the results by kind of question, a very different picture appeared: Model One-step questions Two-step questions Claude Sonnet 5.5 30 of 30 30 of 30 Gemini 3.8 Flash 29 of 29 30 of 30 Gemma 4 30 of 30 30 of 30 GPT-5.5 17 of 17 18 of 18 gpt-oss-20b 30 of 30 29 of 30 Claude Haiku 4.5 30 of 30 6 of 30 GPT-5.4 mini 29 of 30 3 of 30 Every model could find a single fact in a pile of 50 documents. But two of them could not follow a pointer from one document to another, even when the pile was just those two documents. They failed in different ways. Claude Haiku 4.5 gave up. In 21 of its 24 wrong answers it said "not found". Often it had found the pointer and stopped there: ANSWER: NOT_FOUND SOURCE: NONE The Business Travel Policy for the Quillhaven lab (DOC-08) states that "Unresolved questions about this document are escalated to whoever approved the Annual Leave Policy for the Marrowby studio," but it does not provide the actual name of that person. The name it wanted was in another document in the same pile. It did not go and look. GPT-5.4 mini answered without finishing the job. In 20 of its 27 wrong answers it repeated the pointer as if it were the answer: "whoever approved the Equipment Maintenance Schedule for the Aldersgate office". In the other 7 it gave a real person's name, but the wrong person, and pointed to a real document as its source. These two failures are not equally bad. If an AI says "I couldn't find it", you know to check yourself. If it gives you the wrong name and cites a real document, you will probably believe it. The free models beat the small paid ones This surprised me most. Gemma 4, which is free to run yourself, got all 60 answerable questions right and named the correct source every time. gpt-oss-20b, a small free model, got 59 of 60. The two small paid models got 36 of 60 (Claude Haiku 4.5) and 32 of 60 (GPT-5.4 mini). The one weak spot: gpt-oss-20b usually had the right answer but sometimes named only one of the two documents it needed. It listed every source on 52 of 60 answers. Model Type Answerable questions right Gemma 4 Free, open 60 of 60 gpt-oss-20b Free, open 59 of 60 Claude Haiku 4.5 Small paid 36 of 60 GPT-5.4 mini Small paid 32 of 60 The paid models' failures may be partly about how they follow instructions. Haiku mostly said "not found" instead of guessing, which is cautious behaviour, not an inability to read. A differently worded question might change its score a lot. "Free" isn't free to run. You don't pay per question, but you need your own hardware, and Gemma 4 at that size needs a serious machine. No model made things up A third of my questions had no answer anywhere in the documents. Every model said "not found" to every one of them, at every pile size. I expected at least a few invented answers with 50 documents and got none. The out-of-date copies also fooled almost no one. Each model saw about 27 questions where an old version was sitting in the pile. Only one answer in the whole test used the old number. What these results cannot tell you GPT-5.5 did not finish. I ran out of usage allowance partway through, and it never got to answer 35 of its 90 questions, including all of the 50-document ones. It was perfect on the 55 it did answer. I left the missing ones out of my tables. Kaggle counts them as wrong, so its score looks lower there. Each model ran once. I did not repeat the test to see how much the scores move between runs. The groups are small. A difference of one or two questions means nothing. The gap on two-step questions (30 of 30 against 3 of 30) does. The documents are invented. They are tidier than a real company's files, and five of the seven models scored at or near perfect, so this test is too easy to tell those five apart. What I would test next My test turned out to be easy on the thing I built it for and revealing on something else. So next I would: Make the pile much bigger than 50 documents, and make the documents longer, to find where the scores finally drop. Add three-step and four-step questions. If two steps separate the small models from the rest, more steps may separate the rest from each other. Run GPT-5.5 again with enough allowance to finish. Run every model several times. The practical lesson for now: in this test, handing the AI more documents was not the risk. The risk was asking a small model a question whose answer is spread across two documents. My Benchmark Task: rag-doc-scaling on Kaggle Benchmarks Dataset (50 documents, 90 cases): katienguyen27/rag-doc-scaling</p>
+    <p>The report highlights key developments related to "Does AI get worse with more documents? Open-source vs paid models, tested.", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/notjustsyntax/does-ai-get-worse-with-more-documents-open-source-vs-paid-models-tested-45ie" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
