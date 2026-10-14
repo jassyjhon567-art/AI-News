@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flaws in Windows SmartScreen Enclave Allow Code Execution, Researchers Find | AI News</title>
+<meta name="description" content="Security researchers successfully executed custom code inside a secure Windows SmartScreen enclave by chaining a four-byte write vulnerability with a timing bug in a laboratory setting.">
+<meta name="keywords" content="flaws, windows, smartscreen, enclave, allow, code, execution, researchers, find">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.html">
+<meta property="og:title" content="Flaws in Windows SmartScreen Enclave Allow Code Execution, Researchers Find">
+<meta property="og:description" content="Security researchers successfully executed custom code inside a secure Windows SmartScreen enclave by chaining a four-byte write vulnerability with a timing bug in a laboratory setting.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flaws in Windows SmartScreen Enclave Allow Code Execution, Researchers Find">
+<meta name="twitter:description" content="Security researchers successfully executed custom code inside a secure Windows SmartScreen enclave by chaining a four-byte write vulnerability with a timing bug in a laboratory setting.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Flaws in Windows SmartScreen Enclave Allow Code Execution, Researchers Find", "description": "Security researchers successfully executed custom code inside a secure Windows SmartScreen enclave by chaining a four-byte write vulnerability with a timing bug in a laboratory setting.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.jpg"], "datePublished": "2026-10-14T11:21:38Z", "dateModified": "2026-10-14T11:21:38Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.html">বাংলা</a>
+  </div>
+  <h1>Flaws in Windows SmartScreen Enclave Allow Code Execution, Researchers Find</h1>
+  <div class="meta">thehackernews.com &middot; Wed, 14 Oct 2026 11:22:28 +0530</div>
+  <img class="hero-img" src="../../images/four-byte-write-and-timing-bug-let-researchers-run-code-in-windows-smartscreen-e.jpg" alt="Flaws in Windows SmartScreen Enclave Allow Code Execution, Researchers Find" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=675&fit=crop';">
+  <p class="summary">Security researchers successfully executed custom code inside a secure Windows SmartScreen enclave by chaining a four-byte write vulnerability with a timing bug in a laboratory setting.</p>
+  <div class="content">
+    <p>Security researchers have demonstrated a method to execute arbitrary code within a heavily protected part of the Windows operating system that is designed to stay completely sealed off, even when an attacker gains full control over the rest of the host computer. The target of the breakthrough was a Virtualization-based Security (VBS) enclave, an isolated slice of system memory that Windows leverages to store and process high-value security secrets. Specifically, the team managed to penetrate the enclave dedicated to handling sensitive credentials for Windows SmartScreen, a built-in anti-phishing defense mechanism.</p>
+    <p>The exploit relied on an intricate combination of flaws, pairing a specific four-byte memory write primitive with a subtle timing bug. Under normal design parameters, VBS enclaves operate under hypervisor-enforced boundaries, ensuring that malicious software running with kernel-level or administrative privileges cannot tamper with enclave memory. By carefully coordinating the timing of system operations and exploiting the four-byte write flaw, the researchers systematically bypassed these memory integrity protections, ultimately executing their own instructions directly inside the fortified enclave environment.</p>
+    <p>The entire experiment was conducted within a controlled laboratory environment as a proof of concept aimed at testing the structural integrity of modern enclave architectures. Although weaponizing such flaws in the real world would present significant hurdles, the research underscores that even hardware-isolated security boundaries are not entirely immune to memory corruption and concurrency issues. The findings offer vital technical insights for system architects and security teams as they work to identify and remediate similar micro-architectural vulnerabilities across operating systems.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
