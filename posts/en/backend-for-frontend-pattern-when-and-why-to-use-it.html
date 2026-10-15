@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backend for Frontend Pattern: When and Why to Use It | AI News</title>
+<meta name="description" content="TL;DR A Backend for Frontend gives each client type, web, iOS, Android, its own dedicated backend shaped around what that interface actually needs to render, instead of forcing...">
+<meta name="keywords" content="backend, frontend, pattern, when, why, use">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/backend-for-frontend-pattern-when-and-why-to-use-it.html">
+<meta property="og:title" content="Backend for Frontend Pattern: When and Why to Use It">
+<meta property="og:description" content="TL;DR A Backend for Frontend gives each client type, web, iOS, Android, its own dedicated backend shaped around what that interface actually needs to render, instead of forcing...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/backend-for-frontend-pattern-when-and-why-to-use-it.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/backend-for-frontend-pattern-when-and-why-to-use-it.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Backend for Frontend Pattern: When and Why to Use It">
+<meta name="twitter:description" content="TL;DR A Backend for Frontend gives each client type, web, iOS, Android, its own dedicated backend shaped around what that interface actually needs to render, instead of forcing...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/backend-for-frontend-pattern-when-and-why-to-use-it.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/backend-for-frontend-pattern-when-and-why-to-use-it.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/backend-for-frontend-pattern-when-and-why-to-use-it.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Backend for Frontend Pattern: When and Why to Use It", "description": "TL;DR A Backend for Frontend gives each client type, web, iOS, Android, its own dedicated backend shaped around what that interface actually needs to render, instead of forcing...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/backend-for-frontend-pattern-when-and-why-to-use-it.jpg"], "datePublished": "2026-10-15T10:59:32Z", "dateModified": "2026-10-15T10:59:32Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/backend-for-frontend-pattern-when-and-why-to-use-it.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/backend-for-frontend-pattern-when-and-why-to-use-it.html">বাংলা</a>
+  </div>
+  <h1>Backend for Frontend Pattern: When and Why to Use It</h1>
+  <div class="meta">dev.to &middot; Thu, 15 Oct 2026 10:45:48 +0000</div>
+  <img class="hero-img" src="../../images/backend-for-frontend-pattern-when-and-why-to-use-it.jpg" alt="Backend for Frontend Pattern: When and Why to Use It" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">TL;DR A Backend for Frontend gives each client type, web, iOS, Android, its own dedicated backend shaped around what that interface actually needs to render, instead of forcing...</p>
+  <div class="content">
+    <p>TL;DR A Backend for Frontend gives each client type, web, iOS, Android, its own dedicated backend shaped around what that interface actually needs to render, instead of forcing every client to filter down one shared, general-purpose API response. The pattern solves a real client-shaping problem, but it comes with a cost: duplicated integration logic across services, more deployments to operate, and an added network hop in every request path. This piece covers what a BFF actually does, how it differs from an API gateway, what running several of them costs, and where the integration layer inside each one can be trimmed down. Getting Started: What a Backend for Frontend Pattern Solves A Backend for Frontend, usually shortened to BFF, is a server-side service built and owned by the team responsible for one specific client, web, iOS, Android, or a third-party integration, and positioned between that client and the backend services it depends on. Instead of one general-purpose API shaped to satisfy every consumer at once, each frontend gets a backend shaped around what that interface actually needs: the fields it renders, the requests it can afford to make, and the aggregation it would otherwise have to do on-device. The pattern traces back to engineering teams at REA and SoundCloud, who ran into the same problem from different directions: a shared backend serving a growing set of very different clients kept accumulating logic for all of them at once. Phil Calçado's original write-up on the pattern, later catalogued by Sam Newman as a named architectural pattern, put the fix plainly: build one backend per user experience rather than one general-purpose backend for everyone. A mobile client and a desktop client don't just render the same data differently, they operate under different constraints entirely, screen space, battery, and network reliability among them, and a shared backend has no clean way to represent that difference in a single schema. Ownership is the part of the definition worth noting early. A BFF isn't an API split by client type at the routing level. It's typically built and deployed by the same team that owns the frontend it serves, using whatever language and release cadence fits that team, independent of how the core backend services are versioned or shipped. Every product that ships more than one client eventually runs into the same argument: should all of them talk to the same backend, or should each one get something closer to what it actually needs. For years the default answer was one shared backend, reused across every client because building a new API per interface felt like duplicated infrastructure. That default holds up fine with one client and a handful of endpoints. It stops holding up once a mobile app on a metered connection and a desktop dashboard with a dozen open panels are both hitting the same general-purpose response, and someone has to decide whose needs the next schema change should serve. Why a Single Shared Backend Strains Across Multiple Clients A shared backend degrades in a specific, predictable way as the number of client types grows. It doesn't fail outright, it accumulates conditional logic, optional fields nobody wants to remove because some client still depends on them, and query parameters that exist only to let one interface ask for less than everyone else gets by default. The practical symptoms show up as three separate but related pressures: Growing functionality. The backend's feature surface keeps expanding to cover every platform it serves, which makes it harder to reason about and slower to change safely. Team bottlenecks. Frontend teams have to coordinate with a separate backend team before shipping anything that needs a new field or a different shape, turning a frontend release into a cross-team negotiation. Forced aggregation. Combining data from several downstream services into one response becomes the shared backend's job for every client at once, rather than something each client can shape around its own needs. None of these problems are really about scale in the infrastructure sense, they're about ownership and shape. A backend that has to satisfy a phone app and a desktop dashboard at the same time is optimizing for neither, and the team that owns it ends up mediating a conflict of interest between two frontends that don't need to agree on anything. How a Backend for Frontend Differs From an API Gateway The BFF pattern gets confused with an API gateway often enough that it's worth stating the distinction directly, since the two solve different problems and most systems that use one still need the other. Client awareness. An API gateway is client-agnostic, applying the same routing and policy layer to every caller. A BFF is client-aware, built specifically for one frontend's needs. Typical owner. A platform or infrastructure team usually owns the gateway. The frontend team the BFF serves owns the BFF. Core job. A gateway handles routing, authentication, rate limiting, and other cross-cutting concerns across services. A BFF handles aggregating and reshaping data into what one specific UI needs. What triggers a change. A gateway changes on platform-wide policy updates. A BFF changes on that frontend's own release cycle. The structural difference comes down to what each layer is centered on. An API gateway is infrastructure-centric, applying the same routing and security policy to every request regardless of who's calling. A BFF is application-centric, built around one frontend's specific needs and evolving on that frontend's own schedule. A system commonly runs both together: an API gateway handling routing, authentication, and rate limiting for every service, with one or more BFFs sitting behind it, each shaping a response for its own client. Where a BFF Sits Inside a Microservices Call Path In a typical microservices system, a single screen rarely maps to a single downstream service. A dashboard home screen might need workspace metadata from one service, usage figures from a second, and recent alerts from a third. Without a BFF, the client itself has to make three separate calls and stitch the results together on-device. A BFF moves that aggregation off the client and onto a service the frontend team controls. The client makes one call to its BFF, the BFF fans out to each downstream service it needs, combines the results into the shape that screen actually renders, and returns a single response. The downstream services stay unaware a BFF exists between them and the client, they're just handling requests from another internal caller. This is also where the pattern's real engineering cost lives. Every BFF that aggregates from multiple services needs a client for each of those services, something to deserialize each response, and error handling for when one of those calls fails while the others succeed. That code has nothing to do with what the BFF is actually for, shaping a response for one frontend, and it's the same category of integration work a shared backend already had to do, just now duplicated across however many BFFs a system ends up running. The Real Operational Cost of Running Several BFFs Adopting the pattern is rarely a question of whether it solves the client-shaping problem, it does. The harder question is whether a team can absorb the ongoing cost of running several BFFs. The most commonly cited costs fall into a few consistent categories: Code duplication. If a web BFF and a mobile BFF both aggregate from the same three downstream services, the integration logic, the HTTP clients, the response parsing, the retry handling, tends to get written twice, once per BFF, with no natural place for it to live once. Operational overhead. Each BFF is its own deployable, with its own release pipeline, its own secrets, and its own service-level objectives to track, so a system with three BFFs has three times the operational surface area of a single shared backend. Added latency. A BFF sits between the client and the services it aggregates from, so every request pays for one additional network hop a direct client-to-service call wouldn't have, which matters more for latency-sensitive interfaces than for ones with looser response-time budgets. There's a structural dimension to this too. A BFF's boundaries tend to track team boundaries rather than pure technical ones, since the pattern exists specifically to give a frontend team a backend it can change without waiting on anyone else. That's a genuine advantage while team structure is stable, but a reorganization that merges or splits frontend teams usually forces a corresponding restructuring of the BFFs those teams own, a maintenance cost that has nothing to do with the underlying services at all. Deciding Whether the BFF Pattern Is Worth Adopting The pattern earns its cost when a shared backend is genuinely straining to serve conflicting client needs, when different frontends would benefit from different languages or release cadences, or when a frontend team is regularly blocked waiting on a separate backend team to ship a change only that frontend needs. It's a weaker fit when every client makes roughly the same requests and expects roughly the same shape back, since a BFF built for that case adds an extra hop and a second service without shaping anything meaningfully differently. GraphQL with frontend-specific resolvers already lets each client ask for exactly the fields it needs from a single schema, addressing much of the same over-fetching problem without a separate service per client. And if only one interface actually talks to the backend today, there's no shaping conflict yet to resolve. The practical test is whether the client-shaping problem is real and recurring, not hypothetical. A team debating the pattern for a single web client with no mobile app on the roadmap is usually better served by fixing the shared backend's worst over-fetching cases directly than by introducing a second service to maintain. How Graftcode Reduces the Integration Code Inside Each BFF None of the BFF pattern's actual job, deciding what a client needs and shaping a response around it, changes with Graftcode in the picture. What changes is the code each BFF writes to reach the services it aggregates from, the hand-written integration layer, HTTP clients, DTO mapping, response parsing, that shows up duplicated across every BFF a team runs, sitting alongside whatever REST, gRPC, or broker setup already connects those services. A BFF calling three downstream services today typically means three hand-rolled clients, three sets of response types to keep in sync with whatever each service actually returns, and error handling written separately for each one. Graftcode reduces that layer with a Graft per service: a strongly-typed interface generated directly from that service's public methods and installed through a package manager, the same way a dependency gets installed today. The BFF calls a method directly instead of constructing a request, and gets a strongly-typed object back with no manual deserialization required. # Install a Graft for each downstream service (per-service pip index, per docs.graftcode.com) python -m pip install --extra-index-url https://grft.dev/simple/&lt;project-id&gt;__free graft-nuget-workspaceservice==1.0.0 # The mobile BFF's dashboard endpoint, aggregating three services through Grafts from graft_nuget_workspaceservice.graft.nuget.WorkspaceService import GraftConfig as WorkspaceConfig from graft_nuget_workspaceservice.workspaceservice import WorkspaceService from graft_nuget_usageservice.graft.nuget.UsageService import GraftConfig as UsageConfig from graft_nuget_usageservice.usageservice import UsageService from graft_nuget_notificationservice.graft.nuget.NotificationService import GraftConfig as NotificationConfig from graft_nuget_notificationservice.notificationservice import NotificationService WorkspaceConfig.host = "wss://workspace-service-host/ws" UsageConfig.host = "wss://usage-service-host/ws" NotificationConfig.host = "wss://notification-service-host/ws" @app.get("/mobile/dashboard/{workspace_id}") async def mobile_dashboard(workspace_id: str): workspace = WorkspaceService.get_summary(workspace_id=workspace_id) usage = UsageService.get_current_period(workspace_id=workspace_id) alerts = NotificationService.get_unread(workspace_id=workspace_id) return { "workspace": workspace, "usage": usage, "unread_alerts": alerts, } Every object returned above, workspace, usage, alerts, arrives as the same strongly-typed object the provider service defined, with no manual JSON parsing or DTO mapping on the BFF's side. Locally, each GraftConfig can point in-memory instead of at a remote host, so a developer can iterate on the aggregation logic without three downstream services actually running. In staging or production, switching each Graft to its remote host is a configuration change, not a rewrite. This doesn't remove the extra network hop a BFF adds, and it doesn't touch what makes the pattern work in the first place, one team owning a service shaped around its own frontend. What it reduces is the integration code sitting inside that service that has nothing to do with shaping a response, and it cuts into the exact duplication problem that shows up whenever more than one BFF calls the same downstream service. The duplication problem doesn't fully disappear just because each BFF's calls to a shared downstream service get cleaner. If a web BFF and a mobile BFF both call WorkspaceService, they're still two separate consumers of the same interface, each free to call different methods or handle a response differently. What changes is where that duplication lives. Instead of two hand-written HTTP clients drifting apart as each BFF's team makes its own small adjustments, both BFFs install the same Graft and call the same typed methods, so an interface change on WorkspaceService's side surfaces as a package update to both, rather than a schema mismatch one team discovers in production. Where Should You Start The Backend for Frontend pattern solves a specific, well-understood problem: a shared backend can't shape itself around conflicting client needs without becoming unwieldy for everyone it serves. Splitting that backend by client gives each frontend team a service it can shape and ship on its own terms, at the cost of duplicated integration logic, more services to operate, and an added network hop that has to fit inside each client's latency budget. Whether that trade is worth making depends on how real the shaping conflict actually is today, not on how many client types a roadmap might eventually include. For a team that's already decided the pattern fits, the next question is usually how much of each BFF's code ends up being aggregation logic instead of business logic, and whether that ratio is sustainable across however many BFFs the system runs. Explore how a Graft-based approach fits an existing BFF at graftcode.com , or go to the Graftcode Academy for the full setup and configuration reference. Frequently Asked Questions Does the BFF pattern replace the need for an API gateway? No. An API gateway handles cross-cutting concerns, routing, authentication, rate limiting, uniformly across every client and service. A BFF handles client-specific shaping for one frontend. Most systems that use the BFF pattern still run an API gateway in front of it for the concerns a BFF isn't designed to solve. How does the BFF pattern compare to using GraphQL with per-client resolvers? Both address over-fetching and under-fetching, but differently. GraphQL lets each client query a single schema for exactly the fields it needs, while a BFF gives each client a dedicated service instead. A team already running GraphQL with resolvers tuned per client may not need a separate BFF layer on top of it. When should a team avoid adopting the BFF pattern? When every client makes similar requests and expects a similar response shape, when only one interface currently consumes the backend, or when an API gateway plus the existing shared backend already handles the system's needs without conflict. Adding a BFF in these cases adds operational cost without solving a shaping problem that actually exists. Does Graftcode replace the Backend for Frontend pattern? No. Graftcode doesn't decide how a client's response should be shaped, that's the BFF's job, owned by the frontend team. Graftcode reduces the hand-written integration code a BFF writes to reach the downstream services it aggregates from, without changing what the BFF exposes to its own client. Does using Graftcode inside a BFF require migrating the services it calls? No. A downstream service adopts Graftcode by running a Graftcode Gateway that hosts it and exposes its public methods, nothing about how that service is written has to change. A BFF can then install a Graft for that service one dependency at a time, without requiring every downstream service to adopt it at once. How much duplicated code should a team expect across several BFFs before it becomes a real problem? There's no fixed threshold, it tracks how many downstream services multiple BFFs share and how often those services' interfaces change. A useful signal is whether engineers are regularly fixing the same integration bug in more than one BFF, that's usually the point where centralizing or typing that layer starts paying for itself. Is the BFF pattern only useful for mobile versus web, or does it apply to other client types too? It applies to any consumer with meaningfully different needs from the rest, which includes third-party API integrations, internal admin tools, and partner-facing clients, not just mobile versus web. The deciding factor is whether that client's shape or request pattern is different enough to justify its own service, not what kind of client it is.</p>
+    <p>The report highlights key developments related to "Backend for Frontend Pattern: When and Why to Use It", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/jusjustin/backend-for-frontend-pattern-when-and-why-to-use-it-4m8m" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
