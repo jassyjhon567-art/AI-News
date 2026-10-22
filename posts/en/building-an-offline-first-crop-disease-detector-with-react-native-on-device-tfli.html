@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG | AI News</title>
+<meta name="description" content="The Reality of Smallholder Agriculture in Central America In mountainous agricultural regions across Costa Rica and Central America, smallholder producers of coffee ( Coffea...">
+<meta name="keywords" content="building, offline, first, crop, disease, detector, react, native, device, tflite, grounded, rag">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.html">
+<meta property="og:title" content="Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG">
+<meta property="og:description" content="The Reality of Smallholder Agriculture in Central America In mountainous agricultural regions across Costa Rica and Central America, smallholder producers of coffee ( Coffea...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG">
+<meta name="twitter:description" content="The Reality of Smallholder Agriculture in Central America In mountainous agricultural regions across Costa Rica and Central America, smallholder producers of coffee ( Coffea...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG", "description": "The Reality of Smallholder Agriculture in Central America In mountainous agricultural regions across Costa Rica and Central America, smallholder producers of coffee ( Coffea...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.jpg"], "datePublished": "2026-10-22T11:18:42Z", "dateModified": "2026-10-22T11:18:42Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.html">বাংলা</a>
+  </div>
+  <h1>Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG</h1>
+  <div class="meta">dev.to &middot; Thu, 22 Oct 2026 11:04:59 +0000</div>
+  <img class="hero-img" src="../../images/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tfli.jpg" alt="Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">The Reality of Smallholder Agriculture in Central America In mountainous agricultural regions across Costa Rica and Central America, smallholder producers of coffee ( Coffea...</p>
+  <div class="content">
+    <p>The Reality of Smallholder Agriculture in Central America In mountainous agricultural regions across Costa Rica and Central America, smallholder producers of coffee ( Coffea arabica ), cacao ( Theobroma cacao ), and banana ( Musa spp.) cultivate plots where cellular connectivity is intermittent or completely absent. When foliar and pod pathogens strike—such as Coffee Leaf Rust ( Hemileia vastatrix ), Cacao Frosty Pod Rot ( Moniliophthora roreri ), or Banana Black Sigatoka ( Pseudocercospora fijiensis )—early and accurate diagnosis is critical. A delay of several days or a mistaken treatment can destroy an entire seasonal harvest. Cloud-based computer vision APIs fail in this environment: when standing in a steep coffee parcel miles away from the nearest cell tower, an app requiring a round-trip network request is unusable. To address this challenge, we built HealthyCropping , an open-source, non-commercial, offline-first Android application. GitHub Repository: https://github.com/keylorpineda/healthycropping Architectural Principle: 100% Offline by Default HealthyCropping was architected so that no core user action—capturing a photo, running deep learning inference, evaluating disease severity, or registering a plot sector—requires an internet connection. Field Camera Capture: Guided framing tips tailored to leaf underside (coffee/banana) or pod surface (cacao). On-Device Preprocessing: In-memory 224x224 RGB decoding and normalization. Offline Inference: MobileNetV3 TFLite models running locally in under 50ms. Instant Severity Triage: Results reported immediately on screen with actionable status (healthy, watch, act now). Local Persistence: Data written to expo-sqlite using client-side UUIDs. Optional Cloud Bridge: Asynchronous batch synchronization with FastAPI and Gemini RAG once connectivity is restored. Challenge 1: Edge Inference Without Freezing the UI Thread Running deep learning models on mid-range and low-end Android hardware presents severe memory and latency constraints. Loading a full TensorFlow runtime or converting uncompressed models causes dropped frames, out-of-memory crashes, and excessive battery drain. We addressed this through three key architectural decisions: Specialist Models per Plant Organ: Instead of an oversized multi-class model trying to classify all plants at once, we trained dedicated MobileNetV3-Large architectures focused on specific plant organs: Coffee Leaf, Cacao Pod, and Banana Leaf. Quantization: Models are exported and quantized to float16 and INT8, reducing file sizes to below 10 MB per model. Hardware Acceleration via Fast TFLite: We utilize react-native-fast-tflite, which binds directly to native C++ TFLite runtimes using GPU/NNAPI delegates where available. On test hardware, inference consistently completes in under 50 milliseconds . Challenge 2: The Tensor Parity Trap A common pitfall in edge machine learning is training-to-deployment preprocessing drift . A model trained in Python with Keras might achieve 95% accuracy on test splits, but once deployed in a mobile JavaScript environment, slight differences in image decoding, resizing interpolation, or RGB normalization formulas degrade real-world accuracy drastically. To prevent this drift, we created a shared fixture test suite between the Python ML repository ( ml/ ) and the React Native client ( app/ ): A reference test image is passed through Python preprocessing ( ml/src/preprocessing/ ). The resulting 224x224 RGB float array is exported as an exact numerical fixture. A Jest unit test in React Native runs the mobile decoding pipeline ( app/src/ml/preprocessor.ts ) and asserts bit-for-bit parity against the Python reference tensor. If any change is made to normalization statistics or channel ordering, the automated CI pipeline fails before any model reaches the mobile bundle. Challenge 3: Offline Data Integrity with SQLite Farms, plots, and scans are stored locally using expo-sqlite . Because users work offline for days, primary keys cannot rely on auto-incrementing database IDs generated by a remote server. We generate client-side UUIDv4 identifiers for all entities. When connectivity is eventually restored, an idempotent synchronization engine reconciles local changes with our remote backend: Unsynced records are batched into a single payload. The backend processes records with upsert semantics, eliminating duplicate entries caused by network drops during sync. Challenge 4: Preventing Dangerous AI Hallucinations Generative AI in agriculture presents a serious risk: an unconstrained Large Language Model might invent chemical mixtures, incorrect dosages, or illegal fungicides that harm crops, contaminate soil, or void organic certifications. HealthyCropping uses a Grounded Retrieval-Augmented Generation (RAG) pipeline powered by FastAPI and Gemini: Curated Agronomic Corpus: We ingest verified technical manuals from national institutions (such as Costa Rica's ICAFE for coffee and CATIE for cacao). Strict Source Attribution: The RAG prompt strictly confines Gemini to the retrieved manual passages. It is instructed to reject answering if verified guidance is missing. Structured Recommendations: Guidance is categorized into Cultural Controls (e.g., pruning, shade regulation) and Approved Phytosanitary Measures, always citing the exact manual title and page number. Current Status and Open Source Opportunities HealthyCropping is actively in development across 9 structured phases: Phases 1 to 5 (Completed): Model pipelines for coffee, cacao, and banana; float16/INT8 TFLite export; Expo React Native client shell; offline SQLite schema; and camera triage interface. Phases 6 and 7 (In Progress): FastAPI cloud synchronization, Firebase token boundaries, Cloudinary image ingestion, and Gemini RAG advisory integration. We welcome open-source contributions across all layers: Mobile Engineers (React Native, TypeScript, Expo, SQLite): Sync engine optimizations, battery profiling, and UI testing. Backend Engineers (Python 3.12, FastAPI, Firebase Admin): Batch sync endpoints, async processing pipelines, and API security. ML Engineers (TensorFlow, TFLite): Quantization-aware training (QAT), dataset validation, and mobile inference benchmarks. Agronomists & Researchers: Manual curation, retrieval chunk validation, and field trial feedback. Explore the Code GitHub Repository: https://github.com/keylorpineda/healthycropping Architecture Overview: https://github.com/keylorpineda/healthycropping/blob/develop/docs/ARCHITECTURE.md Implementation Roadmap: https://github.com/keylorpineda/healthycropping/blob/develop/docs/PLAN.md Contributing Guidelines: https://github.com/keylorpineda/healthycropping/blob/develop/CONTRIBUTING.md Feedback, issues, and discussions are welcome.</p>
+    <p>The report highlights key developments related to "Building an Offline-First Crop Disease Detector with React Native, On-Device TFLite, and Grounded RAG", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/keylorpineda/building-an-offline-first-crop-disease-detector-with-react-native-on-device-tflite-and-grounded-1l12" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
