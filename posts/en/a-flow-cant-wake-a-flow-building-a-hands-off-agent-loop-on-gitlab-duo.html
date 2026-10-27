@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A flow can't wake a flow: building a hands-off agent loop on GitLab Duo | AI News</title>
+<meta name="description" content="For the GitLab Transcend &quot;Life After Code&quot; hackathon I built Ghost Customers : three synthetic customers who walk every build, file issues in their own voice, approve AI fixes...">
+<meta name="keywords" content="flow, can't, wake, building, hands, off, agent, loop, gitlab, duo">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.html">
+<meta property="og:title" content="A flow can&#x27;t wake a flow: building a hands-off agent loop on GitLab Duo">
+<meta property="og:description" content="For the GitLab Transcend &quot;Life After Code&quot; hackathon I built Ghost Customers : three synthetic customers who walk every build, file issues in their own voice, approve AI fixes...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A flow can&#x27;t wake a flow: building a hands-off agent loop on GitLab Duo">
+<meta name="twitter:description" content="For the GitLab Transcend &quot;Life After Code&quot; hackathon I built Ghost Customers : three synthetic customers who walk every build, file issues in their own voice, approve AI fixes...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "A flow can't wake a flow: building a hands-off agent loop on GitLab Duo", "description": "For the GitLab Transcend \"Life After Code\" hackathon I built Ghost Customers : three synthetic customers who walk every build, file issues in their own voice, approve AI fixes...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.jpg"], "datePublished": "2026-10-27T21:54:32Z", "dateModified": "2026-10-27T21:54:32Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.html">বাংলা</a>
+  </div>
+  <h1>A flow can't wake a flow: building a hands-off agent loop on GitLab Duo</h1>
+  <div class="meta">dev.to &middot; Tue, 27 Oct 2026 21:42:22 +0000</div>
+  <img class="hero-img" src="../../images/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo.jpg" alt="A flow can't wake a flow: building a hands-off agent loop on GitLab Duo" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">For the GitLab Transcend "Life After Code" hackathon I built Ghost Customers : three synthetic customers who walk every build, file issues in their own voice, approve AI fixes...</p>
+  <div class="content">
+    <p>For the GitLab Transcend "Life After Code" hackathon I built Ghost Customers : three synthetic customers who walk every build, file issues in their own voice, approve AI fixes only when the fix works for them , and close their own issues once production passes. The goal was the hardest autonomy level, hands-off : you set the intent and walk away. Getting there taught me one rule I wish I'd known on day one: A flow can't wake a flow. GitLab Duo Agent Platform triggers only fire on human actions. This post is about what that rule broke, and the design it pushed me into, which I now think is the right design anyway. The loop Three personas, each checking something real customers hit and teams usually skip: Persona Who Checks Dana RSVPs from her phone on slow 4G RSVP works on a 375px screen, page loads in under 3 s Sam Blind, keyboard and screen reader only Every field has an accessible name, Enter confirms Priya Organizer with an Excel guest list A "CSV UTF-8" export from Excel imports cleanly On every pipeline: Walk. A CI job runs a deterministic Playwright journey per persona against the container image the pipeline just built, and prints a JSON report. Report. A Duo custom flow (triggered on pipeline passed ) reads the report and opens an issue in the persona's voice: steps, evidence, a screenshot, and "done when" criteria. Fix. Duo Developer picks up the issue and opens a merge request with a fix and a regression test. Verify. The MR pipeline walks the preview build. The persona reads its own result and either approves the exact commit ("I tried this preview at commit 048aabda and it finally works") or sends it back to draft. Merge, then recheck. Only a persona-approved commit with green checks merges. The persona then walks production again and labels the issue verified-live , or reopens it. That's the plan. Here's what the platform said. Wall 1: the assignment that silently vanished My first version had the persona flow assign Duo Developer to the new issue. The API call succeeded. The assignee never appeared. No error, no session. Mentioning the Developer from the flow didn't work either. The docs explain why: every trigger event needs a human actor . A service account, a bot or another flow can't fire a trigger, so a flow cannot hand work to another flow by assigning or mentioning it. A second consequence took longer to notice: Duo Developer's own MR pipelines are started by a bot, so they never woke my persona flow to review the fix. Wall 2: the flow can't start sessions or merge Next I tried doing it all from inside the flow: start_flow failed with HTTP 422: Error in creating workload: Insufficient permissions to create a new pipeline . Merging failed with 403 insufficient_scope , because the flow's token is scoped to ai_workflows . So the agent could decide everything and do almost nothing outside issues and notes. The design: personas decide, dispatch acts Instead of fighting that, I split the system along that line. The agent judges. The persona flow reads evidence, writes as the persona, and approves or rejects a specific commit in a note. It never merges and never edits files. Plain code acts. ghost-dispatch is a small Python job that runs only in pipelines on main . It uses a maintainer token stored as a protected, masked CI variable, so only main can read it. It assigns Duo Developer to new ghost issues, merges only persona-approved commits, and asks Duo Developer to rebase conflicts. Because dispatch acts with a human's token, its assignment counts as a human action and fires the Developer trigger. Its merge starts a new pipeline on main , which wakes the personas to recheck production. The platform rule that blocked me became the backbone of the loop. The merge decision is deliberately boring. A fix merges only if the persona named that exact commit: PERSONA_AUTHOR_PREFIX = " ai-ghost-customers " REQUIRED_JOBS = ( " unit-tests " , " merge-gate " , " ghost-walk " ) def persona_verified ( notes : list [ dict ], sha : str ) -&gt; bool : short = sha [: 8 ] return any ( ( note . get ( " author " ) or {}). get ( " username " , "" ). startswith ( PERSONA_AUTHOR_PREFIX ) and not note . get ( " system " ) and short in ( note . get ( " body " ) or "" ) for note in notes ) def pipeline_ready ( pipeline : dict | None , jobs : list [ dict ], sha : str ) -&gt; bool : if not pipeline or pipeline . get ( " sha " ) != sha or pipeline . get ( " status " ) != " success " : return False status = { job [ " name " ]: job [ " status " ] for job in jobs } return all ( status . get ( name ) == " success " for name in REQUIRED_JOBS ) If Duo Developer pushes a new commit after the approval, the approval no longer matches and the persona has to walk it again. There's also a deterministic merge-gate job: a fix may only touch app/ and tests/ , so no agent can "fix" a bug by editing the persona journey that found it. Guardrails cap each run at 3 issues and 3 merges. What real runs taught me Each of these happened in the first live runs, and each became a rule: GitLab closes the issue before the customer checks. An MR saying "Fixes #3" auto-closes the issue on merge. Now personas also recheck closed issues without verified-live , and reopen them if production still fails. A stale walk filed a duplicate. A walk of the commit just before a merge still saw the bug and opened a duplicate issue. Now walks that predate an issue's close are ignored. Two fixes conflicted. Sam's fix merged first and Priya's MR conflicted in the shared test file. Dispatch asked Duo Developer to rebase (once per commit), it pushed a clean commit, Priya walked the new commit and re-approved, and it merged. Nobody touched it. "Conflict" that wasn't. After the rebase, detailed_merge_status kept saying conflict because GitLab rechecks it lazily. Dispatch now trusts only has_conflicts . Takeaways Draw a hard line between judgment (agents) and authority (small, auditable code with narrow permissions). It made the system safer and made the platform's limits easy to work with. On GitLab Duo, design around the human-trigger rule from day one: decide where a human-equivalent action will come from before you wire flows together. Put the merge decision in the hands of whoever the change is for. Here that's a synthetic customer approving an exact commit. The community is converging on the same line A few posts I read while building this landed in the same place from different directions: 🧪 I automated my refactoring method with GitLab Duo agents. The agent writes the fix, a CI gate decides the merge. by kargut: another Transcend entry where the agent writes and a deterministic gate decides. 🚧 Put a Deterministic Gate Between Generated Code and Main by kongkong1: protected paths and patch checks before generated code reaches review. 🔍 Five AI Agents After the Code: What GitLab Duo Did in a Real Pipeline by devaland: real Duo agents in a pipeline, and what a human still decides. Links Repo (MIT): https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/7630733/ghost-customers Devpost: https://devpost.com/software/ghost-customers Demo video: https://youtu.be/uqyKiNd5_RY If you've hit the human-trigger rule on GitLab Duo and solved it differently, I'd love to hear how.</p>
+    <p>The report highlights key developments related to "A flow can't wake a flow: building a hands-off agent loop on GitLab Duo", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/emarc99/a-flow-cant-wake-a-flow-building-a-hands-off-agent-loop-on-gitlab-duo-483i" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
