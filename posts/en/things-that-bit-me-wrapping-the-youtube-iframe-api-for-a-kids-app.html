@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Things That Bit Me Wrapping the YouTube IFrame API for a Kids' App | AI News</title>
+<meta name="description" content="I built WiseTube because the YouTube sidebar kept leading my kids somewhere I didn&#x27;t want them. It&#x27;s a free library of hand-picked learning videos that play inside my own player,...">
+<meta name="keywords" content="things, bit, wrapping, youtube, iframe, api, kids', app">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.html">
+<meta property="og:title" content="Things That Bit Me Wrapping the YouTube IFrame API for a Kids&#x27; App">
+<meta property="og:description" content="I built WiseTube because the YouTube sidebar kept leading my kids somewhere I didn&#x27;t want them. It&#x27;s a free library of hand-picked learning videos that play inside my own player,...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Things That Bit Me Wrapping the YouTube IFrame API for a Kids&#x27; App">
+<meta name="twitter:description" content="I built WiseTube because the YouTube sidebar kept leading my kids somewhere I didn&#x27;t want them. It&#x27;s a free library of hand-picked learning videos that play inside my own player,...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Things That Bit Me Wrapping the YouTube IFrame API for a Kids' App", "description": "I built WiseTube because the YouTube sidebar kept leading my kids somewhere I didn't want them. It's a free library of hand-picked learning videos that play inside my own player,...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.jpg"], "datePublished": "2026-10-27T17:38:05Z", "dateModified": "2026-10-27T17:38:05Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.html">বাংলা</a>
+  </div>
+  <h1>Things That Bit Me Wrapping the YouTube IFrame API for a Kids' App</h1>
+  <div class="meta">dev.to &middot; Tue, 27 Oct 2026 17:29:04 +0000</div>
+  <img class="hero-img" src="../../images/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app.jpg" alt="Things That Bit Me Wrapping the YouTube IFrame API for a Kids' App" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">I built WiseTube because the YouTube sidebar kept leading my kids somewhere I didn't want them. It's a free library of hand-picked learning videos that play inside my own player,...</p>
+  <div class="content">
+    <p>I built WiseTube because the YouTube sidebar kept leading my kids somewhere I didn't want them. It's a free library of hand-picked learning videos that play inside my own player, with YouTube's suggestions, Shorts and autoplay-to-the-next-thing taken out. The covering-up part gets most of the attention. This post is about the smaller stuff that cost me evenings. If you're wrapping the IFrame API for anything, some of these will probably find you too. 1. The API script can hang, so give it a deadline You load https://www.youtube.com/iframe_api and wait for onYouTubeIframeAPIReady . Most of the time it's fine. On a flaky connection it can sit there forever, and a kid staring at a spinner will go find another app. I wrap the load in a promise, cache it so it only happens once, and clear the cache if the script errors so the next try starts clean. The player also starts a 15 second timer. If onReady hasn't fired by then, it shows "The film didn't load" with a retry button. 2. YouTube resets your playback speed I save speed and volume to localStorage so a kid who likes 1.25x doesn't have to set it every time. I set the rate in onReady , and that isn't enough, because YouTube can reset the rate when a film starts playing. The fix is boring. On every PLAYING state change, read getPlaybackRate() and set it again if it doesn't match the saved value. 3. Autoplay for the chosen film still gets blocked sometimes I want the film a kid picked to start right away, so the player is created with autoplay: 1 . Browsers don't always allow it. There's no clean event for "autoplay was blocked," so after onReady I wait about 1.2 seconds and check the state. If it's still UNSTARTED or CUED, I show my own big play button. That's the only autoplay in the app. When a film ends, nothing else starts on its own. 4. Don't let callbacks restart the player The Player component takes onTick , onEnded and onError from the page. If those are effect dependencies, any parent re-render can tear down the iframe and build a new one mid-film. I use React's useEffectEvent for them, so the effect that mounts the player only depends on the video id, the retry count and the title. Progress gets read every 250ms for the scrub bar but only reported up every 5 seconds. Saving progress four times a second felt silly. 5. Validate pasted links before you trust them Parents can add a film by pasting a YouTube link. People paste everything: youtu.be links, /embed/ links, watch?v= links, Shorts. I parse the URL, accept the normal shapes, and reject anything under /shorts/ or /live/ with "Paste a normal YouTube link. Shorts stay out of WiseTube." Then I call YouTube's oEmbed endpoint for the link. If it doesn't come back with a title and channel name, the film doesn't get added. That catches typos, private videos and videos that can't be embedded, before a kid ever taps them. 6. A PIN on a device with no server There are no accounts. Profiles, progress and settings sit in localStorage. The four-digit parent PIN is stored as a SHA-256 hash with a random 16-byte salt, using crypto.subtle . I'll be straight about what that buys. A four-digit PIN on a device the kid holds is a speed bump. It keeps a six-year-old out of the settings. A teenager with dev tools could get past it. For a free app with no backend, I'm fine with that, and I'd rather say it than pretend it's a vault. Because everything is on one device, the parent settings have an export button that downloads a wisetube-library.json with profiles, PIN, added and hidden films, and progress. Import shows how many learners are in the file and asks before replacing anything. 7. Vite preview lies about routing The site is a static build on Cloudflare Pages. Public pages are prerendered for search. Private app routes like /watch/:youtubeId and /parent are rewritten to a noindex app.html through public/_redirects , so a refresh doesn't 404. vite preview ignores _redirects and Pages' 404 behavior, so a route can look fine locally and behave differently once deployed. I test routing with npx wrangler pages dev dist , which behaves like the real thing. 8. Tests for the catalog, too The video list is data, and data drifts. npm run check runs TypeScript, oxlint and vitest, and the catalog tests fail if an import sneaks in a Short, a duplicate, an unknown topic, or a channel I already ruled out. That has caught more mistakes than any of my UI tests. You can try the result at wisetube.yuriystasyuk.com . If you've wrapped the IFrame API and found a cleaner way around any of these, I'd love to hear it.</p>
+    <p>The report highlights key developments related to "Things That Bit Me Wrapping the YouTube IFrame API for a Kids' App", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/ystasyuk/things-that-bit-me-wrapping-the-youtube-iframe-api-for-a-kids-app-2n91" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
