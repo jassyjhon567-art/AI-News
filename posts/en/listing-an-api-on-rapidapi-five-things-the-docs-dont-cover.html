@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listing an API on RapidAPI: five things the docs don't cover | AI News</title>
+<meta name="description" content="I spent two weeks putting a PDF processing API on RapidAPI. The code was the easy part: twelve endpoints that already worked, serving a website. What cost me the time was the...">
+<meta name="keywords" content="listing, api, rapidapi, five, things, docs, don't, cover">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.html">
+<meta property="og:title" content="Listing an API on RapidAPI: five things the docs don&#x27;t cover">
+<meta property="og:description" content="I spent two weeks putting a PDF processing API on RapidAPI. The code was the easy part: twelve endpoints that already worked, serving a website. What cost me the time was the...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Listing an API on RapidAPI: five things the docs don&#x27;t cover">
+<meta name="twitter:description" content="I spent two weeks putting a PDF processing API on RapidAPI. The code was the easy part: twelve endpoints that already worked, serving a website. What cost me the time was the...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Listing an API on RapidAPI: five things the docs don't cover", "description": "I spent two weeks putting a PDF processing API on RapidAPI. The code was the easy part: twelve endpoints that already worked, serving a website. What cost me the time was the...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.jpg"], "datePublished": "2026-11-03T13:48:51Z", "dateModified": "2026-11-03T13:48:51Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.html">বাংলা</a>
+  </div>
+  <h1>Listing an API on RapidAPI: five things the docs don't cover</h1>
+  <div class="meta">dev.to &middot; Tue, 03 Nov 2026 13:34:42 +0000</div>
+  <img class="hero-img" src="../../images/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover.jpg" alt="Listing an API on RapidAPI: five things the docs don't cover" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">I spent two weeks putting a PDF processing API on RapidAPI. The code was the easy part: twelve endpoints that already worked, serving a website. What cost me the time was the...</p>
+  <div class="content">
+    <p>I spent two weeks putting a PDF processing API on RapidAPI. The code was the easy part: twelve endpoints that already worked, serving a website. What cost me the time was the gateway, and almost none of it is in the documentation. 1. The gateway routes only the endpoints you declare My origin server has twelve endpoints. I defined four in RapidAPI's dashboard to get the listing live, assuming the gateway was a dumb proxy that would forward whatever path came through. $ curl -X POST "https://...p.rapidapi.com/ocr-pdf" -H "X-RapidAPI-Key: $KEY " ... { "message" : "Endpoint '/ocr-pdf' does not exist" } Eight of my twelve endpoints were unreachable. I had already written the documentation for all twelve. Had I published it, every subscriber would have hit a 404 on two thirds of the product. Declare every endpoint before you write a line of docs. 2. An undeclared path returns 401, not 404 This is what made the first one hard to catch. I probed the gateway without a key, expecting a missing endpoint to 404: $ curl -X POST "https://...p.rapidapi.com/definitely-not-real" 401 $ curl -X POST "https://...p.rapidapi.com/compress" # this one is declared 401 Identical. Authentication runs before path resolution, so an undeclared path is indistinguishable from a declared one until you authenticate. The practical consequence: you cannot audit your own gateway without a valid subscriber key. I spent an hour reasoning from 401s that could not tell me anything, then subscribed to my own free tier and got the answer in one request. Subscribe to your own API and call every endpoint end to end. Not the test console in the dashboard, but a real request with a real key from outside. 3. Your paying customers will throttle each other RapidAPI proxies every request through its own IP addresses. My rate limiter was keyed on client IP. Ten requests a minute per IP, which is correct for a public website. Behind the gateway, every paying subscriber in the world shares that same handful of proxy IPs. Customer A's traffic would have consumed Customer B's limit. The first two subscribers would have 429'd each other and churned, and I would have had no idea why. The gateway does tell you who the request belongs to, in X-RapidAPI-User . But anyone can set that header by hand, so it means nothing on its own. What makes it trustworthy is the shared proxy secret RapidAPI sends alongside it: func ( a * RapidAPIAuth ) ServeHTTP ( w http . ResponseWriter , r * http . Request ) { sent := r . Header . Get ( "X-RapidAPI-Proxy-Secret" ) claimsRapid := sent != "" || r . Header . Get ( "X-RapidAPI-User" ) != "" if ! claimsRapid { a . next . ServeHTTP ( w , r ) // ordinary web traffic, leave it alone return } // Constant-time, because == leaks the secret's length and prefix. if subtle . ConstantTimeCompare ([] byte ( sent ), [] byte ( a . secret )) != 1 { http . Error ( w , "invalid RapidAPI proxy secret" , http . StatusForbidden ) return } user := r . Header . Get ( "X-RapidAPI-User" ) if user == "" { // Verified as RapidAPI but unattributable. Refusing beats billing it // to the shared IP bucket. http . Error ( w , "missing X-RapidAPI-User" , http . StatusBadRequest ) return } ctx := context . WithValue ( r . Context (), rapidUserKey {}, user ) a . next . ServeHTTP ( w , r . WithContext ( ctx )) } Then key your limiter on the subscriber instead of the IP. Headers that claim RapidAPI without the secret get rejected rather than trusted, which closes the obvious forgery. 4. You cannot lower the advertised rate limit I had measured what the box does: 144 conversions an hour on a t3.micro, five concurrent requests comfortable. So the server enforces 120 requests an hour per subscriber, a number the hardware can actually serve. RapidAPI does not let you. Paid tiers are fixed at 1,000 requests per hour and there is no field to change it. The platform advertises a number my server cannot serve. There is no technical fix. The honest resolution is to enforce the real number server-side and say so in the docs, before someone subscribes: The rate column shows what you can sustain. RapidAPI's plan page says 1,000 requests per hour on the paid tiers because the platform gives a provider no way to lower that number; our own limit is 120 per hour per subscription. Better a customer reads that on the pricing page than discovers it at request 121. 5. The OpenAPI importer may not work Twelve endpoints, a valid OpenAPI 3.0.3 spec, and an importer that advertises OpenAPI 3.0.3. This should have been one upload. An error occurred Cannot read properties of null (reading 'getChildGroups') I converted YAML to JSON. Same class of failure, one step further in: Cannot read properties of null (reading 'appendChild') I stripped the tags in case it was choking on group creation. Still failed. I tried the file upload, the remote URL and the paste-text tabs. All three. In the end I added twelve endpoints by hand, each with its method, path, description and form fields. Roughly two minutes apiece. Budget for that. If the importer works for you, you saved half an hour. If it does not, you have not lost an afternoon discovering that it will not. What I would do differently In order: Declare every endpoint in the dashboard first, by hand, assuming no import. Subscribe to your own free tier and call every endpoint from outside. Check your rate limiting is keyed on the subscriber, not the IP. Measure what your hardware does, then document that number rather than the one the platform shows. Write the documentation last, against endpoints you have called yourself. None of this is hard. It stays invisible until you are live, which is the worst time to find it. The API is Papyrio PDF Tools ; the reference is at papyrio.net/docs . Free tier is 50 requests a month, no card. Here is the whole path from sign-up to a first compressed PDF, about a minute: The same twelve endpoints also run as an MCP server, so Claude, Cursor or VS Code can call them on local files. This is the install in Claude Desktop, 47 seconds:</p>
+    <p>The report highlights key developments related to "Listing an API on RapidAPI: five things the docs don't cover", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/atabek_murtazaev_18e1ac50/listing-an-api-on-rapidapi-five-things-the-docs-dont-cover-1bjc" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
