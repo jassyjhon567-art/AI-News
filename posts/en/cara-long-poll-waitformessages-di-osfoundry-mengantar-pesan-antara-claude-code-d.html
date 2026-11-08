@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python | AI News</title>
+<meta name="description" content="Inilah seluruh sisi penerima dari jaringan agen osFoundry , persis seperti yang dideklarasikan endpoint MCP publiknya. Output-nya berasal dari tools/list di...">
+<meta name="keywords" content="cara, long, poll, wait, messages, osfoundry, mengantar, pesan, antara, claude, code, dan">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.html">
+<meta property="og:title" content="Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python">
+<meta property="og:description" content="Inilah seluruh sisi penerima dari jaringan agen osFoundry , persis seperti yang dideklarasikan endpoint MCP publiknya. Output-nya berasal dari tools/list di...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python">
+<meta name="twitter:description" content="Inilah seluruh sisi penerima dari jaringan agen osFoundry , persis seperti yang dideklarasikan endpoint MCP publiknya. Output-nya berasal dari tools/list di...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python", "description": "Inilah seluruh sisi penerima dari jaringan agen osFoundry , persis seperti yang dideklarasikan endpoint MCP publiknya. Output-nya berasal dari tools/list di...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.jpg"], "datePublished": "2026-11-08T12:57:08Z", "dateModified": "2026-11-08T12:57:08Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.html">বাংলা</a>
+  </div>
+  <h1>Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python</h1>
+  <div class="meta">dev.to &middot; Sun, 08 Nov 2026 12:40:35 +0000</div>
+  <img class="hero-img" src="../../images/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-d.jpg" alt="Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">Inilah seluruh sisi penerima dari jaringan agen osFoundry , persis seperti yang dideklarasikan endpoint MCP publiknya. Output-nya berasal dari tools/list di...</p>
+  <div class="content">
+    <p>Inilah seluruh sisi penerima dari jaringan agen osFoundry , persis seperti yang dideklarasikan endpoint MCP publiknya. Output-nya berasal dari tools/list di https://api.osfoundry.io/api/v1/external-mcp , yang menjawab tanpa token: wait_for_messages: required= [] readOnly=True openWorld=False scope= [ 'osfoundry:read' ] { "after_sequence" : { "type" : "integer" , "minimum" : 0 }, "timeout_s" : { "type" : "integer" , "minimum" : 0 , "maximum" : 50 }, "limit" : { "type" : "integer" , "minimum" : 1 , "maximum" : 50 }} send_agent_message: required= [ 'to' , 'body' , 'idempotency_key' ] readOnly=False openWorld=True scope= [ 'osfoundry:write' ] { "to" : { "type" : "string" }, "body" : { "type" : "string" , "maxLength" : 20000 }, "thread_root_id" : { "type" : "string" }, "idempotency_key" : { "type" : "string" , "minLength" : 8 , "maxLength" : 128 }} Tiga parameter, tanpa subscription, webhook, atau socket. Claude Code dan Codex adalah client MCP. Mereka mengirim request, tapi tidak ada yang bisa memanggil mereka. Jadi kalau Codex ingin mendengar kabar dari Claude Code, Codex sendiri yang harus bertanya, dan wait_for_messages dirancang supaya bertanya itu murah. Deskripsinya menyebut tool ini mengembalikan pesan "begitu ada yang masuk, atau list kosong setelah timeout_s (maks 50)", dan "tanpa after_sequence, ia melanjutkan dari tempat panggilan terakhirmu berhenti". Di bawah ini, setiap bagian kontrak itu dibongkar, lalu dibangun ulang sebagai server Python kecil beserta client-nya, kemudian diukur. Di Mac ini tidak ada binary claude atau codex , jadi kedua agen disimulasikan oleh thread yang memanggil server hasil rebuild lewat HTTP. Kode server osFoundry tidak publik. Rebuild ini hanya menyalin kontrak yang dipublikasikan: nama tool, batasan, dan deskripsi. Semuanya ada di code/ ( realprobe.py , netsim.py , dan output-nya). Apa itu pesan yang "ditujukan kepadamu"? Deskripsinya menyebut tiga jalur: "lewat to , lewat @handle, atau di pesan langsung". Handle didapat dari claim_connected_profile , dan skemanya menetapkannya dengan jelas: "handle" : { "type" : "string" , "pattern" : "^[a-z0-9][a-z0-9-]{1,30}$" } Artinya 2 sampai 31 karakter, huruf kecil, angka, dan tanda hubung, dan deskripsinya mencadangkan maestro , direct , all , everyone , here , dan channel . Rebuild menerapkan aturan yang sama: claim alice-claude len=12 -&gt; {'handle': 'alice-claude'} claim a len=1 -&gt; {'error': 'invalid handle'} claim Alice len=5 -&gt; {'error': 'invalid handle'} claim here len=4 -&gt; {'error': 'invalid handle'} claim xxxxxxxxxxxx.. len=32 -&gt; {'error': 'invalid handle'} claim xxxxxxxxxxxx.. len=31 -&gt; {'handle': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'} Untuk jalur @handle, web client osFoundry membawa salinan aturan pencocokan dari server, supaya composer dan server membaca draf dengan cara yang sama. Namanya bodyMentionsHandle di apps/web/src/screens/message/lib/agent-presence.ts : new RegExp ( `(?&lt;![ \\ w.-])@ ${ escapeRegExp ( handle )} (?![ \\ w-])` , ' i ' ) Regex yang sama di Python, diuji terhadap bob-codex : '@bob-codex is the migration done?' -&gt; True 'ask @bob-codex.' -&gt; True '(@bob-codex)' -&gt; True '@Bob-Codex hi' -&gt; True 'mail bob@bob-codex.dev' -&gt; False '@bob-codex-2 hi' -&gt; False '@bob-codex_x hi' -&gt; False '@bob-codexy hi' -&gt; False Lookbehind mencegah alamat email terhitung sebagai mention. Lookahead mencegah @bob-codex cocok dengan @bob-codex-2 , yang penting kalau handle dibuat dengan akhiran angka. Titik di akhir tidak masalah. Huruf besar-kecil tidak berpengaruh. Kenapa @handle di body "tidak membangunkan siapa pun"? send_channel_message menyatakannya terang-terangan: "Menulis @handle di body tidak membangunkan siapa pun." Padahal wait_for_messages mengantar pesan berdasarkan @handle. Keduanya benar karena membicarakan dua jenis agen. Agen osFoundry itu dibangunkan: posting memulai sebuah run di perangkat pemiliknya, dan run itu memakan biaya di key milik seseorang. Itu hanya terjadi untuk handle di to , dan hanya kalau agennya "bisa dijangkau dan dimiliki oleh orang yang menghubungkanmu, atau sudah bersedia menjawab agen di channel itu". Agen dari luar seperti Codex tidak pernah dibangunkan. Ia yang menarik pesan. Mention di body akan muncul di hasil wait_for_messages miliknya saat ia bertanya lagi, dan tidak ada yang dijalankan atas namanya. Jadi to adalah alamat yang disengaja dan diperiksa, dan hasilnya memberi tahu "siapa yang menerima, siapa yang dilewati, dan kenapa". Mention di body adalah sesuatu yang mungkin diperhatikan pembaca. Kalau kamu butuh jawaban, taruh handle-nya di to . Kenapa long-poll, dan kenapa 50 detik? Rebuild ini membandingkan tiga cara agen penerima bertanya. Setiap mode berjalan selama 60 detik. 10 pesan yang sama dikirim pada waktu acak yang tetap (seed 7). Latensi dihitung dari server menyimpan pesan sampai penerima memegangnya. long-poll timeout_s=50 delivered=10/10 median= 1.0 ms max= 4.0 ms wait_for_messages calls in 60 s=10 short-poll every 2 s delivered=10/10 median= 535.5 ms max= 1717.4 ms wait_for_messages calls in 60 s=29 short-poll every 10 s delivered=10/10 median= 4593.4 ms max= 8495.5 ms wait_for_messages calls in 60 s=5 idle hour, no messages: long-poll 3600/50 = 72 calls; 2 s poll = 1800 calls; 10 s poll = 360 calls Mode Latensi median Panggilan dalam run 60 s Panggilan dalam satu jam idle Long-poll, timeout_s 50 1.0 ms 10 72 Short-poll tiap 2 s 535.5 ms 29 1,800 Short-poll tiap 10 s 4,593.4 ms 5 360 Dengan short polling, kamu harus menukar latensi dengan jumlah panggilan. Long polling memberi yang terbaik dari keduanya. Jumlah panggilan mengikuti jumlah pesan (10 pesan, 10 panggilan), dan agen yang idle hanya memakan satu panggilan tiap 50 detik. Angka-angka itu lokal. Di endpoint sungguhan, biaya minimumnya adalah jaringan. Dari Mac ini, 20 request tools/call tanpa autentikasi ke endpoint sungguhan (masing-masing dengan koneksi TLS baru, ditolak dengan 401 sebelum ada pekerjaan apa pun) memakan waktu median 740 ms, p90 1,203 ms. Respons-nya lewat CloudFront ( via: … cloudfront.net , POP NRT12-P8 ) dan membawa x-ratelimit-limit: 2000 . Poll tiap 2 detik akan menghabiskan 1,800 request seperti itu per jam untuk hal yang sia-sia. Angka 50 harus muat di bawah timeout di sekitarnya. Request yang dibiarkan terbuka tidak boleh bertahan lebih lama dari apa pun di jalurnya: bukan waktu tunggu CDN ke origin, bukan idle timer load balancer, bukan juga tool timeout milik client sendiri. Di Codex, tool_timeout_sec untuk MCP default-nya 60 detik. Batas 50 detik memastikan jawaban kosong tiba sebelum salah satu dari itu memutus request, dan jawaban kosong adalah sinyal yang bersih untuk bertanya lagi. Apa yang terjadi pada pesan yang respons-nya hilang? "Tanpa after_sequence, ia melanjutkan dari tempat panggilan terakhirmu berhenti." Praktis: agen yang lupa cursor-nya tetap tidak melihat pesan berulang. Tapi server hanya tahu apa yang ia kirim, bukan apa yang sampai. Di rebuild ini, server memajukan cursor yang disimpannya saat mengembalikan pesan. Lalu di sisi client, setiap respons kelima dibuang, yang mirip dengan koneksi putus atau CLI yang di-restart: no after_sequence (server resumes) dropped responses=4 processed=16/20 missing=['m4', 'm9', 'm14', 'm19'] after_sequence = last processed dropped responses=4 processed=20/20 missing=[] Dengan titik lanjut milik server, empat respons yang hilang berarti empat pesan yang hilang. Kalau client mengirim sequence terakhir yang benar-benar sudah ia proses, keempatnya diantar ulang di panggilan berikutnya. Deskripsi yang dipublikasikan tidak menyebut kapan server osFoundry memajukan cursor-nya, dan rebuild ini tidak menjawab itu. Yang ditunjukkan adalah kenapa parameter itu ada. Kalau kehilangan pesan itu masalah buatmu, simpan sequence tertinggi yang sudah kamu proses dan kirim sebagai after_sequence . Kenapa idempotency_key wajib saat mengirim? Pengirim punya masalah kebalikannya. send_agent_message yang respons-nya hilang mungkin sudah tersimpan, mungkin juga belum. Retry tanpa key bisa menghasilkan duplikat. Retry dengan key yang sama tidak: same key x3 -&gt; new messages: 1 fresh key x3 -&gt; new messages: 3 Skemanya mewajibkan 8 sampai 128 karakter, dan deskripsinya meminta "idempotency key yang stabil untuk retry". Sisi sebaliknya juga terlihat di rebuild: pertanyaan baru yang dikirim dengan key lama dianggap sebagai pesan lama. Turunkan key dari isi pesan dan percobaannya, misalnya alice-claude-orders-0001 , bukan dari counter yang ter-reset saat CLI di-restart. Berapa biaya 200 agen idle bagi server? Rebuild ini memarkir 200 agen di wait_for_messages dengan timeout_s 5, lalu mengirim satu pesan ke agent-137 : woken with a message: ['agent-137'] latency=46.8 ms; the other 199 returned empty at timeout_s=5 Hanya agen yang tepat yang menerima pesan. Tapi latensinya naik dari 1 ms ke 46.8 ms, karena rebuild ini memakai satu threading.Condition dan notify_all() . Setiap request yang sedang menunggu terbangun dan memindai ulang log hanya untuk tahu bahwa pesan itu bukan untuknya. Di 200 masih aman, di 20,000 jadi buruk. Server sungguhan butuh satu antrean tunggu per penerima, supaya satu pengiriman hanya membangunkan request yang bisa memakainya. Kalau kamu merakitnya sendiri Simpan cursor di sisi client. Kirim after_sequence dari pesan terakhir yang sudah selesai kamu tangani, bukan dari pesan terakhir yang kamu terima. Taruh handle di to kalau kamu butuh jawaban. Anggap @mention di body sebagai petunjuk, dan baca daftar diantar/dilewati di hasil pengiriman. Pilih timeout_s di bawah semua timeout antara kamu dan server, termasuk tool timeout client MCP-mu. 50 aman di bawah 60. Buat idempotency key stabil di antara retry dan unik di antara pertanyaan. Ingat bahwa setiap hasil kosong wait_for_messages juga satu giliran model bagi agen yang berputar dalam loop di Claude Code atau Codex. 72 di jam yang sepi itu murah dari sisi request, tapi tidak gratis dari sisi token. Hentikan loop-nya kalau tidak ada yang butuh agen itu.</p>
+    <p>The report highlights key developments related to "Cara long-poll wait_for_messages di osFoundry mengantar pesan antara Claude Code dan Codex, dibangun ulang dengan Python", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/bbt-id/cara-long-poll-waitformessages-di-osfoundry-mengantar-pesan-antara-claude-code-dan-codex-4amg" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
