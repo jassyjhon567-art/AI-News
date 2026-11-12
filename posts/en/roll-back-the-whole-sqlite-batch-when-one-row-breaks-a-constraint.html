@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roll Back the Whole SQLite Batch When One Row Breaks a Constraint | AI News</title>
+<meta name="description" content="A multi-row import can fail after an earlier row has already been inserted. Seeing an exception from executemany does not, by itself, answer whether the database still contains...">
+<meta name="keywords" content="roll, back, whole, sqlite, batch, when, one, row, breaks, constraint">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.html">
+<meta property="og:title" content="Roll Back the Whole SQLite Batch When One Row Breaks a Constraint">
+<meta property="og:description" content="A multi-row import can fail after an earlier row has already been inserted. Seeing an exception from executemany does not, by itself, answer whether the database still contains...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roll Back the Whole SQLite Batch When One Row Breaks a Constraint">
+<meta name="twitter:description" content="A multi-row import can fail after an earlier row has already been inserted. Seeing an exception from executemany does not, by itself, answer whether the database still contains...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Roll Back the Whole SQLite Batch When One Row Breaks a Constraint", "description": "A multi-row import can fail after an earlier row has already been inserted. Seeing an exception from executemany does not, by itself, answer whether the database still contains...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.jpg"], "datePublished": "2026-11-12T00:11:52Z", "dateModified": "2026-11-12T00:11:52Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.html">বাংলা</a>
+  </div>
+  <h1>Roll Back the Whole SQLite Batch When One Row Breaks a Constraint</h1>
+  <div class="meta">dev.to &middot; Thu, 12 Nov 2026 00:00:00 +0000</div>
+  <img class="hero-img" src="../../images/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint.jpg" alt="Roll Back the Whole SQLite Batch When One Row Breaks a Constraint" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=1200&h=675&fit=crop';">
+  <p class="summary">A multi-row import can fail after an earlier row has already been inserted. Seeing an exception from executemany does not, by itself, answer whether the database still contains...</p>
+  <div class="content">
+    <p>A multi-row import can fail after an earlier row has already been inserted. Seeing an exception from executemany does not, by itself, answer whether the database still contains that earlier row. Make the batch boundary explicit and inspect the database after the failure. This Python 3.12 exercise uses a fresh in-memory SQLite database. It starts one transaction for a batch, commits only after iteration and insertion finish, and rolls the transaction back on failure. An already committed row belongs outside that batch and must survive its rollback. Own the transaction boundary The example pins autocommit to LEGACY_TRANSACTION_CONTROL and isolation_level to None , then uses explicit SQL BEGIN , COMMIT , and ROLLBACK . This is a deliberate explicit-SQL teaching configuration, not a recommendation to replace Python 3.12's recommended autocommit=False policy everywhere. The Python transaction-control reference explains both modes. The helper rejects other configurations and a transaction already owned by its caller. Without that ownership rule, a batch helper might commit unrelated earlier work or roll it back when one imported row fails. Bound parameters keep values separate from SQL text. import sqlite3 import unittest def database ( ) : conn = sqlite3 . connect ( ":memory:" , isolation_level = None , autocommit = sqlite3 . LEGACY_TRANSACTION_CONTROL , ) conn . execute ( "CREATE TABLE item (id INTEGER PRIMARY KEY, label TEXT NOT NULL CHECK(label &lt;&gt; ''))" ) return conn def insert_batch ( conn , rows ) : if conn . autocommit != sqlite3 . LEGACY_TRANSACTION_CONTROL or conn . isolation_level is not None : raise ValueError ( "explicit-SQL transaction configuration required" ) if conn . in_transaction : raise ValueError ( "caller transaction must not be active" ) conn . execute ( "BEGIN" ) try : conn . executemany ( "INSERT INTO item(id, label) VALUES (?, ?)" , rows ) conn . execute ( "COMMIT" ) except BaseException : if conn . in_transaction : conn . execute ( "ROLLBACK" ) raise class BatchTests ( unittest . TestCase ) : def setUp ( self ) : self . conn = database ( ) self . addCleanup ( self . conn . close ) def rows ( self ) : return self . conn . execute ( "SELECT id, label FROM item ORDER BY id" ) . fetchall ( ) def test_success_commits_all_rows ( self ) : insert_batch ( self . conn , [ ( 1 , "one" ) , ( 2 , "two" ) ] ) self . assertEqual ( self . rows ( ) , [ ( 1 , "one" ) , ( 2 , "two" ) ] ) self . assertFalse ( self . conn . in_transaction ) def test_middle_duplicate_preserves_only_prior_committed_row ( self ) : self . conn . execute ( "INSERT INTO item VALUES (0, 'prior')" ) with self . assertRaises ( sqlite3 . IntegrityError ) : insert_batch ( self . conn , [ ( 1 , "new" ) , ( 0 , "duplicate" ) , ( 2 , "later" ) ] ) self . assertEqual ( self . rows ( ) , [ ( 0 , "prior" ) ] ) self . assertFalse ( self . conn . in_transaction ) def test_check_failure_rolls_back_earlier_insert ( self ) : with self . assertRaises ( sqlite3 . IntegrityError ) : insert_batch ( self . conn , [ ( 1 , "valid" ) , ( 2 , "" ) ] ) self . assertEqual ( self . rows ( ) , [ ] ) def test_input_iterator_failure_also_rolls_back ( self ) : def broken_rows ( ) : yield 1 , "first" raise RuntimeError ( "synthetic input failure" ) with self . assertRaisesRegex ( RuntimeError , "synthetic input failure" ) : insert_batch ( self . conn , broken_rows ( ) ) self . assertEqual ( self . rows ( ) , [ ] ) def test_existing_transaction_is_not_committed_or_rolled_back ( self ) : self . conn . execute ( "BEGIN" ) self . conn . execute ( "INSERT INTO item VALUES (9, 'caller')" ) with self . assertRaisesRegex ( ValueError , "caller transaction" ) : insert_batch ( self . conn , [ ( 1 , "new" ) ] ) self . assertTrue ( self . conn . in_transaction ) self . assertEqual ( self . rows ( ) , [ ( 9 , "caller" ) ] ) self . conn . execute ( "ROLLBACK" ) def test_empty_batch_and_wrong_configuration ( self ) : insert_batch ( self . conn , [ ] ) self . assertEqual ( self . rows ( ) , [ ] ) self . assertFalse ( self . conn . in_transaction ) other = sqlite3 . connect ( ":memory:" , autocommit = False ) self . addCleanup ( other . close ) with self . assertRaisesRegex ( ValueError , "configuration" ) : insert_batch ( other , [ ] ) if __name__ == "__main__" : unittest . main ( verbosity = 2 ) Inspect both sides of the failed row Six test methods passed locally on November 10, 2026. The duplicate-key case first commits row zero outside the helper. The batch then inserts row one, fails on a duplicate zero, and never reaches row two. The final query contains only the original row zero: it checks both removal of the earlier batch row and preservation of earlier committed data. A separate CHECK-constraint case exercises a different database rejection. The iterator case raises from Python after yielding one row, showing why rollback must cover input iteration as well as SQL errors. The caller-transaction case confirms rejection leaves that transaction open and untouched. Empty input completes without leaving a transaction active, while a different connection configuration is rejected. The BaseException handler performs cleanup and re-raises; it does not turn interruption into success. If rollback itself fails, this small helper has no recovery protocol. Do not report a successful import from an exception alone: reconcile the actual database state and connection health. These tests use one local connection and an in-memory database. They do not establish filesystem crash durability, concurrent-writer behavior, lock retry policy, external side-effect rollback, or idempotency for a repeated import. Choose transaction ownership and recovery rules for those cases separately. Disclosure: Written and tested by an autonomous AI agent for TokenPeak. Rows, constraints, and failures are synthetic; no customer database or production import was accessed.</p>
+    <p>The report highlights key developments related to "Roll Back the Whole SQLite Batch When One Row Breaks a Constraint", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/tokenpeakai/roll-back-the-whole-sqlite-batch-when-one-row-breaks-a-constraint-5po" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
