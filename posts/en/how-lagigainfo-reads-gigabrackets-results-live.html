@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How lagiga.info reads GigaBracket's results live | AI News</title>
+<meta name="description" content="TL;DR lagiga.info, the GIGA&#x27;GAMES website, stores no tournament standings in its CMS. It reads them from a public GigaBracket route, embeds the bracket in an iframe and falls back...">
+<meta name="keywords" content="how, lagiga, info, reads, gigabracket's, results, live">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/how-lagigainfo-reads-gigabrackets-results-live.html">
+<meta property="og:title" content="How lagiga.info reads GigaBracket&#x27;s results live">
+<meta property="og:description" content="TL;DR lagiga.info, the GIGA&#x27;GAMES website, stores no tournament standings in its CMS. It reads them from a public GigaBracket route, embeds the bracket in an iframe and falls back...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/how-lagigainfo-reads-gigabrackets-results-live.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/how-lagigainfo-reads-gigabrackets-results-live.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How lagiga.info reads GigaBracket&#x27;s results live">
+<meta name="twitter:description" content="TL;DR lagiga.info, the GIGA&#x27;GAMES website, stores no tournament standings in its CMS. It reads them from a public GigaBracket route, embeds the bracket in an iframe and falls back...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/how-lagigainfo-reads-gigabrackets-results-live.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/how-lagigainfo-reads-gigabrackets-results-live.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/how-lagigainfo-reads-gigabrackets-results-live.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "How lagiga.info reads GigaBracket's results live", "description": "TL;DR lagiga.info, the GIGA'GAMES website, stores no tournament standings in its CMS. It reads them from a public GigaBracket route, embeds the bracket in an iframe and falls back...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/how-lagigainfo-reads-gigabrackets-results-live.jpg"], "datePublished": "2026-11-12T23:23:16Z", "dateModified": "2026-11-12T23:23:16Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/how-lagigainfo-reads-gigabrackets-results-live.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/how-lagigainfo-reads-gigabrackets-results-live.html">বাংলা</a>
+  </div>
+  <h1>How lagiga.info reads GigaBracket's results live</h1>
+  <div class="meta">dev.to &middot; Thu, 12 Nov 2026 23:10:08 +0000</div>
+  <img class="hero-img" src="../../images/how-lagigainfo-reads-gigabrackets-results-live.jpg" alt="How lagiga.info reads GigaBracket's results live" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">TL;DR lagiga.info, the GIGA'GAMES website, stores no tournament standings in its CMS. It reads them from a public GigaBracket route, embeds the bracket in an iframe and falls back...</p>
+  <div class="content">
+    <p>TL;DR lagiga.info, the GIGA'GAMES website, stores no tournament standings in its CMS. It reads them from a public GigaBracket route, embeds the bracket in an iframe and falls back to a static podium when the route doesn't answer. This article follows what moves from one product to the other, and in which direction. Two repositories, three data sources GIGA'GAMES Federation Guadeloupe eSports runs two applications. GigaBracket, launched in June 2026, manages tournaments: the article on GigaBracket covers its formats and stack. lagiga.info is the public site: calendar, disciplines, news, directories and results. The site splits its content across three sources, depending on who produces it: Payload CMS : what the association writes, in a dedicated Postgres database, edited from /admin . PocketBase : what users create, such as accounts, player profiles and teams. GigaBracket owns the instance and the schema. The code : fixed pages and fallback content, in src/lib/data.ts . Payload and PocketBase never intersect. Without either of them, the site still starts and serves its static content. The contract: a public read-only route Standings depend on the tournament format, and only GigaBracket knows how to compute them. In elimination formats, they follow elimination depth rather than win count. lagiga recomputes nothing: it receives the result. For this, GigaBracket exposes a route with no authentication, like its spectator views: GET /api/public/results/:shareId The shareId is the 12-character public identifier that /spectate links already use. The route answers with JSON whose key order stays stable, shortened here to a few fields: { "shareId" : "dEYzqldL00VY" , "gameName" : "street-fighter-6" , "format" : "double-elimination" , "status" : "completed" , "playerCount" : 11 , "standings" : [ { "rank" : 1 , "playerName" : "100scrupuls" , "played" : 5 , "wins" : 4 , "points" : 4 } ] } An unknown shareId returns a 404 with not_found . A PocketBase outage returns a 503, an unexpected error a 500. A single field makes the join The full contract has 11 fields, and the results page displays only one: standings . The title, venue, date and player count come from Payload or the static fallback. The written report and the gallery exist only in Payload. The join is the shareId field of the tournament-results Payload collection. A signed-in member fills it in from the admin. It feeds both the standings and the embedded bracket; when it is empty, neither appears. Live: two speeds on the same page The word "live" covers two different mechanisms on a results page: The standings : GigaBracket's route caches nothing, but lagiga keeps its response for 300 seconds ( revalidate: 300 ). The standings table can therefore lag by about five minutes. The embedded bracket : the iframe loads /embed/:shareId . This view subscribes to matches through PocketBase realtime and refreshes on every change. During a running tournament, the bracket can therefore be one score ahead of the standings displayed just above it. GigaBracket restricts where the embedding can happen. /embed/ routes declare lagiga's domains in frame-ancestors . Every other page answers frame-ancestors 'none' and X-Frame-Options: DENY . When GigaBracket doesn't answer fetchLiveResults never throws. It returns null if the shareId is empty, the response fails, the JSON is invalid or the network drops. The page then picks one of three displays: The live standings: rank, player, matches, wins and points. The static podium from data.ts : rank and player only, with a discreet note. The "standings coming soon" message, if neither exists. Payload follows the same principle. If its database is missing or a migration hasn't run, the read fails cleanly and the site switches to the static fallback. What also moves through PocketBase The results route isn't the only link. Both applications share the same PocketBase instance, and I recorded the rule in a project decision: the schema lives in GigaBracket, to avoid two sources of truth. Data moves in both directions: From GigaBracket to lagiga : the game catalog ( games ) and player statistics ( player_stats ), recomputed by GigaBracket and read by lagiga. From lagiga to GigaBracket : profiles ( player_profiles ). Only lagiga creates and edits them; GigaBracket selects existing profiles for its teams and brackets. Awards votes : lagiga writes them, and GigaBracket's voting page redirects to it. A second public route, /api/public/map-tournaments , feeds the /carte map with tournaments declared visible ( mapVisible ). The browser calls it when the visitor changes the filter, hence the open CORS headers. This rule has a cost, also written in the decision: any new collection on the lagiga side goes through GigaBracket. Three languages, not the same ones everywhere lagiga.info offers French, English and Spanish. Guadeloupean Creole stays served on /gcf/ , outside the language switcher and the sitemap. Each layer covers a different scope: Dictionaries and static content : French, English and Spanish. Payload : French and English, falling back to French. On /es/ , a written report displays in English. GigaBracket : French, English and Creole, without Spanish. The results route gets through this gap unharmed, because it returns data rather than sentences: names, ranks, numbers. Column labels come from lagiga's dictionary, so they follow the page language. The iframe takes the hit. Its URL carries no language and GigaBracket picks its own: a browser asking for Spanish gets the bracket in French, inside a page in Spanish. What the 2026 #GCD shows The #GCD, the federation's flagship event, brought together 7 tournaments and 143 participants on July 25 and 26, 2026 in Sainte-Anne. Those tournaments ran on start.gg and Challonge, and six later joined GigaBracket through import scripts: four from start.gg, two from Challonge. For this edition, the route therefore serves closed results. The seventh, Domino Clash, was played on site. Its shareId is null : its page never calls GigaBracket and shows 13 participants and a static podium of three names.</p>
+    <p>The report highlights key developments related to "How lagiga.info reads GigaBracket's results live", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/dimsbuild/how-lagigainfo-reads-gigabrackets-results-live-74k" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
