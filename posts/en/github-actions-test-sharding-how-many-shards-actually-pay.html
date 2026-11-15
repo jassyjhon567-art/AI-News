@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Actions test sharding: how many shards actually pay | AI News</title>
+<meta name="description" content="GitHub Actions test sharding trades money for wall clock, and it stops paying at a point you can calculate from two numbers you already have. On a runner we measured, a 26.8...">
+<meta name="keywords" content="github, actions, test, sharding, how, many, shards, actually, pay">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/github-actions-test-sharding-how-many-shards-actually-pay.html">
+<meta property="og:title" content="GitHub Actions test sharding: how many shards actually pay">
+<meta property="og:description" content="GitHub Actions test sharding trades money for wall clock, and it stops paying at a point you can calculate from two numbers you already have. On a runner we measured, a 26.8...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/github-actions-test-sharding-how-many-shards-actually-pay.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/github-actions-test-sharding-how-many-shards-actually-pay.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GitHub Actions test sharding: how many shards actually pay">
+<meta name="twitter:description" content="GitHub Actions test sharding trades money for wall clock, and it stops paying at a point you can calculate from two numbers you already have. On a runner we measured, a 26.8...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/github-actions-test-sharding-how-many-shards-actually-pay.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/github-actions-test-sharding-how-many-shards-actually-pay.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/github-actions-test-sharding-how-many-shards-actually-pay.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "GitHub Actions test sharding: how many shards actually pay", "description": "GitHub Actions test sharding trades money for wall clock, and it stops paying at a point you can calculate from two numbers you already have. On a runner we measured, a 26.8...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/github-actions-test-sharding-how-many-shards-actually-pay.jpg"], "datePublished": "2026-11-15T05:04:51Z", "dateModified": "2026-11-15T05:04:51Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/github-actions-test-sharding-how-many-shards-actually-pay.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/github-actions-test-sharding-how-many-shards-actually-pay.html">বাংলা</a>
+  </div>
+  <h1>GitHub Actions test sharding: how many shards actually pay</h1>
+  <div class="meta">dev.to &middot; Sun, 15 Nov 2026 04:59:58 +0000</div>
+  <img class="hero-img" src="../../images/github-actions-test-sharding-how-many-shards-actually-pay.jpg" alt="GitHub Actions test sharding: how many shards actually pay" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">GitHub Actions test sharding trades money for wall clock, and it stops paying at a point you can calculate from two numbers you already have. On a runner we measured, a 26.8...</p>
+  <div class="content">
+    <p>GitHub Actions test sharding trades money for wall clock, and it stops paying at a point you can calculate from two numbers you already have. On a runner we measured, a 26.8 second suite split two ways finished in 13.8 seconds and four ways in 9.2, while the billed time went the other way, from 26.8 seconds to 27.5 and then 29.0. One twelve-file suite, split three ways, measured on a latchkey-small runner on 2026-09-20 from job-n.sh. The wall clock of a split is its slowest shard. A twenty-minute suite across four shards does not take five minutes, and the reason is not subtle: only the test execution divides, while the queue wait, checkout, toolchain setup and dependency install repeat in full on every shard. The wall clock is set by the slowest shard, and the bill is set by all of them added together. So there is a point where another shard buys almost nothing and costs a whole job. This page measures where that point was on one suite, and gives you the arithmetic to find yours. What a split actually returned We built a twelve-file suite with deliberately uneven files, eight of one second and four of two, three, five and six, and ran it on a Latchkey runner whole, then through the test runner's own --shard flag at two and at four. A shard set finishes when its slowest member does. Two shards nearly halved the wall clock and cost 0.8 seconds of extra billed time. Four took it down another 4.5 seconds and cost 2.2. That second step is where the shape changes: nearly three times as much extra paid for a third as much time, and the next step is worse again. Split Slowest shard Wall clock Billed, all shards One job 26.77 s 26.77 s 26.77 s Two shards 13.77 s 13.77 s 27.54 s Four shards 9.25 s 9.25 s 28.98 s Measured by job-n.sh , under content/repro/timings/shard-tests-across-github-actions-runners/, on a Latchkey latchkey-small runner on 2026-09-20: 2 vCPU, 7,734 MB RAM, Node 20.20.2, vitest 3.2.4. One pass per shard. Every row in this table and the next ran with --no-file-parallelism , so each shard's files ran one after another and the numbers isolate the split; the workflow further down this page leaves that flag out, so it runs at the default, which these rows do not measure. Every shard also ran inside the same job one after another, so these are the shards' own durations and not a real parallel run: a real one adds queue time per shard, which this does not measure. Billed time is the shards added together, which is what a per-job bill charges you for. The bill rounds up, once per shard The billed column above is seconds, and your invoice is not. GitHub rounds each job up to the nearest minute, so the four-shard split that cost 2.2 extra seconds of machine time is billed as four minutes against one. On a suite this small, sharding is a loss on the invoice that buys 17 seconds. That flips as the suite grows: the rounding is a fixed penalty per shard while the saving scales with the work. A twenty-minute suite in four shards is four jobs of about six minutes, 24 billed minutes against 20, for fourteen minutes of wall clock back. Shard by timing, not by file count Most runners split by file, in whatever order they enumerate them, so the split is only as balanced as your files happen to be. Ours was lucky at two shards: the two heaviest files landed in different halves and the shards came back within 11 milliseconds of each other. Not at four, where the shards held 4, 5, 7 and 8 seconds of test work. To see what unlucky costs, we put both heavy files in the same half by hand. The slowest shard went from 13.78 seconds to 16.76, which is 22 percent of the wall clock lost to nothing but the order the files were assigned in, and the other shard sat idle at 10.75. Balancing by recorded duration instead put the two halves within 20 milliseconds of each other. Two-way split of the same twelve files Shard A Shard B Wall clock The runner's own file split 13.76 s 13.77 s 13.77 s Balanced by recorded duration 13.78 s 13.76 s 13.78 s Both heavy files in one shard 16.76 s 10.75 s 16.76 s Same script, same job, same twelve files. The duration split is a longest-first assignment computed from the declared file durations, not from a timing report the runner produced; on a real suite that report is what you would feed it. The flags, in four runners Most test runners take the same shape for this, a one-based index over a total, so a matrix leg maps onto it directly. Take the total from the strategy.job-total context rather than writing it twice, so the numbers cannot drift when you change the width. The difference between them is what a shard is made of. Vitest and Jest assign whole files. Playwright does too, unless fullyParallel is on, in which case it splits at the individual test and the shards come out more even. For pytest, the usual answer is a plugin that splits by recorded durations. # vitest npx vitest run --shard= ${{ matrix.shard } } / ${{ strategy.job-total } } # playwright, more even with fullyParallel on npx playwright test --shard= ${{ matrix.shard } } /4 # jest npx jest --shard= ${{ matrix.shard } } /4 # pytest, split by recorded durations pytest --splits 4 --group ${{ matrix.group } } A shard matrix that collects its results Two settings do most of the work. fail-fast: false keeps the other shards running after one fails, which is the difference between knowing one test broke and knowing the suite is broken. And every shard needs a unique report name, or the upload overwrites itself and you are opening four job logs to find one stack trace. Merge them in a job that needs all of the shards. Playwright has merge-reports for this and its blob report names already carry the shard number; elsewhere a junit file per shard and a merge step does the same job. jobs: test: runs-on: ubuntu-latest strategy: fail-fast: false matrix: shard: [1, 2, 3, 4] steps: - uses: actions/checkout@v7 - uses: actions/setup-node@v7 with: node-version: 22 cache: npm - run: npm ci - run: npx vitest run --shard=${{ matrix.shard }}/4 - uses: actions/upload-artifact@v7 if: always() with: name: results-${{ matrix.shard }} path: junit-*.xml Cut the fixed cost before you add a shard Every shard repeats the whole setup, so a second spent there is a second spent per shard. On our fixture that was small, a 0.85 second install from a warm cache plus about 0.9 seconds of test-runner startup, because the project has one dependency. A real one is not: on a runner of the same size, job-f.sh measured a system package index refresh at 23.85 seconds and a toolchain the image does not carry at 2.16 to unpack. There is also parallelism inside the job, and on our runner we could not measure any gain. We ran the same suite with the test runner's file parallelism on and then off: vitest reported 25.16 seconds against 25.18, and the harness clock around it recorded 25,860 ms against 25,875. That is a difference of 15 milliseconds on a 26 second suite. We did not establish why, so take the same reading on your own runner before adding a shard, because parallelism inside a job you are already paying for is free and a shard never is. The parallelism pair is the one row on this page quoted from job-n-attempt-1.log rather than from job-n.log , because that attempt is the only controlled comparison for it: both of its runs used the same default test timeout. The committed script adds --testTimeout=20000 to eight of its nine vitest invocations, and the one it misses is the default-parallelism run, so in job-n.log that row is not comparable with the one beside it. The 23.85 s and 2.16 s figures in the paragraph above are from job-f.sh , under content/repro/timings/github-actions-cold-start-and-setup-time/. What we ran, so you can disagree with it One script, job-n.sh , run on Latchkey latchkey-small runners on 20 September 2026, committed under content/repro/timings/shard-tests-across-github-actions-runners/ with both logs and a status file per run naming the job id, the runner size and the exit code. The suite is synthetic on purpose: twelve files whose durations are declared in the script, so the split arithmetic can be checked against the intended weights. It ran twice. In the first attempt the two heaviest files exceeded the test runner's default five second timeout, so they ran about five seconds instead of five and six, two files reported as failed, and the suite total came out at 23.06 seconds rather than 24. The committed script adds --testTimeout=20000 to eight of its nine vitest invocations, and one extra phase, the deliberately unbalanced split. Every number on this page except the parallelism pair comes from the second run. What it does not cover. The shards ran one after another inside one job, so nothing here includes the queue time a real parallel shard set pays. The 23.85 s and 2.16 s fixed costs come from job-f.sh , under content/repro/timings/github-actions-cold-start-and-setup-time/, not from this script. And one pass per row means a difference under about half a second is not real, which is why the two balanced splits are called a tie. FAQ How many shards should I use? Enough that the slowest shard is comfortably larger than the per-shard setup, counting queue time inside that setup, and no more. Wall clock is setup plus work divided by shards, while billed time is setup times shards plus work, so each extra shard buys a shrinking saving at a constant price. On our suite, two shards to four bought 4.5 seconds and cost 2.2 plus an extra billed minute. Why is my sharded suite not proportionally faster? Because only the test execution divides. The queue wait, checkout, toolchain setup and install repeat on every shard, and the wall clock is set by the slowest shard, not the average. An unbalanced split makes it worse: putting both heavy files in one half of ours took the slowest shard from 13.78 seconds to 16.76 while the other sat idle. Should I shard by file or by timing? By timing wherever the runner supports it, because a file split is only as balanced as your files. Ours was balanced at two shards and was not at four, where the shards carried 4, 5, 7 and 8 seconds of work. A recorded duration report is what removes the luck. Does sharding cost more money? Yes, always, and the question is whether the wall clock is worth it. Four shards of our suite cost 2.2 extra seconds of machine time, but GitHub rounds every job up to the nearest minute, so the real cost was four billed minutes against one. Short suites lose on that rounding; long ones barely notice it. References Vitest: the shard and file parallelism options (verified 2026-09-20) Playwright: sharding and merging blob reports (verified 2026-09-20) GitHub Docs: running variations of jobs in a workflow (verified 2026-09-20) GitHub Docs: Actions limits and concurrency (verified 2026-09-20)</p>
+    <p>The report highlights key developments related to "GitHub Actions test sharding: how many shards actually pay", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/kalemi/github-actions-test-sharding-how-many-shards-actually-pay-4e0c" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
