@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server | AI News</title>
+<meta name="description" content="The problem We run a transport booking site in Morocco — navetteforyou.com . Eight languages, 641 pages, thousands of prices. One wrong number and a customer books a ride...">
+<meta name="keywords" content="build, time, how, validate, prices, across, languages, without, server">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.html">
+<meta property="og:title" content="Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server">
+<meta property="og:description" content="The problem We run a transport booking site in Morocco — navetteforyou.com . Eight languages, 641 pages, thousands of prices. One wrong number and a customer books a ride...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/bn/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.html">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server">
+<meta name="twitter:description" content="The problem We run a transport booking site in Morocco — navetteforyou.com . Eight languages, 641 pages, thousands of prices. One wrong number and a customer books a ride...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.jpg">
+<link rel="alternate" hreflang="en" href="https://jassyjhon567-art.github.io/AI-News/posts/en/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server", "description": "The problem We run a transport booking site in Morocco — navetteforyou.com . Eight languages, 641 pages, thousands of prices. One wrong number and a customer books a ride...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.jpg"], "datePublished": "2026-11-17T15:36:59Z", "dateModified": "2026-11-17T15:36:59Z", "inLanguage": "bn", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/bn/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/en/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.html">English</a>
+  </div>
+  <h1>Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server</h1>
+  <div class="meta">dev.to &middot; Tue, 17 Nov 2026 15:32:08 +0000</div>
+  <img class="hero-img" src="../../images/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server.jpg" alt="Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop';">
+  <p class="summary">The problem We run a transport booking site in Morocco — navetteforyou.com . Eight languages, 641 pages, thousands of prices. One wrong number and a customer books a ride...</p>
+  <div class="content">
+    <p>The problem We run a transport booking site in Morocco — navetteforyou.com . Eight languages, 641 pages, thousands of prices. One wrong number and a customer books a ride expecting 300 MAD when it costs 600. Manual QA across 5,000+ price points in eight languages is not viable. So we built an AI-assisted build-time validation pipeline. The pipeline Every deployment runs three checks before it goes live: 1. Static price extraction A TypeScript script crawls every generated HTML page and extracts anything that looks like a price: numbers followed by MAD, €, or other currency markers, plus any structured data (JSON-LD offers). 2. Floor price enforcement Every extracted price is compared against a floor. If any price drops below the minimum — even by one dirham — the build fails. No deploy, no exception. 641 pages × 8 languages 17,113 amounts checked PASS: no amount under 600 MAD 3. Cross-language consistency If the English page says a route costs 800 MAD but the French page says 700 MAD, that is a bug. The pipeline flags cross-language price mismatches as warnings. Why build-time, not runtime Runtime validation means the error is already live. Build-time validation means the error never ships. The CI pipeline is the last gate before production — if prices are wrong, the deploy is blocked. This matters more for small businesses than large ones. A large OTA has a customer service team to handle pricing errors. We have five cars and a WhatsApp number. The AI component Where does AI fit in? Three places: Translation draft generation : AI generates initial translations for new content. Human reviewers approve. This is where most cross-language pricing bugs would originate — a model might translate "starting from 800 MAD" as "à partir de 600 MAD" if not constrained. Structured data generation : AI extracts Schema.org markup from natural-language descriptions. Morocco has no standardized address system, so "the riad near the blue gate in the medina" needs to become machine-readable. Content validation : The price check script itself uses pattern matching, not LLM inference. But the patterns it validates were originally defined with AI assistance — identifying all the ways a price might appear across eight languages. Results Since deploying the pipeline: Zero pricing errors have reached production Build time added: ~4 seconds False positives: 0 (the patterns are deterministic) The takeaway AI in production does not have to mean chatbots or recommendation engines. Sometimes it means a 200-line TypeScript script that runs at build time and catches the mistake that would cost you a customer. navetteforyou.com — Private airport transfers and day trips across Morocco. WhatsApp: +212 701 664 704</p>
+    <p>The report highlights key developments related to "Build-Time AI: How We Validate 5,000 Prices Across 8 Languages Without a Server", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/navetteforyou/build-time-ai-how-we-validate-5000-prices-across-8-languages-without-a-server-2f25" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
