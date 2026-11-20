@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Source Maintainers Need Practical Fixes, Not Just AI-Generated Bug Reports | AI News</title>
+<meta name="description" content="GitHub and Microsoft&#x27;s Codename MDASH pilot demonstrates that providing maintainers with verified bug reports alongside actionable code fixes helps resolve open source vulnerabilities far more effectively.">
+<meta name="keywords" content="open, source, maintainers, need, practical, fixes, just, generated, bug, reports">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.html">
+<meta property="og:title" content="Open Source Maintainers Need Practical Fixes, Not Just AI-Generated Bug Reports">
+<meta property="og:description" content="GitHub and Microsoft&#x27;s Codename MDASH pilot demonstrates that providing maintainers with verified bug reports alongside actionable code fixes helps resolve open source vulnerabilities far more effectively.">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Open Source Maintainers Need Practical Fixes, Not Just AI-Generated Bug Reports">
+<meta name="twitter:description" content="GitHub and Microsoft&#x27;s Codename MDASH pilot demonstrates that providing maintainers with verified bug reports alongside actionable code fixes helps resolve open source vulnerabilities far more effectively.">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Open Source Maintainers Need Practical Fixes, Not Just AI-Generated Bug Reports", "description": "GitHub and Microsoft's Codename MDASH pilot demonstrates that providing maintainers with verified bug reports alongside actionable code fixes helps resolve open source vulnerabilities far more effectively.", "image": ["https://jassyjhon567-art.github.io/AI-News/images/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.jpg"], "datePublished": "2026-11-20T05:59:20Z", "dateModified": "2026-11-20T05:59:20Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.html">বাংলা</a>
+  </div>
+  <h1>Open Source Maintainers Need Practical Fixes, Not Just AI-Generated Bug Reports</h1>
+  <div class="meta">github.blog &middot; Tue, 17 Nov 2026 18:29:29 +0000</div>
+  <img class="hero-img" src="../../images/maintainers-dont-need-more-ai-bug-reports-they-need-fixes.jpg" alt="Open Source Maintainers Need Practical Fixes, Not Just AI-Generated Bug Reports" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=675&fit=crop';">
+  <p class="summary">GitHub and Microsoft's Codename MDASH pilot demonstrates that providing maintainers with verified bug reports alongside actionable code fixes helps resolve open source vulnerabilities far more effectively.</p>
+  <div class="content">
+    <p>Open source software maintainers are increasingly inundated with automated bug reports, as modern scanning tools and artificial intelligence systems flag endless potential issues. While these technologies excel at scanning vast codebases, raw and unverified findings frequently create an overwhelming triage burden for project maintainers. In response to this growing challenge, GitHub and Microsoft initiated an experimental effort known as the Codename MDASH pilot to evaluate a more practical, maintainer-friendly approach.</p>
+    <p>During the pilot program, teams from both organizations analyzed thousands of raw AI-generated vulnerability findings across six widely deployed open source projects. Rather than passing these unrefined alerts directly to project owners, the researchers carefully reviewed and curated the data. They filtered the vast volume of potential issues down to 99 validated, private security reports. Crucially, each submission was not merely a notice of a problem, but was paired with practical, suggested fixes ready for maintainers to evaluate.</p>
+    <p>This remediation-first strategy produced immediate and encouraging results, with maintainers already addressing and resolving more than half of the submitted issues. By taking on the labor-intensive work of triage and patch development, the pilot highlighted the value of assisting maintainers with concrete solutions rather than noise. As artificial intelligence becomes a staple of software security, the initiative shows that high-quality, actionable remediation is the key to protecting critical digital infrastructure without exhausting the developers who support it.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
