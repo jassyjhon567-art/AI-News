@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keep stale API search responses out of your interface | AI News</title>
+<meta name="description" content="A search interface can show the wrong result even when every API request succeeds. Someone types a short query, immediately replaces it, and the older response arrives last. If...">
+<meta name="keywords" content="keep, stale, api, search, responses, your, interface">
+<link rel="canonical" href="https://jassyjhon567-art.github.io/AI-News/posts/en/keep-stale-api-search-responses-out-of-your-interface.html">
+<meta property="og:title" content="Keep stale API search responses out of your interface">
+<meta property="og:description" content="A search interface can show the wrong result even when every API request succeeds. Someone types a short query, immediately replaces it, and the older response arrives last. If...">
+<meta property="og:image" content="https://jassyjhon567-art.github.io/AI-News/images/keep-stale-api-search-responses-out-of-your-interface.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jassyjhon567-art.github.io/AI-News/posts/en/keep-stale-api-search-responses-out-of-your-interface.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Keep stale API search responses out of your interface">
+<meta name="twitter:description" content="A search interface can show the wrong result even when every API request succeeds. Someone types a short query, immediately replaces it, and the older response arrives last. If...">
+<meta name="twitter:image" content="https://jassyjhon567-art.github.io/AI-News/images/keep-stale-api-search-responses-out-of-your-interface.jpg">
+<link rel="alternate" hreflang="bn" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/keep-stale-api-search-responses-out-of-your-interface.html">
+<link rel="alternate" hreflang="x-default" href="https://jassyjhon567-art.github.io/AI-News/posts/en/keep-stale-api-search-responses-out-of-your-interface.html">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Keep stale API search responses out of your interface", "description": "A search interface can show the wrong result even when every API request succeeds. Someone types a short query, immediately replaces it, and the older response arrives last. If...", "image": ["https://jassyjhon567-art.github.io/AI-News/images/keep-stale-api-search-responses-out-of-your-interface.jpg"], "datePublished": "2026-11-23T17:54:13Z", "dateModified": "2026-11-23T17:54:13Z", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jassyjhon567-art.github.io/AI-News/posts/en/keep-stale-api-search-responses-out-of-your-interface.html"}, "author": {"@type": "Organization", "name": "AI News"}, "publisher": {"@type": "Organization", "name": "AI News", "logo": {"@type": "ImageObject", "url": "https://jassyjhon567-art.github.io/AI-News/images/logo.png"}}}
+</script>
+<style>
+  :root {
+    --bg: #0b0e14;
+    --card: #131722;
+    --accent: #6c5ce7;
+    --accent-glow: #a29bfe;
+    --text: #e6e6f0;
+    --muted: #9aa0b4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .wrap { padding: 2.5rem; }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav a {
+    color: var(--accent-glow);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .lang-badge {
+    background: var(--card);
+    border: 1px solid #262b3d;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .content p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .summary {
+    font-style: italic;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-wrap {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+  }
+  .original-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-glow));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.6), 0 0 40px rgba(108, 92, 231, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .original-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(108, 92, 231, 0.85), 0 0 55px rgba(108, 92, 231, 0.45);
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../../index.html">&larr; AI News</a>
+    <a class="lang-badge" href="https://jassyjhon567-art.github.io/AI-News/posts/bn/keep-stale-api-search-responses-out-of-your-interface.html">বাংলা</a>
+  </div>
+  <h1>Keep stale API search responses out of your interface</h1>
+  <div class="meta">dev.to &middot; Mon, 23 Nov 2026 17:49:00 +0000</div>
+  <img class="hero-img" src="../../images/keep-stale-api-search-responses-out-of-your-interface.jpg" alt="Keep stale API search responses out of your interface" referrerpolicy="no-referrer"
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&h=675&fit=crop';">
+  <p class="summary">A search interface can show the wrong result even when every API request succeeds. Someone types a short query, immediately replaces it, and the older response arrives last. If...</p>
+  <div class="content">
+    <p>A search interface can show the wrong result even when every API request succeeds. Someone types a short query, immediately replaces it, and the older response arrives last. If every completed request updates the same result list, the older query wins. This practical example uses cancellation to reduce unnecessary work and a request version to decide which response still belongs to the interface. The examples are hypothetical. This post was generated by an AI agent for Experts IT Solution; the code's race-condition cases were checked before publication. Cancellation and ownership solve different problems An AbortController lets a fetch consumer cancel work through an AbortSignal. That is useful, but the UI should still know which request owns the current view. A wrapper, cached promise or test double might finish despite cancellation. A version check makes the rendering rule explicit: only the most recent search may change results, errors or loading state. Here is a small function with callbacks so the rule can be tested independently of a framework: function createLatestSearch ( { load , render , setBusy , setError } ) { let version = 0 ; let controller ; return async function search ( rawQuery ) { const query = rawQuery . trim ( ) ; const current = ++ version ; controller ? . abort ( ) ; controller = new AbortController ( ) ; const signal = controller . signal ; setError ( "" ) ; if ( ! query ) { render ( [ ] ) ; setBusy ( false ) ; return ; } setBusy ( true ) ; try { const result = await load ( query , signal ) ; if ( current === version ) render ( result ) ; } catch ( error ) { if ( current === version && error ? . name !== "AbortError" ) { setError ( "Search unavailable. Try again." ) ; } } finally { if ( current === version ) setBusy ( false ) ; } } ; } Increment the version before handling an empty query. Clearing the input is a new user decision too. Otherwise an outstanding response could repopulate a list that the user just cleared. The same ownership check belongs in finally. An older request must not switch off the loading indicator while a newer request is still running. Likewise, a late error should not replace the successful state of the current query. Connect a real loader deliberately The endpoint below is an example you would replace with your own search API. Check the HTTP status and the expected response shape before handing data to the interface: async function loadSearch ( query , signal ) { const response = await fetch ( "/api/search?q=" + encodeURIComponent ( query ) , { signal } ) ; if ( ! response . ok ) throw new Error ( "Search request failed" ) ; const data = await response . json ( ) ; if ( ! Array . isArray ( data ) ) throw new Error ( "Unexpected search response" ) ; return data ; } For example, construct the search function once for a component and call it when the accepted query changes. Pass loadSearch as load and supply your component's state setters for the other callbacks. When rendering API strings into the DOM, use textContent or your framework's escaped text binding rather than assembling untrusted HTML. Debouncing is a separate decision. It can reduce the number of requests, but it does not establish which response is current. Keep the ownership rule even when a debounce is added. Test the order you hope never happens A useful test double lets you resolve promises in a chosen order. Start request A, then B; resolve B first and A second. The final rows should still belong to B. Also test these cases: Resolve A while B is pending. The loading indicator must remain on for B. Reject A after B succeeds. A's error must not replace B's successful view. Clear the query while A is pending. The list stays empty when A later resolves. Reject the current request. Show a useful failure message and clear its loading state. Confirm the old AbortSignal becomes aborted when a new search begins. The sample function passed these controlled checks with a loader that intentionally ignored cancellation. That is evidence for the small example, not a claim that an application using it has been fully tested. Know the boundary This pattern controls read-only search presentation. It does not cancel a server-side business transaction, guarantee that a remote operation was undone or replace authorization. Do not reuse it as a payment, booking or inventory-consistency strategy without designing the server-side behaviour. It also leaves component teardown, timeouts, caching policy, accessible status announcements and application-specific retry behaviour for the surrounding implementation. Those decisions should be reviewed alongside the real API contract. Further reading: MDN AbortController and MDN Fetch API . Published by Experts IT Solution. Our API integration service context describes the wider business work; the example above is self-contained and does not require that service.</p>
+    <p>The report highlights key developments related to "Keep stale API search responses out of your interface", offering context for readers who want to understand the broader implications of this story as it continues to unfold.</p>
+    <p>Readers interested in the full details, including direct quotes and additional context, are encouraged to consult the original source linked at the end of this article.</p>
+  </div>
+  <div class="cta-wrap">
+    <a class="original-btn" href="https://dev.to/expertsits/keep-stale-api-search-responses-out-of-your-interface-597h" target="_blank" rel="noopener noreferrer">
+      Read More &mdash; Original Article
+    </a>
+  </div>
+  <footer>&copy; 2026 AI News &mdash; Automated AI &amp; Tech News Platform</footer>
+</div>
+</body>
+</html>
